@@ -8,7 +8,9 @@ export default {
     extend: {
       colors:{
         pigma : '#7F56DA',
-        navigator : '#02D05B'
+        navigator : '#02D05B',
+        darkNav : '#242629',
+        darkBg : '#16161a'
       },
       fontFamily:{
         "quicksand": ["Quicksand" , "sans-serif"],
