@@ -5,16 +5,15 @@ export default {
     "./src/**/*.{js,jsx}",
   ],
   theme: {
+    fontFamily:{
+      'inter': ['Poppins', 'sans-serif']
+    },
     extend: {
       colors:{
         pigma : '#7F56DA',
         navigator : '#02D05B',
         darkNav : '#242629',
         darkBg : '#16161a'
-      },
-      fontFamily:{
-        "quicksand": ["Quicksand" , "sans-serif"],
-        "poppins" :["Poppins" , "sans-serif"],
       },
       aspectRatio:{
         'rect' : '5  / 1.05',
