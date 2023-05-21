@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.14",
     "@reduxjs/toolkit": "^1.9.5",
     "framer-motion": "^10.12.9",
     "react": "^18.2.0",

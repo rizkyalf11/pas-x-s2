@@ -11,7 +11,14 @@ import 'swiper/css/scrollbar'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay, Pagination } from 'swiper'
 
+// RDX
+import { useDispatch, useSelector } from 'react-redux'
+import { changeIsShow } from '../features/ProfileCard/ProfileCardSlice'
+
 const Home = () => {
+	const dispatch = useDispatch()
+	const { isShowCardProfile } = useSelector(state => state.isShowCardProfile)
+
 	const [isLoad, setIsLoad] = useState(true)
 	window.addEventListener('load', () => {
 		setTimeout(() => {
@@ -24,17 +31,17 @@ const Home = () => {
 			<AnimatePresence>
 				{isLoad && (
 					<motion.div exit={{ transition: { duration: 2 } }} className="w-full h-screen flex fixed top-0 z-40">
-						<motion.h1 exit={{fontSize: 0, transition: { ease: 'easeOut',  type: 'tween' }}} className='text-white animate-pulse font-semibold fixed top-1/2 -translate-y-1/2 right-1/2 translate-x-1/2 text-5xl'>Loading..</motion.h1>
-						<motion.div exit={{ y: -800, transition: { delay: 0.2, ease: 'easeOut', duration: 0.5, type: 'tween' } }} className="flex-1 bg-navigator "></motion.div>
-						<motion.div exit={{ y: -800, transition: { delay: 0.4, ease: 'easeOut', duration: 0.5, type: 'tween' } }} className="flex-1 bg-navigator "></motion.div>
-						<motion.div exit={{ y: -800, transition: { delay: 0.6, ease: 'easeOut', duration: 0.5, type: 'tween' } }} className="flex-1 bg-navigator "></motion.div>
-						<motion.div exit={{ y: -800, transition: { delay: 0.8, ease: 'easeOut', duration: 0.5, type: 'tween' } }} className="flex-1 bg-navigator "></motion.div>
-						<motion.div exit={{ y: -800, transition: { delay: 1, ease: 'easeOut', duration: 0.5, type: 'tween' } }} className="flex-1 bg-navigator "></motion.div>
+						<motion.h1 exit={{fontSize: 0, transition: { ease: 'easeOut',  type: 'tween' }}} className='text-white dark:text-[#02D05B] animate-pulse font-semibold fixed top-1/2 -translate-y-1/2 right-1/2 translate-x-1/2 text-5xl'>Loading..</motion.h1>
+						<motion.div exit={{ y: -800, transition: { delay: 0.2, ease: 'easeOut', duration: 0.5, type: 'tween' } }} className="flex-1 bg-navigator dark:bg-darkNav "></motion.div>
+						<motion.div exit={{ y: -800, transition: { delay: 0.4, ease: 'easeOut', duration: 0.5, type: 'tween' } }} className="flex-1 bg-navigator dark:bg-darkNav "></motion.div>
+						<motion.div exit={{ y: -800, transition: { delay: 0.6, ease: 'easeOut', duration: 0.5, type: 'tween' } }} className="flex-1 bg-navigator dark:bg-darkNav "></motion.div>
+						<motion.div exit={{ y: -800, transition: { delay: 0.8, ease: 'easeOut', duration: 0.5, type: 'tween' } }} className="flex-1 bg-navigator dark:bg-darkNav "></motion.div>
+						<motion.div exit={{ y: -800, transition: { delay: 1, ease: 'easeOut', duration: 0.5, type: 'tween' } }} className="flex-1 bg-navigator dark:bg-darkNav "></motion.div>
 					</motion.div>
 				)}
 			</AnimatePresence>
 
-			<main className="pt-[80px] lg:pt-32 overflow-x-hidden" id="main">
+			<main onClick={() => isShowCardProfile && dispatch(changeIsShow())} className="pt-[80px] lg:pt-32 overflow-x-hidden" id="main">
 				<section className="w-full px-0 lg:px-24 xl:px-40">
 					<div className="swiper w-full aspect-ress lg:aspect-rect group lg:rounded-3xl">
 						<Swiper

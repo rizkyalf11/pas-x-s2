@@ -1,7 +1,10 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 // FM
 import { AnimatePresence, motion } from 'framer-motion'
+
+// HDLS
+import { Switch } from '@headlessui/react'
 
 // img
 import logo from '../assets/img/logo.png'
@@ -10,29 +13,62 @@ import heart from '../assets/img/heart.svg'
 import search from '../assets/img/search.svg'
 import person from '../assets/img/person.jpg'
 
+//RDX
+import { useSelector, useDispatch } from 'react-redux'
+import { changeIsShow } from '../features/ProfileCard/ProfileCardSlice'
+
 const Navbar = () => {
-	const [isShowCardProfile, setIsShowCardProfile] = useState(false)
+	const dispatch = useDispatch()
+	const { isShowCardProfile } = useSelector(state => state.isShowCardProfile)
 
-  const cardVariants = {
-    hidden: {
-      opacity: 0,
-      x: 300,
-    },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: .6, ease: 'easeOut', type: 'spring' }
-    },
-    exit: {
-      opacity: 0,
-      x: 300,
-      transition: { duration: .6, ease: 'easeIn', type: 'spring'  }
-    }
+	const cardVariants = {
+		hidden: {
+			opacity: 0,
+			x: 300,
+		},
+		visible: {
+			opacity: 1,
+			x: 0,
+			transition: { duration: 0.6, ease: 'easeOut', type: 'spring' },
+		},
+		exit: {
+			opacity: 0,
+			x: 300,
+			transition: { duration: 0.6, ease: 'easeIn', type: 'spring' },
+		},
+	}
 
-  }
+	const userTheme = localStorage.getItem('theme')
+	const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
+
+	const themeCheck = () => {
+		if (userTheme == 'dark' || (!userTheme && systemTheme)) {
+			document.documentElement.classList.add('dark')
+			setEnabled(true)
+		} else {
+			setEnabled(false)
+		}
+	}
+
+	const ChangeDark = () => {
+		if(!enabled) {
+			document.documentElement.classList.add('dark')
+			localStorage.setItem('theme', 'dark')
+		} else {
+			document.documentElement.classList.remove('dark')
+			localStorage.setItem('theme', 'light')
+		}
+	}
+
+	const [enabled, setEnabled] = useState(false)
+	
+	useEffect(() => {
+		if(systemTheme) setEnabled(true);
+		themeCheck()
+	}, [systemTheme])
 
 	return (
-		<header className="h-[80px] bg-navigator dark:bg-slate-700 flex flex-row items-center justify-between gap-1 hpsk:gap-3 hpk:gap-0 px-2 hpsk:px-4 hpk:px-10 lg:px-20 xl:px-40 fixed inset-x-0 top-0 shadow-xl z-30 ">
+		<header className="h-[80px] bg-navigator dark:bg-darkNav flex flex-row items-center justify-between gap-1 hpsk:gap-3 hpk:gap-0 px-2 hpsk:px-4 hpk:px-10 lg:px-20 xl:px-40 fixed inset-x-0 top-0 shadow-xl z-30 ">
 			<img src={logo} alt="" className="h-[55px] hidden lg:block" />
 			<div className="relative flex items-center h-[50px] ">
 				<label htmlFor="search" className="absolute left-3 top-1/2 -translate-y-1/2 ">
@@ -51,14 +87,18 @@ const Navbar = () => {
 				<img src={cart} alt="Cart" className="w-[28px] md:w-[32px] cursor-pointer" />
 				<div className=" flex flex-row gap-2 items-center cursor-pointer" id="profile">
 					<h1 className=" text-white text-xl md:text-2xl font-poppins font-normal hidden sm:block">Person</h1>
-					<img onClick={() => (isShowCardProfile ? setIsShowCardProfile(false) : setIsShowCardProfile(true))} className="w-[45px] aspect-square object-cover rounded-full lg:w-[50px]" src={person} alt="You" />
+					<img onClick={() => dispatch(changeIsShow())} className="w-[45px] aspect-square object-cover rounded-full lg:w-[50px]" src={person} alt="You" />
 				</div>
 			</div>
 
 			<AnimatePresence>
 				{isShowCardProfile && (
-					<motion.div variants={cardVariants} initial='hidden' animate='visible' exit='exit'  
-						className="absolute flex flex-col gap-2 w-[280px] h-[320px] md:w-[340px] md:h-[340px] rounded-3xl border border-black/5 bg-white dark:bg-slate-700 shadow-xl right-2 top-28 py-4 px-4"
+					<motion.div
+						variants={cardVariants}
+						initial="hidden"
+						animate="visible"
+						exit="exit"
+						className="absolute flex flex-col gap-2 w-[280px] h-[320px] md:w-[340px] md:h-[340px] rounded-3xl border border-black/5 bg-white dark:bg-darkNav shadow-xl right-2 top-28 py-4 px-4"
 						id="profileDetail"
 					>
 						<div className="flex items-center gap-3 mb-2">
@@ -107,12 +147,12 @@ const Navbar = () => {
 							</div>
 						</div>
 						<hr className="my-2" />
-						<div className="ml-4">
-							<label className="relative inline-flex items-center mb-5 cursor-pointer text-[#8b8b8b]">
-								<input type="checkbox" className="sr-only peer" id="darkSwitch" />
-								<div className="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-navigator"></div>
-								<span className="ml-3 text-sm text-gray-900 dark:text-gray-300 font-medium">Dark Mode</span>
-							</label>
+						<div className="ml-4 flex gap-2 items-center">
+							<Switch onClick={() => ChangeDark()} checked={enabled} onChange={setEnabled} className={`${enabled ? 'bg-navigator' : 'bg-gray-200'} relative inline-flex h-6 w-11 items-center rounded-full`}>
+								<span className="sr-only">Enable notifications</span>
+								<span className={`${enabled ? 'translate-x-6' : 'translate-x-1'} inline-block h-4 w-4 transform rounded-full bg-white transition`} />
+							</Switch>
+							<h3 className='text-black dark:text-white'>Dark Mode</h3>
 						</div>
 					</motion.div>
 				)}
