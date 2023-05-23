@@ -68,7 +68,7 @@ const Navbar = () => {
 	}, [systemTheme])
 
 	return (
-		<header className="h-[80px] bg-navigator dark:bg-darkNav flex flex-row items-center justify-between gap-1 hpsk:gap-3 hpk:gap-0 px-2 hpsk:px-4 hpk:px-10 lg:px-20 xl:px-40 fixed inset-x-0 top-0 shadow-xl z-30 ">
+		<header className="h-[80px] bg-navigator dark:bg-darkNav flex flex-row items-center justify-between gap-1 hpsk:gap-3 hpk:gap-0 px-2 hpsk:px-3 lg:px-24 xl:px-40 fixed inset-x-0 top-0 shadow-xl z-30 ">
 			<img src={logo} alt="" className="h-[55px] hidden lg:block" />
 			<div className="relative flex items-center h-[50px] ">
 				<label htmlFor="search" className="absolute left-3 top-1/2 -translate-y-1/2 ">
@@ -84,7 +84,10 @@ const Navbar = () => {
 			</div>
 			<div className=" flex flex-row items-center gap-3 hp:gap-4">
 				<img src={heart} alt="Wishlist" className="w-[28px] md:w-[32px] cursor-pointer" />
-				<img src={cart} alt="Cart" className="w-[28px] md:w-[32px] cursor-pointer" />
+				<div className='relative'>
+					<img src={cart} alt="Cart" className="w-[28px] md:w-[32px] cursor-pointer" />
+					<div className='absolute w-4 h-4 -right-1 bg-black/60 text-white dark:text-black dark:bg-navigator/90 top-0 rounded-full flex items-center justify-center'>1</div>
+				</div>
 				<div className=" flex flex-row gap-2 items-center cursor-pointer" id="profile">
 					<h1 className=" text-white text-xl md:text-2xl font-poppins font-normal hidden sm:block">Person</h1>
 					<img onClick={() => dispatch(changeIsShow())} className="w-[45px] aspect-square object-cover rounded-full lg:w-[50px]" src={person} alt="You" />
@@ -136,7 +139,7 @@ const Navbar = () => {
 										</clipPath>
 									</defs>
 								</svg>
-								<h3 className="font-bold cursor-pointer select-none text-base md:text-xl transition-all duration-150">Cart</h3>
+								<h3 className="font-bold cursor-pointer select-none text-base md:text-xl transition-all duration-150">Cart (0)</h3>
 							</div>
 							<div className="text-[#8b8b8b] dark:text-white dark:hover:text-navigator hover:text-navigator group  flex flex-row items-center gap-4">
 								<svg className="fill-[#8b8b8b] group-hover:fill-green-400" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

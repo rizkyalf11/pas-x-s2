@@ -7,14 +7,19 @@ export default {
   darkMode: 'class',
   theme: {
     fontFamily:{
-      'inter': ['Poppins', 'sans-serif']
+      'inter': ['Inter', 'sans-serif']
     },
     extend: {
       colors:{
         pigma : '#7F56DA',
         navigator : '#02D05B',
         darkNav : '#242629',
-        darkBg : '#16161a'
+        darkBg : '#16161a',
+        noHover : '#7d7d7d',
+        HLig : '#272343',
+        TexLig : '#2d334a',
+        HDark : '#fffffe',
+        TexDark : '#94a1b2'
       },
       aspectRatio:{
         'rect' : '5  / 1.05',
@@ -27,6 +32,7 @@ export default {
       }
     },
   },
-  plugins: [],
+  // eslint-disable-next-line no-undef
+  plugins: [require('tailwind-scrollbar')],
 }
 
