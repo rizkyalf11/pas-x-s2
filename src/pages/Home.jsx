@@ -152,12 +152,11 @@ const Home = () => {
 						<h1 className=" text-2xl hp:text-3xl md:text-4xl font-semibold dark:text-white">Product</h1>
 						<Link to={'/'} className='underline underline-offset-2 text-black/60 dark:text-white/60'>see all</Link>
 					</div>
-					<div className="mt-7 flex flex-row flex-wrap gap-3 md:gap-5 ">
+					<div className="mt-7 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 md:gap-5 ">
 						{products &&
 							products.map((product, i) => (
-								<div key={i} className="bg-white dark:bg-darkNav shadow-xl w-[48%] md:w-[30.33%] lg:w-[23%] xl:w-[18%] h-[250px] rounded-2xl relative flex transition-all duration-300 overflow-hidden group/parent overflow-y-hidden">
+								<div key={i} className="bg-white dark:bg-darkNav shadow-xl h-[250px] rounded-2xl relative flex transition-all duration-300 overflow-hidden group/parent overflow-y-hidden">
 									<div className="absolute top-0 w-full h-[163px] md:h-[250px] bg-black z-10 hpk:group-hover/parent:h-[163px] transition-all duration-300 rounded-2xl overflow-hidden" onClick={() => showCard(product)}>
-										{/* <img src={product.image} alt={product.name} className="w-full h-full object-cover object-center" /> */}
 										<div className="w-full h-full p-8 md:p-3 bg-white flex items-center justify-center">
 											<img src={product.image} alt={product.name} className='w-full ' />
 										</div>
@@ -181,7 +180,7 @@ const Home = () => {
 											</svg>
 											<h2 className="  font-semibold text-xl dark:text-white">{product.rate}</h2>
 										</div>
-										<div className="flex justify-between w-full">
+										<div className="flex gap-1 justify-between w-full">
 											<div className="w-[40px] h-[38px] border-[2.5px] border-noHover dark:border-white rounded-xl flex justify-center items-center dark:hover:border-navigator hover:border-navigator group transition-colors duration-300 ">
 												<svg className="fill-black/50 dark:fill-white w-[19px] group-hover:fill-navigator transition-colors duration-300 " viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 													<g clipPath="url(#clip0_403_2975)">
@@ -207,7 +206,7 @@ const Home = () => {
 														</clipPath>
 													</defs>
 												</svg>
-												<h1 className="text-white text-base font-medium  group-hover:text-navigator transition-colors duration-300">Add to Cart</h1>
+												<h1 className="text-white text-[13px] min-[410px]:text-base font-medium  group-hover:text-navigator transition-colors duration-300">Add to Cart</h1>
 											</div>
 										</div>
 									</div>
@@ -216,97 +215,97 @@ const Home = () => {
 					</div>
 				</section>
 
-				<section class="mt-14 md:mt-14 px-2 hpsk:px-3 lg:px-24 xl:px-40 flex flex-col md:flex-row">
-					<div class="w-full md:w-2/4 px-4 py-7 order-2 md:order-1">
-						<h1 class=" text-2xl hp:text-3xl md:text-4xl font-semibold dark:text-white">Why should fresh 4 you?</h1>
-						<p class="  mt-7 text-lg lg:text-2xl text-TexLig dark:text-TexDark">Our goal is to be an easy and convenient grocery shopping platform while maintaining the quality of our service - helping our customers shop efficiently and have time to do other important things every day.</p>
-						<button class="mt-7 h-[50px] w-[180px] border-[2.5px] border-navigator bg-navigator hover:bg-transparent rounded-xl flex justify-center items-center gap-2 dark:hover:border-navigator hover:border-navigator group transition-colors duration-300 ">
+				<section className="mt-14 md:mt-14 px-2 hpsk:px-3 lg:px-24 xl:px-40 flex flex-col md:flex-row">
+					<div className="w-full md:w-2/4 px-4 py-7 order-2 md:order-1">
+						<h1 className=" text-2xl hp:text-3xl md:text-4xl font-semibold dark:text-white">Why should fresh 4 you?</h1>
+						<p className="  mt-7 text-lg lg:text-2xl text-TexLig dark:text-TexDark">Our goal is to be an easy and convenient grocery shopping platform while maintaining the quality of our service - helping our customers shop efficiently and have time to do other important things every day.</p>
+						<button className="mt-7 h-[50px] w-[180px] border-[2.5px] border-navigator bg-navigator hover:bg-transparent rounded-xl flex justify-center items-center gap-2 dark:hover:border-navigator hover:border-navigator group transition-colors duration-300 ">
 							
-							<p class="text-white text-xl  font-bold group-hover:text-navigator transition-colors duration-300">Check it Out</p>
+							<p className="text-white text-xl  font-bold group-hover:text-navigator transition-colors duration-300">Check it Out</p>
 							
 						</button>
 					</div>
-					<div class="w-full md:w-2/4 px-0 md:p-4 order-1 md:order-2">
-						<img src="./src/assets/img/why.png" alt="" class="w-full" />
+					<div className="w-full md:w-2/4 px-0 md:p-4 order-1 md:order-2">
+						<img src="./src/assets/img/why.png" alt="" className="w-full" />
 					</div>
 				</section>
 
-				<section class="mt-7 md:mt-14 px-2 hpsk:px-3 lg:px-24 xl:px-40">
-					<h1 class=" text-2xl hp:text-3xl md:text-4xl font-semibold dark:text-white">Blog</h1>
-					<div class="w-full flex flex-row mt-7 gap-3 md:gap-10">
-						<div class="w-2/4 ">
-							<img src="./src/assets/img/blog1.png" alt="" class="" />
-							<h1 class=" text-lg md:text-2xl lg:text-4xl font-semibold dark:text-white mt-5">5 Benefits of Fruits for our bodies that you don't know about</h1>
+				<section className="mt-7 md:mt-14 px-2 hpsk:px-3 lg:px-24 xl:px-40">
+					<h1 className=" text-2xl hp:text-3xl md:text-4xl font-semibold dark:text-white">Blog</h1>
+					<div className="w-full flex flex-row mt-7 gap-3 md:gap-10">
+						<div className="w-2/4 ">
+							<img src="./src/assets/img/blog1.png" alt="" className="" />
+							<h1 className=" text-lg md:text-2xl lg:text-4xl font-semibold dark:text-white mt-5">5 Benefits of Fruits for our bodies that you don't know about</h1>
 						</div>
-						<div class="w-2/4 ">
-							<img src="./src/assets/img/blog2.png" alt="" class="" />
-							<h1 class="  text-lg md:text-2xl lg:text-4xl font-semibold dark:text-white mt-5">These are 10 benefits of avocado for health</h1>
+						<div className="w-2/4 ">
+							<img src="./src/assets/img/blog2.png" alt="" className="" />
+							<h1 className="  text-lg md:text-2xl lg:text-4xl font-semibold dark:text-white mt-5">These are 10 benefits of avocado for health</h1>
 						</div>
 					</div>
 
 				</section>
 			</main>
 
-			<footer class="w-full  bg-navigator">
-				<div class="py-16 px-10 sm:px-20 lg:px-32">
-					<div class="w-full flex flex-col md:flex-row justify-end sm:justify-center md:justify-between">
-						<div className='md:hidden w-full mb-8 flex justify-center items-center'>
-							<img src="./src/assets/img/logo.png" alt="logo" class="h-14"/>
+			<footer className="w-full  bg-navigator">
+				<div className="py-16 px-10 sm:px-20 lg:px-32">
+					<div className="w-full flex flex-col md:flex-row justify-end sm:justify-center md:justify-between">
+						<div classNameName='md:hidden w-full mb-8 flex justify-center items-center'>
+							<img src="./src/assets/img/logo.png" alt="logo" className="h-14"/>
 						</div>
-						<div class=" flex flex-row justify-center gap-[200px] md:flex md:flex-row md:gap-10 lg:gap-16 ">
-							<div class="">
-								<h5 class="text-HDark font-semibold ">Site Links</h5>
-								<ul class="text-HDark mt-3 text-sm">
+						<div className=" flex flex-row justify-center gap-[100px] hpsk:gap-[200px] md:flex md:flex-row md:gap-10 lg:gap-16 ">
+							<div className="">
+								<h5 className="text-HDark font-semibold ">Site Links</h5>
+								<ul className="text-HDark mt-3 text-sm">
 									<li>About us</li>
 									<li>Blog</li>
 									<li>Promotions</li>
 									<li>Partners</li>
 								</ul>
 							</div>
-							<div class="">
-								<h5 class="text-HDark font-semibold">Support</h5>
-								<ul class="text-HDark mt-3 text-sm">
+							<div className="">
+								<h5 className="text-HDark font-semibold">Support</h5>
+								<ul className="text-HDark mt-3 text-sm">
 									<li>Contact us</li>
 									<li>FAQs</li>
 								</ul>
 							</div>
-							<div className='hidden md:inline-block'>
-								<h5 class="text-HDark font-semibold ">Sale</h5>
-								<ul class="text-HDark mt-3 text-sm">
+							<div classNameName='hidden md:inline-block'>
+								<h5 className="text-HDark font-semibold ">Sale</h5>
+								<ul className="text-HDark mt-3 text-sm">
 									<li>Fresh Fruits</li>
 									<li>Register 4U Agent</li>
 								</ul>
 							</div>
 						</div>
 						
-						<div class="hidden md:flex md:gap-10 md:flex-row">
-							<img src="./src/assets/img/logo.png" alt="logo" class="h-14"/>
-							<div class=" text-HDark">
-								<div class="flex flex-col items-end">
+						<div className="hidden md:flex md:gap-10 md:flex-row">
+							<img src="./src/assets/img/logo.png" alt="logo" className="h-14"/>
+							<div className=" text-HDark">
+								<div className="flex flex-col items-end">
 									<p>©2023 Fresh4U</p>
 									<p>All Right Reserved</p>
 								</div>
-								<div class="flex-row gap-5 md:flex mt-8">
-									<div class="h-12 aspect-square bg-black bg-opacity-50 rounded-full flex justify-center items-center">
+								<div className="flex-row gap-5 md:flex mt-8">
+									<div className="h-12 aspect-square bg-black bg-opacity-50 rounded-full flex justify-center items-center">
 										<img className='w-[32px]' src="./src/assets/img/facebook.png" alt="facebook" />
 									</div>
-									<div class="h-12 aspect-square bg-black bg-opacity-50 rounded-full flex justify-center items-center">
+									<div className="h-12 aspect-square bg-black bg-opacity-50 rounded-full flex justify-center items-center">
 										<img className='w-[32px]' src="./src/assets/img/twitter.png" alt="facebook" />
 									</div>
-									<div class="h-12 aspect-square bg-black bg-opacity-50 rounded-full flex justify-center items-center">
+									<div className="h-12 aspect-square bg-black bg-opacity-50 rounded-full flex justify-center items-center">
 										<img className='w-[32px]' src="./src/assets/img/instagram.png" alt="facebook" />
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="w-full h-1 bg-black bg-opacity-25 mt-5"></div>
-					<div class="mt-5 hidden w-full md:flex items-center justify-center gap-6">
+					<div className="w-full h-1 bg-black bg-opacity-25 mt-5"></div>
+					<div className="mt-5 hidden w-full md:flex items-center justify-center gap-6">
 						<div >
-							<img src="./src/assets/img/tailwind.png" alt="tailwind" class="aspect-auto"/>
+							<img src="./src/assets/img/tailwind.png" alt="tailwind" className="aspect-auto"/>
 						</div>
 						<div >
-							<img src="./src/assets/img/react.png" alt="react" class="aspect-auto"/>
+							<img src="./src/assets/img/react.png" alt="react" className="aspect-auto"/>
 						</div>
 						<div >          
 							<img src="./src/assets/img/vitejs.png" alt="vite" />
@@ -327,7 +326,7 @@ const Home = () => {
 					<div className='w-full flex items-center justify-center md:hidden'>
 
 					<div class="md:hidden flex-row gap-5 flex mt-8">
-						<div class="h-12 aspect-square bg-black bg-opacity-50 rounded-full flex justify-center items-center">
+						<div className="h-12 aspect-square bg-black bg-opacity-50 rounded-full flex justify-center items-center">
 							<img className='w-[32px]' src="./src/assets/img/facebook.png" alt="facebook" />
 						</div>
 						<div class="h-12 aspect-square bg-black bg-opacity-50 rounded-full flex justify-center items-center">
@@ -339,10 +338,10 @@ const Home = () => {
 					</div>
 					</div>
 					</div>
-				<div class="w-full py-3 bg-black bg-opacity-40 flex items-center flex-col sm:flex-row justify-center gap-4">
-					<h5 class="text-HDark text-sm sm:text-base md:block hidden">We facilitate your payment through trusted gateaways</h5>
-					<h5 class="text-HDark text-sm sm:text-base md:hidden">© 2023 Fresh4You</h5>
-					<div class="hidden md:flex md:flex-row md:gap-1 md:items-center">
+				<div className="w-full py-3 bg-black bg-opacity-40 flex items-center flex-col sm:flex-row justify-center gap-4">
+					<h5 className="text-HDark text-sm sm:text-base md:block hidden">We facilitate your payment through trusted gateaways</h5>
+					<h5 className="text-HDark text-sm sm:text-base md:hidden">© 2023 Fresh4You</h5>
+					<div className="hidden md:flex md:flex-row md:gap-1 md:items-center">
 						<div><img src="./src/assets/img/visa.png" alt="visa"/></div>
 						<div><img src="./src/assets/img/amex.png" alt="amex"/></div>
 						<div><img src="./src/assets/img/cimb.png" alt="cimb"/></div>
