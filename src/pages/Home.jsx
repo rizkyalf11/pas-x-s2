@@ -246,10 +246,10 @@ const Home = () => {
 				</section>
 			</main>
 
-			<footer className="w-full  bg-navigator">
+			<footer className="w-full bg-navigator">
 				<div className="py-16 px-10 sm:px-20 lg:px-32">
 					<div className="w-full flex flex-col md:flex-row justify-end sm:justify-center md:justify-between">
-						<div classNameName='md:hidden w-full mb-8 flex justify-center items-center'>
+						<div className='md:hidden w-full mb-8 flex justify-center items-center'>
 							<img src="./src/assets/img/logo.png" alt="logo" className="h-14"/>
 						</div>
 						<div className=" flex flex-row justify-center gap-[100px] hpsk:gap-[200px] md:flex md:flex-row md:gap-10 lg:gap-16 ">
@@ -269,7 +269,7 @@ const Home = () => {
 									<li>FAQs</li>
 								</ul>
 							</div>
-							<div classNameName='hidden md:inline-block'>
+							<div className='hidden md:inline-block'>
 								<h5 className="text-HDark font-semibold ">Sale</h5>
 								<ul className="text-HDark mt-3 text-sm">
 									<li>Fresh Fruits</li>
@@ -325,14 +325,14 @@ const Home = () => {
 					</div>
 					<div className='w-full flex items-center justify-center md:hidden'>
 
-					<div class="md:hidden flex-row gap-5 flex mt-8">
+					<div className="md:hidden flex-row gap-5 flex mt-8">
 						<div className="h-12 aspect-square bg-black bg-opacity-50 rounded-full flex justify-center items-center">
 							<img className='w-[32px]' src="./src/assets/img/facebook.png" alt="facebook" />
 						</div>
-						<div class="h-12 aspect-square bg-black bg-opacity-50 rounded-full flex justify-center items-center">
+						<div className="h-12 aspect-square bg-black bg-opacity-50 rounded-full flex justify-center items-center">
 							<img className='w-[32px]' src="./src/assets/img/twitter.png" alt="facebook" />
 						</div>
-						<div class="h-12 aspect-square bg-black bg-opacity-50 rounded-full flex justify-center items-center">
+						<div className="h-12 aspect-square bg-black bg-opacity-50 rounded-full flex justify-center items-center">
 							<img className='w-[32px]' src="./src/assets/img/instagram.png" alt="facebook" />
 						</div>
 					</div>
@@ -342,7 +342,7 @@ const Home = () => {
 					<h5 className="text-HDark text-sm sm:text-base md:block hidden">We facilitate your payment through trusted gateaways</h5>
 					<h5 className="text-HDark text-sm sm:text-base md:hidden">© 2023 Fresh4You</h5>
 					<div className="hidden md:flex md:flex-row md:gap-1 md:items-center">
-						<div><img src="./src/assets/img/visa.png" alt="visa"/></div>
+						<div><img src="./src/assets/img/visa.png"  alt="visa"/></div>
 						<div><img src="./src/assets/img/amex.png" alt="amex"/></div>
 						<div><img src="./src/assets/img/cimb.png" alt="cimb"/></div>
 						<div><img src="./src/assets/img/RuPay.png" alt="rupay"/></div>
