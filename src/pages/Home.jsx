@@ -18,6 +18,9 @@ import { changeIsShow } from '../features/ProfileCard/ProfileCardSlice'
 import CardDetail from '../component/CardDetail'
 import { changeIsShowCard } from '../features/Products/isShowDetail'
 
+// RRD
+import { Link } from 'react-router-dom'
+
 const Home = () => {
 	const [isLoad, setIsLoad] = useState(false)
 	window.addEventListener('load', () => {
@@ -61,9 +64,9 @@ const Home = () => {
 				{detailCard && <CardDetail product={detailProd} />}
 			</AnimatePresence>
 
-			<main onClick={() => isShowCardProfile && dispatch(changeIsShow())} className="pt-[80px] lg:pt-32 overflow-x-hidden" id="main">
+			<main onClick={() => isShowCardProfile && dispatch(changeIsShow())} className="pt-[80px] lg:pt-32 mb-32" id="main">
 				<section className="w-full px-0 lg:px-24 xl:px-40">
-					<div className="swiper w-full aspect-ress lg:aspect-rect group lg:rounded-3xl">
+					<div className="swiper w-full aspect-ress lg:aspect-rect group lg:rounded-3xl h-[140px] hp:h-[170px] sm:h-[190px] md:h-[250px] ">
 						<Swiper
 							modules={[Autoplay, Pagination]}
 							slidesPerView={1}
@@ -145,11 +148,14 @@ const Home = () => {
 				</section>
 
 				<section className=" mt-7 md:mt-14 px-2 hpsk:px-3 lg:px-24 xl:px-40">
-					<h1 className=" text-2xl hp:text-3xl md:text-4xl font-semibold dark:text-white">Product</h1>
+					<div className='flex w-full justify-between items-center'>
+						<h1 className=" text-2xl hp:text-3xl md:text-4xl font-semibold dark:text-white">Product</h1>
+						<Link to={'/'} className='underline underline-offset-2 text-black/60 dark:text-white/60'>see all</Link>
+					</div>
 					<div className="mt-7 flex flex-row flex-wrap gap-3 md:gap-5 ">
 						{products &&
 							products.map((product, i) => (
-								<div key={i} className="bg-white dark:bg-darkNav shadow-xl w-[48%] md:w-[30.33%] lg:w-[23%] 2xl:w-[18%] h-[250px] rounded-2xl relative flex transition-all duration-300 overflow-hidden group/parent overflow-y-hidden">
+								<div key={i} className="bg-white dark:bg-darkNav shadow-xl w-[48%] md:w-[30.33%] lg:w-[23%] xl:w-[18%] h-[250px] rounded-2xl relative flex transition-all duration-300 overflow-hidden group/parent overflow-y-hidden">
 									<div className="absolute top-0 w-full h-[163px] md:h-[250px] bg-black z-10 hpk:group-hover/parent:h-[163px] transition-all duration-300 rounded-2xl overflow-hidden" onClick={() => showCard(product)}>
 										{/* <img src={product.image} alt={product.name} className="w-full h-full object-cover object-center" /> */}
 										<div className="w-full h-full p-8 md:p-3 bg-white flex items-center justify-center">
@@ -157,8 +163,8 @@ const Home = () => {
 										</div>
 										<div className="absolute bg-black opacity-30 w-full h-full top-0 hpk:group-hover/parent:opacity-80 transition-all duration-300"></div>
 										<div className="absolute top-0 w-full h-full flex justify-between items-end flex-row px-3 pb-2">
-											<h3 className="max-w-[125px] font-quicksand text-white text-base font-semibold">{product.name}</h3>
-											<h3 className="w-[100px] justify-end font-quicksand text-white text-sm font-semibold flex">$ {product.displayPrice}</h3>
+											<h3 className="max-w-[125px]  text-white text-base font-semibold">{product.name}</h3>
+											<h3 className="w-[100px] justify-end  text-white text-sm font-semibold flex">$ {product.displayPrice}</h3>
 										</div>
 									</div>
 									<div className="self-end px-2 flex flex-col w-full pb-2 gap-2">
@@ -173,7 +179,7 @@ const Home = () => {
 												</clipPath>
 												</defs>
 											</svg>
-											<h2 className=" font-quicksand font-semibold text-xl dark:text-white">{product.rate}</h2>
+											<h2 className="  font-semibold text-xl dark:text-white">{product.rate}</h2>
 										</div>
 										<div className="flex justify-between w-full">
 											<div className="w-[40px] h-[38px] border-[2.5px] border-noHover dark:border-white rounded-xl flex justify-center items-center dark:hover:border-navigator hover:border-navigator group transition-colors duration-300 ">
@@ -201,7 +207,7 @@ const Home = () => {
 														</clipPath>
 													</defs>
 												</svg>
-												<h1 className="text-white text-base font-medium font-quicksand group-hover:text-navigator transition-colors duration-300">Add to Cart</h1>
+												<h1 className="text-white text-base font-medium  group-hover:text-navigator transition-colors duration-300">Add to Cart</h1>
 											</div>
 										</div>
 									</div>
@@ -209,7 +215,141 @@ const Home = () => {
 							))}
 					</div>
 				</section>
+
+				<section class="mt-14 md:mt-14 px-2 hpsk:px-3 lg:px-24 xl:px-40 flex flex-col md:flex-row">
+					<div class="w-full md:w-2/4 px-4 py-7 order-2 md:order-1">
+						<h1 class=" text-2xl hp:text-3xl md:text-4xl font-semibold dark:text-white">Why should fresh 4 you?</h1>
+						<p class="  mt-7 text-lg lg:text-2xl text-TexLig dark:text-TexDark">Our goal is to be an easy and convenient grocery shopping platform while maintaining the quality of our service - helping our customers shop efficiently and have time to do other important things every day.</p>
+						<button class="mt-7 h-[50px] w-[180px] border-[2.5px] border-navigator bg-navigator hover:bg-transparent rounded-xl flex justify-center items-center gap-2 dark:hover:border-navigator hover:border-navigator group transition-colors duration-300 ">
+							
+							<p class="text-white text-xl  font-bold group-hover:text-navigator transition-colors duration-300">Check it Out</p>
+							
+						</button>
+					</div>
+					<div class="w-full md:w-2/4 px-0 md:p-4 order-1 md:order-2">
+						<img src="./src/assets/img/why.png" alt="" class="w-full" />
+					</div>
+				</section>
+
+				<section class="mt-7 md:mt-14 px-2 hpsk:px-3 lg:px-24 xl:px-40">
+					<h1 class=" text-2xl hp:text-3xl md:text-4xl font-semibold dark:text-white">Blog</h1>
+					<div class="w-full flex flex-row mt-7 gap-3 md:gap-10">
+						<div class="w-2/4 ">
+							<img src="./src/assets/img/blog1.png" alt="" class="" />
+							<h1 class=" text-lg md:text-2xl lg:text-4xl font-semibold dark:text-white mt-5">5 Benefits of Fruits for our bodies that you don't know about</h1>
+						</div>
+						<div class="w-2/4 ">
+							<img src="./src/assets/img/blog2.png" alt="" class="" />
+							<h1 class="  text-lg md:text-2xl lg:text-4xl font-semibold dark:text-white mt-5">These are 10 benefits of avocado for health</h1>
+						</div>
+					</div>
+
+				</section>
 			</main>
+
+			<footer class="w-full  bg-navigator">
+				<div class="py-16 px-10 sm:px-20 lg:px-32">
+					<div class="w-full flex flex-col md:flex-row justify-end sm:justify-center md:justify-between">
+						<div className='md:hidden w-full mb-8 flex justify-center items-center'>
+							<img src="./src/assets/img/logo.png" alt="logo" class="h-14"/>
+						</div>
+						<div class=" flex flex-row justify-center gap-[200px] md:flex md:flex-row md:gap-10 lg:gap-16 ">
+							<div class="">
+								<h5 class="text-HDark font-semibold ">Site Links</h5>
+								<ul class="text-HDark mt-3 text-sm">
+									<li>About us</li>
+									<li>Blog</li>
+									<li>Promotions</li>
+									<li>Partners</li>
+								</ul>
+							</div>
+							<div class="">
+								<h5 class="text-HDark font-semibold">Support</h5>
+								<ul class="text-HDark mt-3 text-sm">
+									<li>Contact us</li>
+									<li>FAQs</li>
+								</ul>
+							</div>
+							<div className='hidden md:inline-block'>
+								<h5 class="text-HDark font-semibold ">Sale</h5>
+								<ul class="text-HDark mt-3 text-sm">
+									<li>Fresh Fruits</li>
+									<li>Register 4U Agent</li>
+								</ul>
+							</div>
+						</div>
+						
+						<div class="hidden md:flex md:gap-10 md:flex-row">
+							<img src="./src/assets/img/logo.png" alt="logo" class="h-14"/>
+							<div class=" text-HDark">
+								<div class="flex flex-col items-end">
+									<p>©2023 Fresh4U</p>
+									<p>All Right Reserved</p>
+								</div>
+								<div class="flex-row gap-5 md:flex mt-8">
+									<div class="h-12 aspect-square bg-black bg-opacity-50 rounded-full flex justify-center items-center">
+										<img className='w-[32px]' src="./src/assets/img/facebook.png" alt="facebook" />
+									</div>
+									<div class="h-12 aspect-square bg-black bg-opacity-50 rounded-full flex justify-center items-center">
+										<img className='w-[32px]' src="./src/assets/img/twitter.png" alt="facebook" />
+									</div>
+									<div class="h-12 aspect-square bg-black bg-opacity-50 rounded-full flex justify-center items-center">
+										<img className='w-[32px]' src="./src/assets/img/instagram.png" alt="facebook" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="w-full h-1 bg-black bg-opacity-25 mt-5"></div>
+					<div class="mt-5 hidden w-full md:flex items-center justify-center gap-6">
+						<div >
+							<img src="./src/assets/img/tailwind.png" alt="tailwind" class="aspect-auto"/>
+						</div>
+						<div >
+							<img src="./src/assets/img/react.png" alt="react" class="aspect-auto"/>
+						</div>
+						<div >          
+							<img src="./src/assets/img/vitejs.png" alt="vite" />
+						</div>
+						<div >
+							<img src="./src/assets/img/javascript-original.png" alt="js" />
+						</div>
+						<div >
+							<img src="./src/assets/img/framer-motion.png" alt="framer motion" />
+						</div>
+						<div >
+							<img src="./src/assets/img/react-router.png" alt="react router dom" />
+						</div>
+						<div >
+							<img src="./src/assets/img/redux.png" alt="redux" />
+						</div>
+					</div>
+					<div className='w-full flex items-center justify-center md:hidden'>
+
+					<div class="md:hidden flex-row gap-5 flex mt-8">
+						<div class="h-12 aspect-square bg-black bg-opacity-50 rounded-full flex justify-center items-center">
+							<img className='w-[32px]' src="./src/assets/img/facebook.png" alt="facebook" />
+						</div>
+						<div class="h-12 aspect-square bg-black bg-opacity-50 rounded-full flex justify-center items-center">
+							<img className='w-[32px]' src="./src/assets/img/twitter.png" alt="facebook" />
+						</div>
+						<div class="h-12 aspect-square bg-black bg-opacity-50 rounded-full flex justify-center items-center">
+							<img className='w-[32px]' src="./src/assets/img/instagram.png" alt="facebook" />
+						</div>
+					</div>
+					</div>
+					</div>
+				<div class="w-full py-3 bg-black bg-opacity-40 flex items-center flex-col sm:flex-row justify-center gap-4">
+					<h5 class="text-HDark text-sm sm:text-base md:block hidden">We facilitate your payment through trusted gateaways</h5>
+					<h5 class="text-HDark text-sm sm:text-base md:hidden">© 2023 Fresh4You</h5>
+					<div class="hidden md:flex md:flex-row md:gap-1 md:items-center">
+						<div><img src="./src/assets/img/visa.png" alt="visa"/></div>
+						<div><img src="./src/assets/img/amex.png" alt="amex"/></div>
+						<div><img src="./src/assets/img/cimb.png" alt="cimb"/></div>
+						<div><img src="./src/assets/img/RuPay.png" alt="rupay"/></div>
+					</div>
+				</div>
+			</footer>
 		</>
 	)
 }

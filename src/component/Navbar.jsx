@@ -86,7 +86,7 @@ const Navbar = () => {
 				<img src={heart} alt="Wishlist" className="w-[28px] md:w-[32px] cursor-pointer" />
 				<div className='relative'>
 					<img src={cart} alt="Cart" className="w-[28px] md:w-[32px] cursor-pointer" />
-					<div className='absolute w-4 h-4 -right-1 bg-black/60 text-white dark:text-black dark:bg-navigator/90 top-0 rounded-full flex items-center justify-center'>1</div>
+					<div className='absolute w-4 h-4 -right-1 bg-black/60 text-white dark:text-black dark:bg-navigator/90 top-0 rounded-full flex items-center justify-center p-[9px]'>1</div>
 				</div>
 				<div className=" flex flex-row gap-2 items-center cursor-pointer" id="profile">
 					<h1 className=" text-white text-xl md:text-2xl font-poppins font-normal hidden sm:block">Person</h1>
