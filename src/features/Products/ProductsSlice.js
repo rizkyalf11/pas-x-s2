@@ -12,7 +12,7 @@ const products = [
     isFav: false, 
     stok: 50, 
     initialStok: 50, 
-    image: "src/assets/img/buah_lokal/belimbing.png" },
+    image: "/img/buah_lokal/belimbing.png" },
   { 
     id: 2,
     name: "Dukuh", 
@@ -24,7 +24,7 @@ const products = [
     isFav: false, 
     stok: 60, 
     initialStok: 60, 
-    image: "src/assets/img/buah_lokal/dukuh.png" },
+    image: "/img/buah_lokal/dukuh.png" },
   { 
     id: 3,
     name: "Durian", 
@@ -36,7 +36,7 @@ const products = [
     isFav: false, 
     stok: 70, 
     initialStok: 70, 
-    image: "src/assets/img/buah_lokal/durian.png" },
+    image: "/img/buah_lokal/durian.png" },
   { 
     id: 4,
     name: "Kelapa", 
@@ -48,7 +48,7 @@ const products = [
     isFav: false, 
     stok: 80, 
     initialStok: 80, 
-    image: "src/assets/img/buah_lokal/kelapa.png" },
+    image: "/img/buah_lokal/kelapa.png" },
   { 
     id: 5,
     name: "Mangga", 
@@ -60,7 +60,7 @@ const products = [
     isFav: false, 
     stok: 90, 
     initialStok: 90, 
-    image: "src/assets/img/buah_lokal/Mangga.png" },
+    image: "/img/buah_lokal/Mangga.png" },
   { 
     id: 6,
     name: "Manggis", 
@@ -72,7 +72,7 @@ const products = [
     isFav: false, 
     stok: 100, 
     initialStok: 100, 
-    image: "src/assets/img/buah_lokal/manggis.png" },
+    image: "/img/buah_lokal/manggis.png" },
   { 
     id: 7,
     name: "Nanas", 
@@ -84,7 +84,7 @@ const products = [
     isFav: false, 
     stok: 110, 
     initialStok: 110, 
-    image: "src/assets/img/buah_lokal/Nanas.png" },
+    image: "/img/buah_lokal/Nanas.png" },
   { 
     id: 8,
     name: "Nangka", 
@@ -96,7 +96,7 @@ const products = [
     isFav: false, 
     stok: 120, 
     initialStok: 120, 
-    image: "src/assets/img/buah_lokal/nangka.png" },
+    image: "/img/buah_lokal/nangka.png" },
   { 
     id: 9,
     name: "Rambutan", 
@@ -108,7 +108,7 @@ const products = [
     isFav: false, 
     stok: 130, 
     initialStok: 130, 
-    image: "src/assets/img/buah_lokal/rambutan.png" },
+    image: "/img/buah_lokal/rambutan.png" },
   { 
     id: 10,
     name: "Sirsak", 
@@ -120,7 +120,7 @@ const products = [
     isFav: false, 
     stok: 140, 
     initialStok: 140, 
-    image: "src/assets/img/buah_lokal/sirsak.png" },
+    image: "/img/buah_lokal/sirsak.png" },
   { 
     id: 11,
     name: "Salak", 
@@ -132,7 +132,7 @@ const products = [
     isFav: false, 
     stok: 150, 
     initialStok: 150, 
-    image: "src/assets/img/buah_lokal/salak.png" },
+    image: "/img/buah_lokal/salak.png" },
   { 
     id: 12,
     name: "Alpukat", 
@@ -144,7 +144,7 @@ const products = [
     isFav: false, 
     stok: 160, 
     initialStok: 160, 
-    image: "src/assets/img/buah_import/Alpuket.png" },
+    image: "/img/buah_import/Alpuket.png" },
   { 
     id: 13,
     name: "Anggur", 
@@ -156,7 +156,7 @@ const products = [
     isFav: false, 
     stok: 170, 
     initialStok: 170, 
-    image: "src/assets/img/buah_import/anggur.png" },
+    image: "/img/buah_import/anggur.png" },
   { 
     id: 14,
     name: "Anggur Hijau", 
@@ -168,7 +168,7 @@ const products = [
     isFav: false, 
     stok: 180, 
     initialStok: 180, 
-    image: "src/assets/img/buah_import/anggur-hijau.png" },
+    image: "/img/buah_import/anggur-hijau.png" },
   { 
     id: 15,
     name: "Apel Hijau", 
@@ -180,7 +180,7 @@ const products = [
     isFav: false, 
     stok: 190, 
     initialStok: 190, 
-    image: "src/assets/img/buah_import/apel-hijau.png" },
+    image: "/img/buah_import/apel-hijau.png" },
   { 
     id: 16,
     name: "Apel Merah", 
@@ -192,7 +192,7 @@ const products = [
     isFav: false, 
     stok: 200, 
     initialStok: 200, 
-    image: "src/assets/img/buah_import/apel-merah.png" },
+    image: "/img/buah_import/apel-merah.png" },
   { 
     id: 17,
     name: "Buah Naga", 
@@ -204,7 +204,7 @@ const products = [
     isFav: false, 
     stok: 210, 
     initialStok: 210, 
-    image: "src/assets/img/buah_import/buah-naga.png" },
+    image: "/img/buah_import/buah-naga.png" },
   { 
     id: 18,
     name: "Jambu Merah", 
@@ -216,7 +216,7 @@ const products = [
     isFav: false, 
     stok: 220, 
     initialStok: 220, 
-    image: "src/assets/img/buah_import/jambu-merah.png" },
+    image: "/img/buah_import/jambu-merah.png" },
   { 
     id: 19,
     name: "Jambu Kristal", 
@@ -228,7 +228,7 @@ const products = [
     isFav: false, 
     stok: 230, 
     initialStok: 230, 
-    image: "src/assets/img/buah_import/jambu-kristal.png" },
+    image: "/img/buah_import/jambu-kristal.png" },
   { 
     id: 20,
     name: "Jeruk", 
@@ -240,7 +240,7 @@ const products = [
     isFav: false, 
     stok: 240, 
     initialStok: 240, 
-    image: "src/assets/img/buah_import/jeruk.png" },
+    image: "/img/buah_import/jeruk.png" },
   { 
     id: 21,
     name: "Kiwi", 
@@ -252,7 +252,7 @@ const products = [
     isFav: false, 
     stok: 250, 
     initialStok: 250, 
-    image: "src/assets/img/buah_import/kiwi.png" },
+    image: "/img/buah_import/kiwi.png" },
   { 
     id: 22,
     name: "Klengkeng", 
@@ -264,7 +264,7 @@ const products = [
     isFav: false, 
     stok: 260, 
     initialStok: 260, 
-    image: "src/assets/img/buah_import/KLengkeng.png" },
+    image: "/img/buah_import/KLengkeng.png" },
   { 
     id: 23,
     name: "Lemon", 
@@ -276,7 +276,7 @@ const products = [
     isFav: false, 
     stok: 270, 
     initialStok: 270, 
-    image: "src/assets/img/buah_import/lemon.png" },
+    image: "/img/buah_import/lemon.png" },
   { 
     id: 24,
     name: "Melon", 
@@ -288,7 +288,7 @@ const products = [
     isFav: false, 
     stok: 280, 
     initialStok: 280, 
-    image: "src/assets/img/buah_import/Melon.png" },
+    image: "/img/buah_import/Melon.png" },
   { 
     id: 25,
     name: "Pepaya", 
@@ -300,7 +300,7 @@ const products = [
     isFav: false, 
     stok: 290, 
     initialStok: 290, 
-    image: "src/assets/img/buah_import/Pepaya.png" },
+    image: "/img/buah_import/Pepaya.png" },
   { 
     id: 26,
     name: "Pisang", 
@@ -312,7 +312,7 @@ const products = [
     isFav: false, 
     stok: 300, 
     initialStok: 300, 
-    image: "src/assets/img/buah_import/Pisang.png" },
+    image: "/img/buah_import/Pisang.png" },
   { 
     id: 27,
     name: "Semangka", 
@@ -324,7 +324,7 @@ const products = [
     isFav: false, 
     stok: 310, 
     initialStok: 310, 
-    image: "src/assets/img/buah_import/semangka.png" },
+    image: "/img/buah_import/semangka.png" },
   { 
     id: 28,
     name: "Bawang Bombay", 
@@ -336,7 +336,7 @@ const products = [
     isFav: false, 
     stok: 50, 
     initialStok: 50, 
-    image: "src/assets/img/sayur/bawang-bombay.jpg" },
+    image: "/img/sayur/bawang-bombay.jpg" },
   { 
     id: 29,
     name: "Bawang Merah", 
@@ -348,7 +348,7 @@ const products = [
     isFav: false, 
     stok: 60, 
     initialStok: 60, 
-    image: "src/assets/img/sayur/bawang-merah.jpg" },
+    image: "/img/sayur/bawang-merah.jpg" },
   { 
     id: 30,
     name: "Bawang Putih", 
@@ -360,7 +360,7 @@ const products = [
     isFav: false, 
     stok: 70, 
     initialStok: 70, 
-    image: "src/assets/img/sayur/bawang-putih.jpg" },
+    image: "/img/sayur/bawang-putih.jpg" },
   { 
     id: 31,
     name: "Bayam", 
@@ -372,7 +372,7 @@ const products = [
     isFav: false, 
     stok: 80, 
     initialStok: 80, 
-    image: "src/assets/img/sayur/Bayem.jpg" },
+    image: "/img/sayur/Bayem.jpg" },
   { 
     id: 32,
     name: "Brokoli", 
@@ -384,7 +384,7 @@ const products = [
     isFav: false, 
     stok: 90, 
     initialStok: 90, 
-    image: "src/assets/img/sayur/Brokoli.jpg" },
+    image: "/img/sayur/Brokoli.jpg" },
   { 
     id: 33,
     name: "Buncis Lokal", 
@@ -396,7 +396,7 @@ const products = [
     isFav: false, 
     stok: 100, 
     initialStok: 100, 
-    image: "src/assets/img/sayur/buncis-lokal.jpg" },
+    image: "/img/sayur/buncis-lokal.jpg" },
   { 
     id: 34,
     name: "Cabe Hijau", 
@@ -408,7 +408,7 @@ const products = [
     isFav: false, 
     stok: 110, 
     initialStok: 110, 
-    image: "src/assets/img/sayur/cabe-hijau.jpg" },
+    image: "/img/sayur/cabe-hijau.jpg" },
   { 
     id: 35,
     name: "Cabe Merah", 
@@ -420,7 +420,7 @@ const products = [
     isFav: false, 
     stok: 120, 
     initialStok: 120, 
-    image: "src/assets/img/sayur/cabe-merah.jpg" },
+    image: "/img/sayur/cabe-merah.jpg" },
   { 
     id: 36,
     name: "Daun Bawang", 
@@ -432,7 +432,7 @@ const products = [
     isFav: false, 
     stok: 130, 
     initialStok: 130, 
-    image: "src/assets/img/sayur/daun-bawang.jpg" },
+    image: "/img/sayur/daun-bawang.jpg" },
   { 
     id: 37,
     name: "Daun Gingseng", 
@@ -444,7 +444,7 @@ const products = [
     isFav: false, 
     stok: 140, 
     initialStok: 140, 
-    image: "src/assets/img/sayur/daun-gingseng.jpg" },
+    image: "/img/sayur/daun-gingseng.jpg" },
   { 
     id: 38,
     name: "Daun Mint", 
@@ -456,7 +456,7 @@ const products = [
     isFav: false, 
     stok: 150, 
     initialStok: 150, 
-    image: "src/assets/img/sayur/daun-mint.jpg" },
+    image: "/img/sayur/daun-mint.jpg" },
   { 
     id: 39,
     name: "Daun Salam", 
@@ -468,7 +468,7 @@ const products = [
     isFav: false, 
     stok: 160, 
     initialStok: 160, 
-    image: "src/assets/img/sayur/daun-salam.jpg" },
+    image: "/img/sayur/daun-salam.jpg" },
   { 
     id: 40,
     name: "Daun Siomak", 
@@ -480,7 +480,7 @@ const products = [
     isFav: false, 
     stok: 170, 
     initialStok: 170, 
-    image: "src/assets/img/sayur/daun-siomak.jpg" },
+    image: "/img/sayur/daun-siomak.jpg" },
   { 
     id: 41,
     name: "Jagung", 
@@ -492,7 +492,7 @@ const products = [
     isFav: false, 
     stok: 180, 
     initialStok: 180, 
-    image: "src/assets/img/sayur/Jagung.jpg" },
+    image: "/img/sayur/Jagung.jpg" },
   { 
     id: 42,
     name: "Jahe", 
@@ -504,7 +504,7 @@ const products = [
     isFav: false, 
     stok: 190, 
     initialStok: 190, 
-    image: "src/assets/img/sayur/Jahe.jpg" },
+    image: "/img/sayur/Jahe.jpg" },
   { 
     id: 43,
     name: "Jeruk Nipis", 
@@ -516,7 +516,7 @@ const products = [
     isFav: false, 
     stok: 200, 
     initialStok: 200, 
-    image: "src/assets/img/sayur/jeruk-nipis.jpg" },
+    image: "/img/sayur/jeruk-nipis.jpg" },
   { 
     id: 44,
     name: "Kacang Panjang", 
@@ -528,7 +528,7 @@ const products = [
     isFav: false, 
     stok: 50, 
     initialStok: 50, 
-    image: "src/assets/img/sayur/kacang-panjang.jpg" },
+    image: "/img/sayur/kacang-panjang.jpg" },
   { 
     id: 45,
     name: "Kailan", 
@@ -540,7 +540,7 @@ const products = [
     isFav: false, 
     stok: 60, 
     initialStok: 60, 
-    image: "src/assets/img/sayur/Kailan.jpg" },
+    image: "/img/sayur/Kailan.jpg" },
   { 
     id: 46,
     name: "Kangkung", 
@@ -552,7 +552,7 @@ const products = [
     isFav: false, 
     stok: 70, 
     initialStok: 70, 
-    image: "src/assets/img/sayur/Kangkung.jpg" },
+    image: "/img/sayur/Kangkung.jpg" },
   { 
     id: 47,
     name: "Kembang Kol", 
@@ -564,7 +564,7 @@ const products = [
     isFav: false, 
     stok: 80, 
     initialStok: 80, 
-    image: "src/assets/img/sayur/Kembang-kol.jpg" },
+    image: "/img/sayur/kembang-kol.jpg" },
   { 
     id: 48,
     name: "Kentang", 
@@ -576,7 +576,7 @@ const products = [
     isFav: false, 
     stok: 90, 
     initialStok: 90, 
-    image: "src/assets/img/sayur/Kentang.jpg" },
+    image: "/img/sayur/Kentang.jpg" },
   { 
     id: 49,
     name: "Labu Siam", 
@@ -588,7 +588,7 @@ const products = [
     isFav: false, 
     stok: 100, 
     initialStok: 100, 
-    image: "src/assets/img/sayur/labu-siam.jpg" },
+    image: "/img/sayur/labu-siam.jpg" },
   { 
     id: 50,
     name: "Lengkuas", 
@@ -600,7 +600,7 @@ const products = [
     isFav: false, 
     stok: 110, 
     initialStok: 110, 
-    image: "src/assets/img/sayur/Lengkuas.jpg" },
+    image: "/img/sayur/Lengkuas.jpg" },
   { 
     id: 51,
     name: "Lobak", 
@@ -612,7 +612,7 @@ const products = [
     isFav: false, 
     stok: 120, 
     initialStok: 120, 
-    image: "src/assets/img/sayur/Lobak.jpg" },
+    image: "/img/sayur/Lobak.jpg" },
   { 
     id: 52,
     name: "Oregano", 
@@ -624,7 +624,7 @@ const products = [
     isFav: false, 
     stok: 130, 
     initialStok: 130, 
-    image: "src/assets/img/sayur/Oregano.jpg" },
+    image: "/img/sayur/Oregano.jpg" },
   { 
     id: 53,
     name: "Pak Choy", 
@@ -636,7 +636,7 @@ const products = [
     isFav: false, 
     stok: 140, 
     initialStok: 140, 
-    image: "src/assets/img/sayur/pak-choy.jpg" },
+    image: "/img/sayur/pak-choy.jpg" },
   { 
     id: 54,
     name: "Paprika Merah", 
@@ -648,7 +648,7 @@ const products = [
     isFav: false, 
     stok: 150, 
     initialStok: 150, 
-    image: "src/assets/img/sayur/paprika-merah.jpg" },
+    image: "/img/sayur/paprika-merah.jpg" },
   { 
     id: 55,
     name: "Pare", 
@@ -660,7 +660,7 @@ const products = [
     isFav: false, 
     stok: 160, 
     initialStok: 160, 
-    image: "src/assets/img/sayur/Pare.jpg" },
+    image: "/img/sayur/Pare.jpg" },
   { 
     id: 56,
     name: "Radish", 
@@ -672,7 +672,7 @@ const products = [
     isFav: false, 
     stok: 170, 
     initialStok: 170, 
-    image: "src/assets/img/sayur/Radish.jpg" },
+    image: "/img/sayur/Radish.jpg" },
   { 
     id: 57,
     name: "Sawi Hijau", 
@@ -684,7 +684,7 @@ const products = [
     isFav: false, 
     stok: 180, 
     initialStok: 180, 
-    image: "src/assets/img/sayur/sawi-hijau.jpg" },
+    image: "/img/sayur/sawi-hijau.jpg" },
   { 
     id: 58,
     name: "Selada Romain", 
@@ -696,7 +696,7 @@ const products = [
     isFav: false, 
     stok: 190, 
     initialStok: 190, 
-    image: "src/assets/img/sayur/selada-romain.jpg" },
+    image: "/img/sayur/selada-romain.jpg" },
   { 
     id: 59,
     name: "Seledri", 
@@ -708,7 +708,7 @@ const products = [
     isFav: false, 
     stok: 200, 
     initialStok: 200, 
-    image: "src/assets/img/sayur/Seledri.jpg" },
+    image: "/img/sayur/Seledri.jpg" },
   { 
     id: 60,
     name: "Sereh", 
@@ -720,7 +720,7 @@ const products = [
     isFav: false, 
     stok: 50, 
     initialStok: 50, 
-    image: "src/assets/img/sayur/Sereh.jpg" },
+    image: "/img/sayur/Sereh.jpg" },
   { 
     id: 61,
     name: "Tahu", 
@@ -732,7 +732,7 @@ const products = [
     isFav: false, 
     stok: 60, 
     initialStok: 60, 
-    image: "src/assets/img/sayur/Tahu.jpg" },
+    image: "/img/sayur/Tahu.jpg" },
   { 
     id: 62,
     name: "Tempe", 
@@ -744,7 +744,7 @@ const products = [
     isFav: false, 
     stok: 70, 
     initialStok: 70, 
-    image: "src/assets/img/sayur/tempe.jpg" },
+    image: "/img/sayur/tempe.jpg" },
   { 
     id: 63,
     name: "Terong Ungu", 
@@ -756,7 +756,7 @@ const products = [
     isFav: false, 
     stok: 80, 
     initialStok: 80, 
-    image: "src/assets/img/sayur/terong-ungu.jpg" },
+    image: "/img/sayur/terong-ungu.jpg" },
   { 
     id: 64,
     name: "Timun", 
@@ -768,7 +768,7 @@ const products = [
     isFav: false, 
     stok: 90, 
     initialStok: 90, 
-    image: "src/assets/img/sayur/Timun.jpg" },
+    image: "/img/sayur/Timun.jpg" },
   { 
     id: 65,
     name: "Toge", 
@@ -780,7 +780,7 @@ const products = [
     isFav: false, 
     stok: 100, 
     initialStok: 100, 
-    image: "src/assets/img/sayur/toge.jpg" },
+    image: "/img/sayur/toge.jpg" },
   { 
     id: 66,
     name: "Ubi", 
@@ -792,7 +792,7 @@ const products = [
     isFav: false, 
     stok: 110, 
     initialStok: 110, 
-    image: "src/assets/img/sayur/ubi.jpg" },
+    image: "/img/sayur/ubi.png" },
   { 
     id: 67,
     name: "Wortel", 
@@ -804,7 +804,7 @@ const products = [
     isFav: false, 
     stok: 120, 
     initialStok: 120, 
-    image: "src/assets/img/sayur/Wortel.jpg" 
+    image: "/img/sayur/Wortel.jpg" 
   }
 ]
 const productsLimit = []
@@ -813,13 +813,13 @@ for(let i = 0; i < 10; i++) {
   productsLimit.push(products[i])
 }
 
-// function randomComparator() {
-//   return Math.random() - 0.5;
-// }
-
+function randomComparator() {
+  return Math.random() - 0.5;
+}
 
 const initialState = {
-  products: productsLimit
+  allProducts: products.sort(randomComparator),
+  productsLimit: productsLimit,
 }
 
 export const productsSlice = createSlice({
