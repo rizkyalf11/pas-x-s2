@@ -817,6 +817,7 @@ const productsLimit = []
 for(let i = 0; i < 10; i++) {
   productsLimit.push(products[i])
 }
+
 function randomComparator() {
   return Math.random() - 0.5;
 }
@@ -835,26 +836,39 @@ export const productsSlice = createSlice({
     generateFilter: (state, action) => {
       console.log(action.payload.jenis)
       if(action.payload.jenis == 'max') {
-        console.log(action.payload)
         if(state.backUp.length != 0) {
           state.allProducts = state.backUp
         } 
         state.backUp = state.allProducts
-        state.allProducts = state.allProducts.filter(item => item.price <= 2000).sort((a, b) => a.price - b.price)
+
+        state.allProducts = state.allProducts.filter(item => item.price <= 2000)
       } else if(action.payload.jenis == 'min') {
-        console.log(action.payload)
         if(state.backUp.length != 0) {
           state.allProducts = state.backUp
         } 
         state.backUp = state.allProducts
-        state.allProducts = state.allProducts.filter(item => item.price >= 2000).sort((a, b) => a.price - b.price)
+
+        state.allProducts = state.allProducts.filter(item => item.price >= 2000)
       } else if(action.payload.jenis == 'inputCostum') {
         if(state.backUp.length != 0) {
           state.allProducts = state.backUp
         } 
         state.backUp = state.allProducts
-        console.log(action.payload.max)
-        console.log(action.payload.min)
+
+        if(action.payload.min == 0) {
+          state.allProducts = state.allProducts.filter(item => item.price <= action.payload.max)
+        } else if(action.payload.max == 0 ) {
+          state.allProducts = state.allProducts.filter(item => item.price >= action.payload.min)
+        } else {
+          state.allProducts = state.allProducts.filter(item => item.price >= action.payload.min && item.price <= action.payload.max)
+        }
+      } else if(action.payload.jenis == 'rate') {
+        if(state.backUp.length != 0) {
+          state.allProducts = state.backUp
+        } 
+        state.backUp = state.allProducts
+
+        state.allProducts = state.allProducts.filter(item => Number(item.rate.split('.')[0]) >= 4)
       }
     },
     resetFilter: (state) => {

@@ -6,11 +6,12 @@ import { useEffect } from 'react'
 
 // RDX
 import { useDispatch, useSelector } from 'react-redux'
-import { changeFilter } from '../features/RouteSlice/RouteSlice'
 import { changeIsShowCard } from '../features/Products/isShowDetail'
 import { changeIsShow } from '../features/ProfileCard/ProfileCardSlice'
-import CardDetail from '../component/CardDetail'
 import { generateFilter, resetFilter } from '../features/Products/ProductsSlice'
+
+// Comp
+import CardDetail from '../component/CardDetail'
 
 const AllProducts = () => {
 	// RDX
@@ -22,9 +23,6 @@ const AllProducts = () => {
 	const changeFilterAndCard = () => {
 		if (isShowCardProfile) {
 			dispatch(changeIsShow())
-		}
-		if (filter) {
-			dispatch(changeFilter())
 		}
 	}
 
@@ -75,7 +73,7 @@ const AllProducts = () => {
 		minCostum.current.value = ''
 		inpRate.current.checked = false
 
-		if (jenisFilter.jenis == '' || jenisFilter.jenis == 'min' || jenisFilter.jenis == 'inputCostum') {
+		if (jenisFilter.jenis == '' || jenisFilter.jenis == 'min' || jenisFilter.jenis == 'inputCostum' || jenisFilter.jenis == 'rate') {
 			setJenisFilter({ jenis: 'max' })
 		} else if (jenisFilter.jenis == 'max') {
 			setJenisFilter({ jenis: '', val: { value1: '', value2: '' } })
@@ -89,7 +87,7 @@ const AllProducts = () => {
 		minCostum.current.value = ''
 		inpRate.current.checked = false
 
-		if (jenisFilter.jenis == '' || jenisFilter.jenis == 'max' || jenisFilter.jenis == 'inputCostum') {
+		if (jenisFilter.jenis == '' || jenisFilter.jenis == 'max' || jenisFilter.jenis == 'inputCostum' || jenisFilter.jenis == 'rate') {
 			setJenisFilter({ jenis: 'min' })
 		} else if (jenisFilter.jenis == 'min') {
 			setJenisFilter({ jenis: '', val: { value1: '', value2: '' } })
@@ -120,11 +118,28 @@ const AllProducts = () => {
 		min.current.checked = false
 		maxCostum.current.value = ''
 		minCostum.current.value = ''
+
+		if (jenisFilter.jenis == '' || jenisFilter.jenis == 'max' || jenisFilter.jenis == 'min' || jenisFilter.jenis == 'inputCostum') {
+			setJenisFilter({ jenis: 'rate' })
+		} else if (jenisFilter.jenis == 'rate') {
+			setJenisFilter({ jenis: '', val: { value1: '', value2: '' } })
+		}
 	}
 
 	const hdlGenerateFilter = () => {
-		dispatch(generateFilter({jenis: jenisFilter.jenis, max: maxCostumValue, min: minCostumValue}))
-		setIsFilter(jenisFilter.jenis)
+		if(jenisFilter.jenis == 'inputCostum') {
+			console.log('ya')
+			if(maxCostumValue == 0 && minCostumValue == 0) {
+				console.log('error')
+			} else {
+				dispatch(generateFilter({jenis: jenisFilter.jenis, max: maxCostumValue, min: minCostumValue}))
+				setIsFilter(jenisFilter.jenis)
+			}
+		} else {
+			console.log('ya')
+			dispatch(generateFilter({jenis: jenisFilter.jenis, max: maxCostumValue, min: minCostumValue}))
+			setIsFilter(jenisFilter.jenis)
+		}
 	}
 
 	const hdlResetFilter = () => {
@@ -136,7 +151,7 @@ const AllProducts = () => {
 
 		console.log(isFilter)
 
-		if (isFilter == 'max' || isFilter == 'min' || isFilter == 'inputCostum') {
+		if (isFilter == 'max' || isFilter == 'min' || isFilter == 'inputCostum' || isFilter == 'rate') {
 			setIsFilter('')
 			setJenisFilter({ jenis: '', val: { value1: '', value2: '' } })
 			dispatch(resetFilter())
@@ -190,7 +205,7 @@ const AllProducts = () => {
 						</div>
 						<div className="flex items-center gap-2">
 							<input onClick={() => hdlInptRate()} ref={inpRate} type="checkbox" name="" id="star" className="accent-navigator w-4 h-4 rounded-full" />
-							<label htmlFor="star" className="flex items-center">
+							<label htmlFor="star" className="flex select-none items-center">
 								<svg className="w-[19px] mr-1" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<g clipPath="url(#clip0_406_1869)">
 										<path
@@ -211,12 +226,14 @@ const AllProducts = () => {
 							<button onClick={() => hdlGenerateFilter()} className="w-full h-10 font-semibold rounded-lg text-white border-[2px] border-navigator hover:bg-transparent hover:text-navigator transition-all duration-300 bg-navigator">
 								Generate filter
 							</button>
-							<button
-								onClick={() => hdlResetFilter()}
-								className="w-full h-10 font-semibold rounded-lg border-[2px] border-noHover text-noHover dark:border-HDark dark:text-HDark hover:bg-transparent hover:text-navigator hover:border-navigator transition-all duration-300 "
-							>
-								Reset filter
-							</button>
+							{isFilter != '' && (
+								<button
+									onClick={() => hdlResetFilter()}
+									className="w-full h-10 font-semibold rounded-lg border-[2px] border-noHover text-noHover dark:border-HDark dark:text-HDark hover:bg-transparent hover:text-navigator hover:border-navigator transition-all duration-300 "
+								>
+									Reset filter
+								</button>
+							)}
 						</div>
 					</div>
 				</motion.aside>
