@@ -17,8 +17,8 @@ const CardDetail = ({ product }) => {
 	return (
 		<motion.div
 			initial={{opacity: 0}}
-			animate={{opacity: 1, transition:{ease: 'easeOut', type: 'spring', duration: .7}}}
-			exit={{opacity: 0, transition:{ease: 'easeOut', type: 'spring', duration: .7, delay: .1}}}
+			animate={{opacity: 1, transition:{ease: 'easeOut', type: 'spring', duration: .8}}}
+			exit={{opacity: 0, transition:{ease: 'easeOut', type: 'spring', duration: .8, delay: .1}}}
 		className="fixed bg-black inset-0 bg-opacity-70 z-50">
 			<svg className='fill-white absolute top-8 right-8 w-[30px] md:w-[50px] cursor-pointer z-50 bg-black/50 p-2 rounded-full' onClick={() => detailCard && disptach(changeIsShowCard())} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<g clipPath="url(#clip0_403_3045)">

@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+// all prod
 const products = [
   { 
     id: 1,
@@ -807,28 +808,61 @@ const products = [
     image: "/img/sayur/Wortel.jpg" 
   }
 ]
-const productsLimit = []
 
+// backup
+const backUp = []
+
+// limit prod
+const productsLimit = []
 for(let i = 0; i < 10; i++) {
   productsLimit.push(products[i])
 }
-
 function randomComparator() {
   return Math.random() - 0.5;
 }
 
+// state
 const initialState = {
   allProducts: products.sort(randomComparator),
   productsLimit: productsLimit,
+  backUp,
 }
 
 export const productsSlice = createSlice({
   name: 'products',
   initialState,
   reducers: {
-
+    generateFilter: (state, action) => {
+      console.log(action.payload.jenis)
+      if(action.payload.jenis == 'max') {
+        console.log(action.payload)
+        if(state.backUp.length != 0) {
+          state.allProducts = state.backUp
+        } 
+        state.backUp = state.allProducts
+        state.allProducts = state.allProducts.filter(item => item.price <= 2000).sort((a, b) => a.price - b.price)
+      } else if(action.payload.jenis == 'min') {
+        console.log(action.payload)
+        if(state.backUp.length != 0) {
+          state.allProducts = state.backUp
+        } 
+        state.backUp = state.allProducts
+        state.allProducts = state.allProducts.filter(item => item.price >= 2000).sort((a, b) => a.price - b.price)
+      } else if(action.payload.jenis == 'inputCostum') {
+        if(state.backUp.length != 0) {
+          state.allProducts = state.backUp
+        } 
+        state.backUp = state.allProducts
+        console.log(action.payload.max)
+        console.log(action.payload.min)
+      }
+    },
+    resetFilter: (state) => {
+      state.allProducts = state.backUp
+      state.backUp = []
+    }
   }
 })
 
-// export const {} = productsSlice.actions
+export const { generateFilter, resetFilter } = productsSlice.actions
 export default productsSlice.reducer

@@ -1,5 +1,4 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 // FM
 import { motion, AnimatePresence } from 'framer-motion'
@@ -35,14 +34,14 @@ const Navbar = () => {
 	const userTheme = localStorage.getItem('theme')
 	const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
 
-	const themeCheck = () => {
+	const themeCheck = useCallback(() => {
 		if (userTheme == 'dark' || (!userTheme && systemTheme)) {
-			document.documentElement.classList.add('dark')
-			setEnabled(true)
-		} else {
-			setEnabled(false)
-		}
-	}
+					document.documentElement.classList.add('dark')
+					setEnabled(true)
+				} else {
+					setEnabled(false)
+				}
+	}, [userTheme, systemTheme])
 
 	const ChangeDark = () => {
 		if (!enabled) {
@@ -65,7 +64,7 @@ const Navbar = () => {
 		dispatch(changeRoute(location.pathname))
 	}, [route, location, dispatch])
 
-	const [isLoad, setIsLoad] = useState(true)
+	const [isLoad, setIsLoad] = useState(false)
 	window.addEventListener('load', () => {
 		setTimeout(() => {
 			setIsLoad(false)

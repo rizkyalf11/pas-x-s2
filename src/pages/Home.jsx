@@ -1,5 +1,4 @@
 /* eslint-disable react/no-unescaped-entities */
-/* eslint-disable react/no-unknown-property */
 import { useEffect, useState } from 'react'
 
 // FM
@@ -92,12 +91,12 @@ const Home = () => {
 					initial={{opacity: 0}}
 					animate={{opacity: 1, transition: {delay: .5, duration: .5, ease: 'easeIn'}}}
 				className="select-none mt-8 hpk:mt-14 px-2 hpsk:px-3 lg:px-24 xl:px-40">
-					<h1 className="text-2xl hp:text-3xl md:text-4xl font-semibold dark:text-white">Category</h1>
+					<h1 className="text-2xl hp:text-3xl md:text-4xl font-bold dark:text-white">Category</h1>
 					<div className="mt-4 sm:mt-7 swiper swiper2">
 						<Swiper
 							direction="horizontal"
 							modules={[Pagination]}
-							spaceBetween={30}
+							spaceBetween={10}
 							freeMode={true}
 							pagination={{ el: null, clickable: true }}
 							breakpoints={{
@@ -119,22 +118,22 @@ const Home = () => {
 								},
 							}}
 						>
-							<SwiperSlide className="w-[180px] h-[100px] hpk:h-[200px] swiper-slide rounded-xl overflow-hidden transition-all duration-300 relative group">
+							<SwiperSlide className="w-[180px] h-[100px] hpk:h-[140px] swiper-slide rounded-xl overflow-hidden transition-all duration-300 relative group">
 								<img loading="eager" src="/img/category1.jpg" alt="category" className="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-125" />
 								<div className="absolute w-full h-full bg-black top-0 opacity-50 transition-all duration-1000 group-hover:opacity-10 "></div>
 								<h3 className=" absolute w-full h-full top-0 text-white flex justify-center items-center font-semibold transition-transform duration-300 p-3 ">Local fruits</h3>
 							</SwiperSlide>
-							<SwiperSlide className="w-[180px] h-[100px] hpk:h-[200px] swiper-slide rounded-xl overflow-hidden transition-all duration-1000 relative group">
+							<SwiperSlide className="w-[180px] h-[100px] hpk:h-[140px] swiper-slide rounded-xl overflow-hidden transition-all duration-1000 relative group">
 								<img loading="eager" src="/img/category2.jpg" alt="category" className="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-125" />
 								<div className="absolute w-full h-full bg-black top-0 opacity-50 transition-all duration-1000 group-hover:opacity-10 "></div>
 								<h3 className=" absolute w-full h-full top-0 text-white flex justify-center items-center font-semibold transition-transform duration-300 p-3 ">Import fruits</h3>
 							</SwiperSlide>
-							<SwiperSlide className="w-[180px] h-[100px] hpk:h-[200px] swiper-slide rounded-xl overflow-hidden transition-all duration-1000 relative group">
+							<SwiperSlide className="w-[180px] h-[100px] hpk:h-[140px] swiper-slide rounded-xl overflow-hidden transition-all duration-1000 relative group">
 								<img loading="eager" src="/img/category3.jpeg" alt="category" className="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-125" />
 								<div className="absolute w-full h-full bg-black top-0 opacity-50 transition-all duration-1000 group-hover:opacity-10 "></div>
 								<h3 className=" absolute w-full h-full top-0 text-white flex justify-center items-center font-semibold transition-transform duration-300 p-3 ">Vegetables</h3>
 							</SwiperSlide>
-							<SwiperSlide className="w-[180px] h-[100px] hpk:h-[200px] swiper-slide rounded-xl overflow-hidden transition-all duration-1000 relative group">
+							<SwiperSlide className="w-[180px] h-[100px] hpk:h-[140px] swiper-slide rounded-xl overflow-hidden transition-all duration-1000 relative group">
 								<img loading="eager" src="/img/category4.jpg" alt="category" className="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-125" />
 								<div className="absolute w-full h-full bg-black top-0 opacity-50 transition-all duration-10 00 group-hover:opacity-10 "></div>
 								<h3 className=" absolute w-full h-full top-0 text-white flex justify-center items-center font-semibold transition-transform duration-300 p-3 ">Beverages</h3>
@@ -148,7 +147,7 @@ const Home = () => {
 					animate={{opacity: 1, transition: {delay: .8, duration: .5, ease: 'easeIn'}}}
 					className=" mt-7 md:mt-14 px-2 hpsk:px-3 lg:px-24 xl:px-40">
 					<div className='flex w-full justify-between items-center'>
-						<h1 className=" text-2xl hp:text-3xl md:text-4xl font-semibold dark:text-white">Product</h1>
+						<h1 className=" text-2xl hp:text-3xl md:text-4xl font-bold dark:text-white">Product</h1>
 						<Link to={'/all-products'} className='underline underline-offset-2 text-black/60 dark:text-white/60'>See all</Link>
 					</div>
 					<div className="mt-7 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 md:gap-5 ">
@@ -168,7 +167,7 @@ const Home = () => {
 									<div className="self-end px-2 flex flex-col w-full pb-2 gap-2">
 										<div className=" flex items-center pl-1 gap-1">
 											<svg className='w-[19px]' width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<g clip-path="url(#clip0_406_1869)">
+												<g clipPath="url(#clip0_406_1869)">
 												<path d="M1.3268 12.4003L4.8868 15.0003L3.5348 19.1873C3.31631 19.8367 3.31354 20.5393 3.52691 21.1904C3.74027 21.8415 4.15834 22.4062 4.7188 22.8003C5.26965 23.2071 5.93719 23.425 6.62195 23.4216C7.30671 23.4182 7.97204 23.1936 8.5188 22.7813L11.9998 20.2193L15.4818 22.7783C16.0317 23.1828 16.6956 23.4025 17.3782 23.4058C18.0607 23.4091 18.7268 23.1959 19.2806 22.7968C19.8343 22.3978 20.2473 21.8334 20.4601 21.1848C20.6729 20.5362 20.6745 19.8369 20.4648 19.1873L19.1128 15.0003L22.6728 12.4003C23.2219 11.9988 23.6302 11.4341 23.8391 10.7867C24.0481 10.1394 24.0472 9.44251 23.8365 8.79571C23.6258 8.14891 23.216 7.58525 22.6658 7.18523C22.1156 6.7852 21.4531 6.56929 20.7728 6.56832H16.3998L15.0728 2.43232C14.8641 1.78128 14.4541 1.21333 13.9018 0.810386C13.3495 0.407437 12.6835 0.190308 11.9998 0.190308C11.3161 0.190308 10.6501 0.407437 10.0978 0.810386C9.54553 1.21333 9.13548 1.78128 8.9268 2.43232L7.5998 6.56832H3.2308C2.55054 6.56929 1.88799 6.7852 1.33778 7.18523C0.787564 7.58525 0.377837 8.14891 0.167118 8.79571C-0.0436018 9.44251 -0.0445344 10.1394 0.164453 10.7867C0.37344 11.4341 0.781657 11.9988 1.3308 12.4003H1.3268Z" fill="#FFD706"/>
 												</g>
 												<defs>
@@ -219,7 +218,7 @@ const Home = () => {
 					animate={{opacity: 1, transition: {delay: 1.1, duration: .5, ease: 'easeIn'}}}
 					className="mt-14 md:mt-14 px-2 hpsk:px-3 lg:px-24 xl:px-40 flex flex-col md:flex-row">
 					<div className="w-full md:w-2/4 px-4 py-7 order-2 md:order-1">
-						<h1 className=" text-2xl hp:text-3xl md:text-4xl font-semibold dark:text-white">Why should fresh 4 you?</h1>
+						<h1 className=" text-2xl hp:text-3xl md:text-4xl font-bold dark:text-white">Why should fresh 4 you?</h1>
 						<p className="  mt-7 text-lg lg:text-2xl text-TexLig dark:text-TexDark">Our goal is to be an easy and convenient grocery shopping platform while maintaining the quality of our service - helping our customers shop efficiently and have time to do other important things every day.</p>
 						<button className="mt-7 h-[50px] w-[180px] border-[2.5px] border-navigator bg-navigator hover:bg-transparent rounded-xl flex justify-center items-center gap-2 dark:hover:border-navigator hover:border-navigator group transition-colors duration-300 ">
 							
@@ -236,7 +235,7 @@ const Home = () => {
 					initial={{opacity: 0}}
 					animate={{opacity: 1, transition: {delay: 1.4, duration: .5, ease: 'easeIn'}}}
 					className="mt-7 md:mt-14 px-2 hpsk:px-3 lg:px-24 xl:px-40">
-					<h1 className=" text-2xl hp:text-3xl md:text-4xl font-semibold dark:text-white">Blog</h1>
+					<h1 className=" text-2xl hp:text-3xl md:text-4xl font-bold dark:text-white">Blog</h1>
 					<div className="w-full flex flex-row mt-7 gap-3 md:gap-10">
 						<div className="w-2/4 ">
 							<img src="/img/blog1.png" alt="" className="" />
