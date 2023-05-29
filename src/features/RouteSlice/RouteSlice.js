@@ -14,7 +14,6 @@ const RouteSlice = createSlice({
     },
     changeFilter: (state) => {
       state.filter? state.filter = false : state.filter = true
-      console.log(state.filter)
     }
   }
 })
