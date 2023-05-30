@@ -17,10 +17,10 @@ import { changeFilter } from '../features/RouteSlice/RouteSlice'
 // RHT
 import { Toaster, toast } from 'react-hot-toast'
 
-const AllProducts = () => {
+const LocalFruits = () => {
 	// RDX
 	const dispatch = useDispatch()
-	const allProducts = useSelector((state) => state.products.allProducts)
+	const local = useSelector((state) => state.products.local)
 	const { filter } = useSelector((state) => state.route)
 	const { isShowCardProfile } = useSelector((state) => state.isShowCardProfile)
 
@@ -162,9 +162,7 @@ const AllProducts = () => {
 
 	return (
 		<>
-			<AnimatePresence>
-				{detailCard && <CardDetail product={data} />}
-			</AnimatePresence>
+			<AnimatePresence>{detailCard && <CardDetail product={data} />}</AnimatePresence>
 
 			<div>
 				<Toaster position="bottom-left" reverseOrder={false} />
@@ -261,12 +259,12 @@ const AllProducts = () => {
 				</motion.aside>
 				<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { delay: 0.5, duration: 0.5, ease: 'easeIn' } }} className="w-full md:w-[calc(100%-320px)]  ">
 					<section className="mt-7 md:mt-14 px-2 hpsk:px-3 lg:px-24 xl:px-40">
-						<h1 className=" text-3xl hpk:text-4xl font-quicksand font-bold dark:text-white">All Product</h1>
+						<h1 className=" text-3xl hpk:text-4xl font-quicksand font-bold dark:text-white">Local Fruits</h1>
 
 						<div className="mt-7 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4  gap-3 md:gap-5 " id="card-wrapper">
 							<AnimatePresence>
-								{allProducts &&
-									allProducts.map((product) => {
+								{local &&
+									local.map((product) => {
 										return <CategoryCard key={product.id} product={product} />
 									})}
 							</AnimatePresence>
@@ -388,4 +386,4 @@ const AllProducts = () => {
 	)
 }
 
-export default AllProducts
+export default LocalFruits

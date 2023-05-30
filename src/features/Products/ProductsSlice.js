@@ -806,11 +806,269 @@ const products = [
     stok: 120, 
     initialStok: 120, 
     image: "/img/sayur/Wortel.jpg" 
-  }
+  },
+  { 
+    id: 68,
+    name: "Almond Caffe Latte", 
+    deskripsi: "Almond coffee latte atau latte kopi almond adalah minuman berbasis kopi yang populer yang menggabungkan rasa kaya almond dengan kelembutan dari latte. Minuman ini merupakan kombinasi yang nikmat antara espresso, susu steamed, dan sirup almond atau susu almond, menghasilkan minuman yang krimi dan sedikit berasa kacang-kacangan.", 
+    category: "Minuman", 
+    displayPrice: "50.00", 
+    price: 5000, 
+    rate: '4.9', 
+    isFav: false, 
+    stok: 20, 
+    initialStok: 20, 
+    image: "/img/minuman/almond-caffeLatte.jpg" 
+  },
+  { 
+    id: 69,
+    name: "Caffe Latte", 
+    deskripsi: "Caffe latte adalah minuman kopi yang terdiri dari satu atau dua shot espresso yang dicampur dengan susu panas. Minuman ini memiliki rasio espresso dan susu yang seimbang, dengan lapisan busa halus di atasnya. Caffe latte memiliki cita rasa yang lembut, creamy, dan sedikit manis dari susu, dengan aroma kopi yang kaya. Minuman ini sering disajikan dalam cangkir besar dan bisa dinikmati dengan atau tanpa tambahan sirup atau hiasan.", 
+    category: "Minuman", 
+    displayPrice: "20.00", 
+    price: 2000, 
+    rate: '4.2', 
+    isFav: false, 
+    stok: 10, 
+    initialStok: 10, 
+    image: "/img/minuman/caffe-latte.jpg" 
+  },
+  { 
+    id: 70,
+    name: "Chocolate Almond", 
+    deskripsi: "Coklat almond adalah sejenis permen atau makanan manis yang terdiri dari almond yang dilapisi dengan lapisan coklat. Almond, yang merupakan kacang dengan rasa kaya dan tekstur renyah, menjadi inti utama dari coklat almond. Biasanya, almond yang digunakan dalam coklat almond telah dikupas kulitnya.", 
+    category: "Minuman", 
+    displayPrice: "32.00", 
+    price: 3200, 
+    rate: '4.1', 
+    isFav: false, 
+    stok: 15, 
+    initialStok: 15, 
+    image: "/img/minuman/chocolate-almond.jpg" 
+  },
+  { 
+    id: 71,
+    name: "Chocolate Avocado", 
+    deskripsi: "Minuman coklat avocado adalah minuman yang menggabungkan kelezatan coklat dengan krimi dan kekayaan rasa alpukat. Ini adalah kombinasi yang segar dan menyegarkan.", 
+    category: "Minuman", 
+    displayPrice: "42.00", 
+    price: 4200, 
+    rate: '3.9', 
+    isFav: false, 
+    stok: 27, 
+    initialStok: 27, 
+    image: "/img/minuman/chocolate-avocado.jpg" 
+  },
+  { 
+    id: 72,
+    name: "Chocolate Banana", 
+    deskripsi: "Minuman coklat banana adalah minuman yang menggabungkan kelezatan coklat dengan rasa manis dan krimi dari pisang. Ini adalah kombinasi yang memikat dan menyegarkan.", 
+    category: "Minuman", 
+    displayPrice: "31.00", 
+    price: 3100, 
+    rate: '4.2', 
+    isFav: false, 
+    stok: 30, 
+    initialStok: 30, 
+    image: "/img/minuman/chocolate-banana.jpg" 
+  },
+  { 
+    id: 73,
+    name: "Chocolate Nut", 
+    deskripsi: "Minuman coklat nut adalah minuman yang menggabungkan cita rasa kaya dan manis dari coklat dengan kelezatan dan kekayaan rasa kacang. Ini adalah kombinasi yang lezat dan memikat.", 
+    category: "Minuman", 
+    displayPrice: "51.00", 
+    price: 5100, 
+    rate: '4.0', 
+    isFav: false, 
+    stok: 36, 
+    initialStok: 36, 
+    image: "/img/minuman/chocolate-nut.jpg" 
+  },
+  { 
+    id: 74,
+    name: "Jus Anggur", 
+    deskripsi: "Jus anggur adalah minuman segar yang terbuat dari perasan buah anggur. Ini adalah minuman yang populer karena cita rasanya yang manis, sejuk, dan menyegarkan.", 
+    category: "Minuman", 
+    displayPrice: "68.00", 
+    price: 6800, 
+    rate: '4.5', 
+    isFav: false, 
+    stok: 46, 
+    initialStok: 46, 
+    image: "/img/minuman/jus-anggur.jpg" 
+  },
+  { 
+    id: 75,
+    name: "Jus Bayam", 
+    deskripsi: "Jus bayam adalah minuman yang terbuat dari daun bayam yang diolah menjadi jus. Bayam adalah sayuran hijau yang kaya akan nutrisi dan sering dianggap sebagai superfood karena kandungan gizi yang tinggi.", 
+    category: "Minuman", 
+    displayPrice: "40.00", 
+    price: 4000, 
+    rate: '4.1', 
+    isFav: false, 
+    stok: 26, 
+    initialStok: 26, 
+    image: "/img/minuman/jus-bayam.jpg" 
+  },
+  { 
+    id: 76,
+    name: "Jus Jahe Merah", 
+    deskripsi: "Jus jahe merah adalah minuman yang terbuat dari jahe merah segar yang diolah menjadi jus. Jahe merah adalah varietas jahe yang memiliki rasa yang lebih kuat dan pedas dibandingkan dengan jahe biasa.", 
+    category: "Minuman", 
+    displayPrice: "39.00", 
+    price: 3900, 
+    rate: '3.5', 
+    isFav: false, 
+    stok: 30, 
+    initialStok: 30, 
+    image: "/img/minuman/jus-jahe-merah.jpg" 
+  },
+  { 
+    id: 77,
+    name: "Jus Jeruk", 
+    deskripsi: "Jus jeruk adalah minuman segar yang terbuat dari perasan buah jeruk. Jeruk adalah buah yang kaya akan vitamin C dan memiliki rasa manis asam yang khas.", 
+    category: "Minuman", 
+    displayPrice: "52.00", 
+    price: 5200, 
+    rate: '5.0', 
+    isFav: false, 
+    stok: 50, 
+    initialStok: 50, 
+    image: "/img/minuman/jus-jeruk.jpg" 
+  },
+  { 
+    id: 78,
+    name: "Jus Kubis", 
+    deskripsi: "Jus kubis adalah minuman yang terbuat dari jus segar kubis. Kubis adalah sayuran hijau yang memiliki tekstur renyah dan rasa yang lembut.", 
+    category: "Minuman", 
+    displayPrice: "24.00", 
+    price: 2400, 
+    rate: '3.3', 
+    isFav: false, 
+    stok: 10, 
+    initialStok: 10, 
+    image: "/img/minuman/jus-kubis.jpg" 
+  },
+  { 
+    id: 79,
+    name: "Jus Lemon", 
+    deskripsi: "Jus lemon sering dinikmati sebagai minuman penambah energi pada pagi hari atau sebagai bahan dalam campuran minuman lain seperti koktail atau mocktail. Rasanya yang asam dan menyegarkan memberikan sensasi kesegaran pada setiap tegukan.", 
+    category: "Minuman", 
+    displayPrice: "32.00", 
+    price: 3200, 
+    rate: '4.3', 
+    isFav: false, 
+    stok: 53, 
+    initialStok: 53, 
+    image: "/img/minuman/jus-lemon.jpg" 
+  },
+  { 
+    id: 80,
+    name: "Jus Nanas", 
+    deskripsi: "Jus nanas dapat dinikmati dalam keadaan segar dan dingin, dan sering kali menjadi pilihan yang menyegarkan di musim panas. Minuman ini dapat diminum secara langsung atau digunakan sebagai bahan dasar dalam berbagai campuran minuman seperti koktail, smoothie, atau mocktail.", 
+    category: "Minuman", 
+    displayPrice: "27.00", 
+    price: 2700, 
+    rate: '4.7', 
+    isFav: false, 
+    stok: 73, 
+    initialStok: 73, 
+    image: "/img/minuman/jus-nanas.jpg" 
+  },
+  { 
+    id: 81,
+    name: "Jus Semangka", 
+    deskripsi: "Selain kenikmatan rasanya, jus semangka juga memiliki manfaat kesehatan. Semangka mengandung banyak air, elektrolit, dan antioksidan seperti likopen yang baik untuk hidrasi tubuh dan menjaga kesehatan kulit. Jus semangka juga rendah kalori dan tinggi vitamin C, vitamin A, serta zat besi.", 
+    category: "Minuman", 
+    displayPrice: "34.00", 
+    price: 3400, 
+    rate: '4.9', 
+    isFav: false, 
+    stok: 45, 
+    initialStok: 45, 
+    image: "/img/minuman/jus-semangka.jpg" 
+  },
+  { 
+    id: 82,
+    name: "Jus Strawberry", 
+    deskripsi: "Selain kenikmatan rasanya, jus strawberry juga mengandung berbagai nutrisi penting. Stroberi kaya akan vitamin C, serat, antioksidan, serta zat besi dan kalium. Jus strawberry juga diketahui memiliki potensi manfaat untuk menjaga kesehatan jantung, meningkatkan sistem kekebalan tubuh, serta mendukung kesehatan kulit.", 
+    category: "Minuman", 
+    displayPrice: "90.00", 
+    price: 9000, 
+    rate: '5.0', 
+    isFav: false, 
+    stok: 45, 
+    initialStok: 45, 
+    image: "/img/minuman/jus-strawberry.jpg" 
+  },
+  { 
+    id: 83,
+    name: "Jus Temulawak", 
+    deskripsi: "Jus temulawak dapat dinikmati dalam keadaan segar dan dingin. Minuman ini biasanya diminum dalam jumlah yang lebih kecil dibandingkan jus buah lainnya, karena rasanya yang pahit dan kuat. Beberapa orang juga mengonsumsi jus temulawak sebagai bagian dari program detoksifikasi atau suplemen herbal.", 
+    category: "Minuman", 
+    displayPrice: "20.00", 
+    price: 2000, 
+    rate: '3.1', 
+    isFav: false, 
+    stok: 63, 
+    initialStok: 63, 
+    image: "/img/minuman/jus-temulawak.jpg" 
+  },
+  { 
+    id: 84,
+    name: "Jus Timun", 
+    deskripsi: "Selain kenikmatan rasanya, jus timun juga memiliki manfaat kesehatan. Timun mengandung banyak air, serat, dan nutrisi seperti vitamin K, vitamin C, dan kalium. Jus timun diketahui dapat membantu dalam menjaga hidrasi tubuh, mengurangi kelebihan panas dalam tubuh, serta dapat memiliki efek menenangkan pada sistem pencernaan.", 
+    category: "Minuman", 
+    displayPrice: "25.00", 
+    price: 2500, 
+    rate: '4.1', 
+    isFav: false, 
+    stok: 32, 
+    initialStok: 32, 
+    image: "/img/minuman/jus-timun.jpg" 
+  },
+  { 
+    id: 85,
+    name: "Susu Almond", 
+    deskripsi: "Susu almond memiliki warna putih kental dan rasa yang lembut dengan sentuhan kacang almond yang khas. Rasanya tidak terlalu manis dan memiliki sedikit kekentalan yang mirip dengan susu sapi.", 
+    category: "Minuman", 
+    displayPrice: "65.00", 
+    price: 6500, 
+    rate: '4.3', 
+    isFav: false, 
+    stok: 54, 
+    initialStok: 54, 
+    image: "/img/minuman/susu-almond.jpg" 
+  },
+  { 
+    id: 86,
+    name: "Susu Buah Naga", 
+    deskripsi: "Susu buah naga memiliki warna cerah yang menarik, biasanya merah atau merah muda tergantung pada jenis buah naga yang digunakan. Rasanya yang manis dan segar membuatnya menjadi minuman yang menyenangkan dan menyegarkan.", 
+    category: "Minuman", 
+    displayPrice: "55.00", 
+    price: 5500, 
+    rate: '4.6', 
+    isFav: false, 
+    stok: 74, 
+    initialStok: 74, 
+    image: "/img/minuman/susu-buahNaga.jpg" 
+  },
+  { 
+    id: 87,
+    name: "Susu Teh Hijau", 
+    deskripsi: "Susu teh hijau memiliki warna hijau muda atau kecoklatan tergantung pada kekentalan dan jenis teh hijau yang digunakan. Rasanya unik dengan kombinasi rasa teh yang khas dan kelembutan susu yang memberikan sentuhan kreami.", 
+    category: "Minuman", 
+    displayPrice: "30.00", 
+    price: 3000, 
+    rate: '4.2', 
+    isFav: false, 
+    stok: 84, 
+    initialStok: 84, 
+    image: "/img/minuman/susu-tehHijau.jpg" 
+  },
 ]
 
-// backup
-const backUp = []
 
 // limit prod
 const productsLimit = []
@@ -826,57 +1084,229 @@ function randomComparator() {
 const initialState = {
   allProducts: products.sort(randomComparator),
   productsLimit: productsLimit,
-  backUp,
+  sayur: products.filter(item => item.category == 'Sayur'),
+  local: products.filter(item => item.category == 'Buah Lokal'),
+  import: products.filter(item => item.category == 'Buah Import'),
+  minuman: products.filter(item => item.category == 'Minuman'),
+  backUp: [],
+  backUpLocal: [],
+  backUpImport: [],
+  backUpVegetables: [],
+  backUpBeverages: [],
+  backUpMinuman: [],
+  path: ''
 }
 
 export const productsSlice = createSlice({
   name: 'products',
   initialState,
   reducers: {
+    changePath: (state, action) => {
+      state.path = action.payload
+    },
     generateFilter: (state, action) => {
       console.log(action.payload.jenis)
+      console.log(state.path)
       if(action.payload.jenis == 'max') {
-        if(state.backUp.length != 0) {
-          state.allProducts = state.backUp
-        } 
-        state.backUp = state.allProducts
-
-        state.allProducts = state.allProducts.filter(item => item.price <= 2000)
+        if(state.path == '/all-products') {
+          if(state.backUp.length != 0) {
+            state.allProducts = state.backUp
+          } 
+          state.backUp = state.allProducts
+  
+          state.allProducts = state.allProducts.filter(item => item.price <= 2000)
+        } else if(state.path == '/local-fruits') {
+          if(state.backUpLocal.length != 0) {
+            state.local = state.backUpLocal
+          } 
+          state.backUpLocal = state.local
+  
+          state.local = state.local.filter(item => item.price <= 2000)
+        } else if(state.path == '/import-fruits') {
+          if(state.backUpImport.length != 0) {
+            state.import = state.backUpImport
+          } 
+          state.backUpImport = state.import
+  
+          state.import = state.import.filter(item => item.price <= 2000)
+        } else if(state.path == '/vegetables') {
+          if(state.backUpVegetables.length != 0) {
+            state.sayur = state.backUpVegetables
+          } 
+          state.backUpVegetables = state.sayur
+  
+          state.sayur = state.sayur.filter(item => item.price <= 2000)
+        } else if(state.path == '/beverages') {
+          if(state.backUpBeverages.length != 0) {
+            state.minuman = state.backUpBeverages
+          } 
+          state.backUpBeverages = state.minuman
+  
+          state.minuman = state.minuman.filter(item => item.price <= 2000)
+        }
       } else if(action.payload.jenis == 'min') {
-        if(state.backUp.length != 0) {
-          state.allProducts = state.backUp
-        } 
-        state.backUp = state.allProducts
-
-        state.allProducts = state.allProducts.filter(item => item.price >= 2000)
+        if(state.path == '/all-products') {
+          if(state.backUp.length != 0) {
+            state.allProducts = state.backUp
+          } 
+          state.backUp = state.allProducts
+          
+          state.allProducts = state.allProducts.filter(item => item.price >= 2000)
+        } else if(state.path == '/local-fruits') {
+          if(state.backUpLocal.length != 0) {
+            state.local = state.backUpLocal
+          } 
+          state.backUpLocal = state.local
+          
+          state.local = state.local.filter(item => item.price >= 2000)
+        } else if(state.path == '/import-fruits') {
+          if(state.backUpImport.length != 0) {
+            state.import = state.backUpImport
+          } 
+          state.backUpImport = state.import
+          
+          state.import = state.import.filter(item => item.price >= 2000)
+        } else if(state.path == '/vegetables') {
+          if(state.backUpVegetables.length != 0) {
+            state.sayur = state.backUpVegetables
+          } 
+          state.backUpVegetables = state.sayur
+          
+          state.sayur = state.sayur.filter(item => item.price >= 2000)
+        } else if(state.path == '/beverages') {
+          if(state.backUpBeverages.length != 0) {
+            state.minuman = state.backUpBeverages
+          } 
+          state.backUpBeverages = state.minuman
+  
+          state.minuman = state.minuman.filter(item => item.price >= 2000)
+        }
       } else if(action.payload.jenis == 'inputCostum') {
-        if(state.backUp.length != 0) {
-          state.allProducts = state.backUp
-        } 
-        state.backUp = state.allProducts
-
-        if(action.payload.min == 0) {
-          state.allProducts = state.allProducts.filter(item => item.price <= action.payload.max)
-        } else if(action.payload.max == 0 ) {
-          state.allProducts = state.allProducts.filter(item => item.price >= action.payload.min)
-        } else {
-          state.allProducts = state.allProducts.filter(item => item.price >= action.payload.min && item.price <= action.payload.max)
+        if(state.path == 'all-products') {
+          if(state.backUp.length != 0) {
+            state.allProducts = state.backUp
+          } 
+          state.backUp = state.allProducts
+  
+          if(action.payload.min == 0) {
+            state.allProducts = state.allProducts.filter(item => item.price <= action.payload.max)
+          } else if(action.payload.max == 0 ) {
+            state.allProducts = state.allProducts.filter(item => item.price >= action.payload.min)
+          } else {
+            state.allProducts = state.allProducts.filter(item => item.price >= action.payload.min && item.price <= action.payload.max)
+          }
+        } else if(state.path == '/local-fruits') {
+          if(state.backUpLocal.length != 0) {
+            state.local = state.backUpLocal
+          } 
+          state.backUpLocal = state.local
+  
+          if(action.payload.min == 0) {
+            state.local = state.local.filter(item => item.price <= action.payload.max)
+          } else if(action.payload.max == 0 ) {
+            state.local = state.local.filter(item => item.price >= action.payload.min)
+          } else {
+            state.local = state.local.filter(item => item.price >= action.payload.min && item.price <= action.payload.max)
+          }
+        } else if(state.path == '/import-fruits') {
+          if(state.backUpImport.length != 0) {
+            state.import = state.backUpImport
+          } 
+          state.backUpImport = state.import
+  
+          if(action.payload.min == 0) {
+            state.import = state.import.filter(item => item.price <= action.payload.max)
+          } else if(action.payload.max == 0 ) {
+            state.import = state.import.filter(item => item.price >= action.payload.min)
+          } else {
+            state.import = state.import.filter(item => item.price >= action.payload.min && item.price <= action.payload.max)
+          }
+        } else if(state.path == '/vegetables') {
+          if(state.backUpVegetables.length != 0) {
+            state.sayur = state.backUpVegetables
+          } 
+          state.backUpVegetables = state.sayur
+  
+          if(action.payload.min == 0) {
+            state.sayur = state.sayur.filter(item => item.price <= action.payload.max)
+          } else if(action.payload.max == 0 ) {
+            state.sayur = state.sayur.filter(item => item.price >= action.payload.min)
+          } else {
+            state.sayur = state.sayur.filter(item => item.price >= action.payload.min && item.price <= action.payload.max)
+          }
+        } else if(state.path == '/beverages') {
+          if(state.backUpBeverages.length != 0) {
+            state.minuman = state.backUpBeverages
+          } 
+          state.backUpBeverages = state.minuman
+  
+          if(action.payload.min == 0) {
+            state.minuman = state.minuman.filter(item => item.price <= action.payload.max)
+          } else if(action.payload.max == 0 ) {
+            state.minuman = state.minuman.filter(item => item.price >= action.payload.min)
+          } else {
+            state.minuman = state.minuman.filter(item => item.price >= action.payload.min && item.price <= action.payload.max)
+          }
         }
       } else if(action.payload.jenis == 'rate') {
-        if(state.backUp.length != 0) {
-          state.allProducts = state.backUp
-        } 
-        state.backUp = state.allProducts
-
-        state.allProducts = state.allProducts.filter(item => Number(item.rate.split('.')[0]) >= 4)
+        if(state.path == '/all-products') {
+          if(state.backUp.length != 0) {
+            state.allProducts = state.backUp
+          } 
+          state.backUp = state.allProducts
+  
+          state.allProducts = state.allProducts.filter(item => Number(item.rate.split('.')[0]) >= 4)
+        } else if(state.path == '/local-fruits') {
+          if(state.backUpLocal.length != 0) {
+            state.local = state.backUpLocal
+          } 
+          state.backUpLocal = state.local
+  
+          state.local = state.local.filter(item => Number(item.rate.split('.')[0]) >= 4)
+        } else if(state.path == '/import-fruits') {
+          if(state.backUpImport.length != 0) {
+            state.import = state.backUpImport
+          } 
+          state.backUpImport = state.import
+  
+          state.import = state.import.filter(item => Number(item.rate.split('.')[0]) >= 4)
+        } else if(state.path == '/vegetables') {
+          if(state.backUpVegetables.length != 0) {
+            state.sayur = state.backUpVegetables
+          } 
+          state.backUpVegetables = state.sayur
+  
+          state.sayur = state.sayur.filter(item => Number(item.rate.split('.')[0]) >= 4)
+        } else if(state.path == '/beverages') {
+          if(state.backUpBeverages.length != 0) {
+            state.minuman = state.backUpBeverages
+          } 
+          state.backUpBeverages = state.minuman
+  
+          state.minuman = state.minuman.filter(item => Number(item.rate.split('.')[0]) >= 4)
+        }
       }
     },
     resetFilter: (state) => {
-      state.allProducts = state.backUp
-      state.backUp = []
+      if(state.path == '/all-products') {
+        state.allProducts = state.backUp
+        state.backUp = []
+      } else if(state.path == '/local-fruits') {
+        state.local = state.backUpLocal
+        state.backUpLocal = []
+      } else if(state.path == '/import-fruits') {
+        state.import = state.backUpImport
+        state.backUpImport = []
+      } else if(state.path == '/vegetables') {
+        state.sayur = state.backUpVegetables
+        state.backUpVegetables = []
+      } else if(state.path == '/beverages') {
+        state.minuman = state.backUpBeverages
+        state.backUpBeverages = []
+      }
     }
   }
 })
 
-export const { generateFilter, resetFilter } = productsSlice.actions
+export const { generateFilter, resetFilter, changePath } = productsSlice.actions
 export default productsSlice.reducer

@@ -18,7 +18,7 @@ import { changeIsShow } from '../features/ProfileCard/ProfileCardSlice'
 import CardDetail from '../component/CardDetail'
 
 // RRD
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import CardProduct from '../component/CardProduct'
 
 const Home = () => { 
@@ -28,6 +28,8 @@ const Home = () => {
 	const { isShowCardProfile } = useSelector((state) => state.isShowCardProfile)
 	const { detailCard } = useSelector((state) => state.isShowDetail)
 	const { data } = useSelector((state) => state.isShowDetail)
+
+	const navigate = useNavigate()
 
 	useEffect(() => {
 		window.scrollTo({
@@ -111,22 +113,22 @@ const Home = () => {
 								},
 							}}
 						>
-							<SwiperSlide className="w-[180px] h-[100px] hpk:h-[140px] swiper-slide rounded-xl overflow-hidden transition-all duration-300 relative group">
+							<SwiperSlide onClick={() => navigate('/local-fruits')} className="w-[180px] h-[100px] hpk:h-[140px] swiper-slide rounded-xl overflow-hidden transition-all duration-300 relative group">
 								<img loading="eager" src="/img/category1.jpg" alt="category" className="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-125" />
 								<div className="absolute w-full h-full bg-black top-0 opacity-50 transition-all duration-1000 group-hover:opacity-10 "></div>
 								<h3 className=" absolute w-full h-full top-0 text-white flex justify-center items-center font-semibold transition-transform duration-300 p-3 ">Local fruits</h3>
 							</SwiperSlide>
-							<SwiperSlide className="w-[180px] h-[100px] hpk:h-[140px] swiper-slide rounded-xl overflow-hidden transition-all duration-1000 relative group">
+							<SwiperSlide onClick={() => navigate('/import-fruits')} className="w-[180px] h-[100px] hpk:h-[140px] swiper-slide rounded-xl overflow-hidden transition-all duration-1000 relative group">
 								<img loading="eager" src="/img/category2.jpg" alt="category" className="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-125" />
 								<div className="absolute w-full h-full bg-black top-0 opacity-50 transition-all duration-1000 group-hover:opacity-10 "></div>
 								<h3 className=" absolute w-full h-full top-0 text-white flex justify-center items-center font-semibold transition-transform duration-300 p-3 ">Import fruits</h3>
 							</SwiperSlide>
-							<SwiperSlide className="w-[180px] h-[100px] hpk:h-[140px] swiper-slide rounded-xl overflow-hidden transition-all duration-1000 relative group">
+							<SwiperSlide onClick={() => navigate('/vegetables')} className="w-[180px] h-[100px] hpk:h-[140px] swiper-slide rounded-xl overflow-hidden transition-all duration-1000 relative group">
 								<img loading="eager" src="/img/category3.jpeg" alt="category" className="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-125" />
 								<div className="absolute w-full h-full bg-black top-0 opacity-50 transition-all duration-1000 group-hover:opacity-10 "></div>
 								<h3 className=" absolute w-full h-full top-0 text-white flex justify-center items-center font-semibold transition-transform duration-300 p-3 ">Vegetables</h3>
 							</SwiperSlide>
-							<SwiperSlide className="w-[180px] h-[100px] hpk:h-[140px] swiper-slide rounded-xl overflow-hidden transition-all duration-1000 relative group">
+							<SwiperSlide onClick={() => navigate('/beverages')} className="w-[180px] h-[100px] hpk:h-[140px] swiper-slide rounded-xl overflow-hidden transition-all duration-1000 relative group">
 								<img loading="eager" src="/img/category4.jpg" alt="category" className="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-125" />
 								<div className="absolute w-full h-full bg-black top-0 opacity-50 transition-all duration-10 00 group-hover:opacity-10 "></div>
 								<h3 className=" absolute w-full h-full top-0 text-white flex justify-center items-center font-semibold transition-transform duration-300 p-3 ">Beverages</h3>

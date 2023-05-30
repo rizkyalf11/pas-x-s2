@@ -13,7 +13,6 @@ const CardDetail = ({ product }) => {
 	const  { detailCard }  = useSelector((state) => state.isShowDetail)
 	const disptach  = useDispatch()
 
-
 	return (
 		<motion.div
 			initial={{opacity: 0}}
@@ -32,9 +31,6 @@ const CardDetail = ({ product }) => {
 			</svg>
 
 			<motion.div
-				initial={{opacity: 0, scale: .8}}
-				animate={{opacity: 1, scale: 1, transition:{ease: 'easeOut', type: 'spring', duration: .7} }}
-				exit={{opacity: 0, scale: .5, transition:{ease: 'easeOut', type: 'spring', duration: .7}}}
 			className="absolute flex inset-y-2 inset-x-2 md:inset-y-24 lg:inset-x-20 2xl:inset-x-44 bg-white dark:bg-darkNav rounded-2xl flex-col md:flex-row ">
 				<div className="w-full h-2/6 md:w-2/5 md:h-full aspect-square rounded-2xl overflow-hidden relative">
 					<div className="w-full h-full bg-white flex items-center justify-center p-12">
