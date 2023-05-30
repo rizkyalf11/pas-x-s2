@@ -1304,9 +1304,23 @@ export const productsSlice = createSlice({
         state.minuman = state.backUpBeverages
         state.backUpBeverages = []
       }
+    },
+    searchHdl: (state, action) => {
+      if(state.backUp.length != 0) {
+        state.allProducts = state.backUp
+      } 
+      state.backUp = state.allProducts
+
+      let query = action.payload.toLowerCase()
+      console.log(query)
+      state.allProducts = state.allProducts.filter(item => item.name.toLocaleLowerCase().startsWith(query))
+    },
+    searchReset: (state) => {
+      state.allProducts = state.backUp
+      state.backUp = []
     }
   }
 })
 
-export const { generateFilter, resetFilter, changePath } = productsSlice.actions
+export const { generateFilter, resetFilter, changePath, searchHdl, searchReset } = productsSlice.actions
 export default productsSlice.reducer

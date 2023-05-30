@@ -20,7 +20,7 @@ import { changeIsShow } from '../features/ProfileCard/ProfileCardSlice'
 // RRD
 import { useLocation, useNavigate } from 'react-router-dom'
 import { changeFilter, changeRoute } from '../features/RouteSlice/RouteSlice'
-import { changePath } from '../features/Products/ProductsSlice'
+import { changePath, searchHdl, searchReset } from '../features/Products/ProductsSlice'
 
 const Navbar = () => {
 	const { isShowCardProfile } = useSelector((state) => state.isShowCardProfile)
@@ -97,6 +97,19 @@ const Navbar = () => {
 		navigate('/')
 	}
 
+	const hdlInput = (e) => {
+		if(e.code == 'Enter') {
+			dispatch(searchHdl(e.target.value))
+			navigate('/all-products')
+		}
+	}
+
+	const hdlChangeInp = (e) => {
+		if(e.target.value == '') {
+			dispatch(searchReset())
+		}
+	}
+
 	return (
 		<>
 			<AnimatePresence>
@@ -131,6 +144,8 @@ const Navbar = () => {
 						name=""
 						id="search"
 						placeholder="Cari buah apa?"
+						onKeyDown={(e) => hdlInput(e)}
+						onChange={(e) => hdlChangeInp(e)}
 						className="h-[35px] hpsk:h-[40px] rounded-full w-[98%] hpk:w-full xl:w-[580px] text-base hpsk:text-lg pl-[50px] outline outline-white focus:outline-[3px] focus:outline-[#8b8b8b] pr-[15px] hpk:pr-[30px] transition duration-300 hover:ring-4 hover:ring-green-600"
 					/>
 				</div>
