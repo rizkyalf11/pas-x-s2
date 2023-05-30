@@ -33,9 +33,16 @@ const CardDetail = ({ product }) => {
 			<motion.div
 			className="absolute flex inset-y-2 inset-x-2 md:inset-y-24 lg:inset-x-20 2xl:inset-x-44 bg-white dark:bg-darkNav rounded-2xl flex-col md:flex-row ">
 				<div className="w-full h-2/6 md:w-2/5 md:h-full aspect-square rounded-2xl overflow-hidden relative">
+					{dataProd.category !== 'Minuman' ? (
 					<div className="w-full h-full bg-white flex items-center justify-center p-12">
 						<img src={dataProd.image} alt={dataProd.name} className='w-full' />
 					</div>
+					) : (
+						<div className="w-full h-full bg-white flex items-center justify-center p-12 relative">
+							<img src={dataProd.image} alt={dataProd.name} className='w-full rounded-xl relative z-20 shadow-md' />
+							<img src={dataProd.image} alt={dataProd.name} className='w-full h-full object-cover absolute z-10 blur-md' />
+						</div>
+					)}
 					<div className="absolute w-full h-full top-0 bg-black bg-opacity-10"></div>
 				</div>
 				<div className="w-full h-4/6 md:w-3/5 md:h-full  p-4 md:p-6 flex flex-col justify-between ">

@@ -32,8 +32,8 @@ const AllProductCard = ({product}) => {
         </svg>
       </div>
       <div className="absolute top-0 w-full h-[163px] md:h-[250px] bg-black z-10 hpk:group-hover/parent:h-[163px] transition-all duration-300 rounded-2xl overflow-hidden" onClick={() => dispatch(openCard(product))}>
-        <div className="w-full h-full p-8 md:p-3 bg-white flex items-center justify-center">
-          <img src={product.image} alt={product.name} className="w-full " />
+        <div className={`w-full h-full ${product.category !== 'Minuman' && 'p-8 md:p-3'}  bg-white flex items-center justify-center`}>
+          <img src={product.image} alt={product.name} className={`w-full ${product.category == 'Minuman' && 'h-full object-cover'}`} />
         </div>
         <div className="absolute bg-black opacity-30 w-full h-full top-0 hpk:group-hover/parent:opacity-80 transition-all duration-300"></div>
         <div className="absolute top-0 w-full h-full flex justify-between items-end flex-row px-3 pb-2">

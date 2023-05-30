@@ -8,6 +8,7 @@ import Beverages from '../pages/Beverages'
 import Vegetables from '../pages/Vegetables'
 import ImportFruits from '../pages/ImportFruits'
 import LocalFruits from '../pages/LocalFruits'
+import Cart from '../pages/Cart'
 
 const AnimateRoutes = () => {
   const location = useLocation()
@@ -20,6 +21,7 @@ const AnimateRoutes = () => {
       <Route path='/import-fruits' element={<ImportFruits />} />
       <Route path='/vegetables' element={<Vegetables />} />
       <Route path='/beverages' element={<Beverages />} />
+      <Route path='/cart' element={<Cart />} />
     </Routes>
   )
 }
