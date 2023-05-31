@@ -1,25 +1,51 @@
 // RDX
 import { useDispatch, useSelector } from 'react-redux'
 import { changeIsShowCard } from '../features/Products/isShowDetail'
+import { addToCart } from "../features/Products/cartSlice"
+import { getStokDetail, minusProduct } from "../features/Products/ProductsSlice"
 
 // FM
 import { motion } from 'framer-motion'
 
+// RHT
+import { toast } from "react-hot-toast"
+
 // eslint-disable-next-line react/prop-types
 const CardDetail = ({ product }) => {
 	const dataProd = product
+	const { stokDetail } = useSelector(state => state.products)
+	console.log(stokDetail)
 
 	// RDX
 	const  { detailCard }  = useSelector((state) => state.isShowDetail)
 	const disptach  = useDispatch()
 
+	const hdlAddToCart = (val) => {
+		disptach(addToCart(val))
+    disptach(minusProduct(val))
+		disptach(getStokDetail(val))
+    toast.success(`Add to cart - ${val.name}`, {
+      duration: 900
+    })
+  }
+
+	const hdlClose = () => {
+		if(detailCard) {
+			setTimeout(() => {
+				disptach(getStokDetail(0))
+			}, 850);
+			disptach(changeIsShowCard())
+		}
+	}
+
 	return (
+		<>
 		<motion.div
 			initial={{opacity: 0}}
 			animate={{opacity: 1, transition:{ease: 'easeOut', type: 'spring', duration: .8}}}
 			exit={{opacity: 0, transition:{ease: 'easeOut', type: 'spring', duration: .8, delay: .1}}}
 		className="fixed bg-black inset-0 bg-opacity-70 z-50">
-			<svg className='fill-white absolute top-8 right-8 w-[30px] md:w-[50px] cursor-pointer z-50 bg-black/50 p-2 rounded-full' onClick={() => detailCard && disptach(changeIsShowCard())} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<svg className='fill-white absolute top-8 right-8 w-[30px] md:w-[50px] cursor-pointer z-50 bg-black/50 p-2 rounded-full' onClick={() => hdlClose()} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<g clipPath="url(#clip0_403_3045)">
 				<path d="M23.7072 0.293153C23.5196 0.105682 23.2653 0.000366211 23.0002 0.000366211C22.735 0.000366211 22.4807 0.105682 22.2932 0.293153L12.0002 10.5862L1.70715 0.293153C1.51963 0.105682 1.26532 0.000366211 1.00015 0.000366211C0.734988 0.000366211 0.48068 0.105682 0.293153 0.293153C0.105682 0.48068 0.000366211 0.734988 0.000366211 1.00015C0.000366211 1.26532 0.105682 1.51963 0.293153 1.70715L10.5862 12.0002L0.293153 22.2932C0.105682 22.4807 0.000366211 22.735 0.000366211 23.0002C0.000366211 23.2653 0.105682 23.5196 0.293153 23.7072C0.48068 23.8946 0.734988 23.9999 1.00015 23.9999C1.26532 23.9999 1.51963 23.8946 1.70715 23.7072L12.0002 13.4142L22.2932 23.7072C22.4807 23.8946 22.735 23.9999 23.0002 23.9999C23.2653 23.9999 23.5196 23.8946 23.7072 23.7072C23.8946 23.5196 23.9999 23.2653 23.9999 23.0002C23.9999 22.735 23.8946 22.4807 23.7072 22.2932L13.4142 12.0002L23.7072 1.70715C23.8946 1.51963 23.9999 1.26532 23.9999 1.00015C23.9999 0.734988 23.8946 0.48068 23.7072 0.293153Z"/>
 				</g>
@@ -54,7 +80,7 @@ const CardDetail = ({ product }) => {
 								Price : <span className="text-TexLig font-medium dark:text-TexDark">$ {dataProd.displayPrice}</span>
 							</h3>
 							<h3 className=" font-bold text-xl text-HLig leading-10 dark:text-HDark">
-								Stock : <span className="text-TexLig font-medium dark:text-TexDark">{dataProd.stok}</span>
+								Stock : <span className="text-TexLig font-medium dark:text-TexDark">{stokDetail? stokDetail : dataProd.stok}</span>
 							</h3>
 							<div className=" flex items-center gap-2 my-1">
 								<svg className='w-[19px]' width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -96,7 +122,7 @@ const CardDetail = ({ product }) => {
 								</svg>
 								<p className="text-noHover dark:text-white text-2xl  font-bold group-hover:text-navigator transition-colors duration-300 hidden sm:block">Wishlist</p>
 							</button>
-							<button className="h-[50px] w-[180px] border-[2.5px] border-navigator bg-navigator hover:bg-transparent rounded-xl flex justify-center items-center gap-2 dark:hover:border-navigator hover:border-navigator group transition-colors duration-300 ">
+							<button onClick={() => hdlAddToCart(product)} className="h-[50px] select-none w-[180px] border-[2.5px] border-navigator bg-navigator hover:bg-transparent rounded-xl flex justify-center items-center gap-2 dark:hover:border-navigator hover:border-navigator group transition-colors duration-300 ">
 								<svg className="fill-white group-hover:fill-navigator w-[17px] transition-colors duration-300 " viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 									<g clipPath="url(#clip0_403_3036)">
 										<path d="M22.713 4.077C22.4317 3.73944 22.0796 3.46795 21.6815 3.28182C21.2835 3.09568 20.8494 2.99946 20.41 3H4.242L4.2 2.649C4.11405 1.91942 3.76338 1.24673 3.21449 0.758478C2.6656 0.270223 1.95663 0.000341793 1.222 0L1 0C0.734784 0 0.48043 0.105357 0.292893 0.292893C0.105357 0.48043 0 0.734784 0 1C0 1.26522 0.105357 1.51957 0.292893 1.70711C0.48043 1.89464 0.734784 2 1 2H1.222C1.46693 2.00003 1.70334 2.08996 1.88637 2.25272C2.06941 2.41547 2.18634 2.63975 2.215 2.883L3.591 14.583C3.73385 15.7998 4.31848 16.9218 5.23391 17.736C6.14934 18.5502 7.33185 19 8.557 19H19C19.2652 19 19.5196 18.8946 19.7071 18.7071C19.8946 18.5196 20 18.2652 20 18C20 17.7348 19.8946 17.4804 19.7071 17.2929C19.5196 17.1054 19.2652 17 19 17H8.557C7.93806 16.9983 7.3348 16.8051 6.82994 16.4471C6.32507 16.089 5.94331 15.5835 5.737 15H17.657C18.8293 15.0001 19.9643 14.5882 20.8638 13.8364C21.7633 13.0846 22.37 12.0407 22.578 10.887L23.363 6.533C23.4414 6.10101 23.4237 5.65707 23.3114 5.23264C23.1991 4.80821 22.9948 4.41368 22.713 4.077ZM21.4 6.178L20.614 10.532C20.4891 11.225 20.1245 11.852 19.5839 12.3032C19.0433 12.7544 18.3612 13.0011 17.657 13H5.419L4.478 5H20.41C20.5569 4.99912 20.7022 5.03062 20.8355 5.09226C20.9689 5.15389 21.087 5.24415 21.1815 5.35661C21.276 5.46907 21.3446 5.60097 21.3824 5.74294C21.4201 5.8849 21.4262 6.03344 21.4 6.178Z" />
@@ -116,6 +142,7 @@ const CardDetail = ({ product }) => {
 				</div>
 			</motion.div>
 		</motion.div>
+		</>
 	)
 }
 

@@ -20,6 +20,7 @@ import CardDetail from '../component/CardDetail'
 // RRD
 import { Link, useNavigate } from 'react-router-dom'
 import CardProduct from '../component/CardProduct'
+import { Toaster } from 'react-hot-toast'
 
 const Home = () => { 
 	// RDX
@@ -40,6 +41,10 @@ const Home = () => {
 
 	return (
 		<>
+			<div>
+				<Toaster position='bottom-left' reverseOrder={false} />
+			</div>
+
 			<AnimatePresence>
 				{detailCard && <CardDetail product={data} />}
 			</AnimatePresence>

@@ -1094,7 +1094,8 @@ const initialState = {
   backUpVegetables: [],
   backUpBeverages: [],
   backUpMinuman: [],
-  path: ''
+  path: '',
+  stokDetail: null
 }
 
 export const productsSlice = createSlice({
@@ -1182,7 +1183,7 @@ export const productsSlice = createSlice({
           state.minuman = state.minuman.filter(item => item.price >= 2000)
         }
       } else if(action.payload.jenis == 'inputCostum') {
-        if(state.path == 'all-products') {
+        if(state.path == '/all-products') {
           if(state.backUp.length != 0) {
             state.allProducts = state.backUp
           } 
@@ -1318,9 +1319,196 @@ export const productsSlice = createSlice({
     searchReset: (state) => {
       state.allProducts = state.backUp
       state.backUp = []
+    },
+    minusProduct: (state, actions) => {
+			const itemIndex = state.allProducts.findIndex((item) => item.id === actions.payload.id)
+      const itemIndexLocal = state.local.findIndex((item) => item.id === actions.payload.id)
+      const itemIndexImport = state.import.findIndex((item) => item.id === actions.payload.id)
+      const itemIndexSayur = state.sayur.findIndex((item) => item.id === actions.payload.id)
+      const itemIndexMinuman = state.minuman.findIndex((item) => item.id === actions.payload.id)
+      console.log(itemIndexLocal)
+      console.log(itemIndexImport)
+      console.log(itemIndexSayur)
+      console.log(itemIndexMinuman)
+
+      // backup allprod
+      let findIndexAllProdBackUp = state.backUp.findIndex(item => item.id == actions.payload.id)
+      if(findIndexAllProdBackUp >= 0) {
+        state.backUp[findIndexAllProdBackUp].stok -= 1
+      }
+
+			let findIndexBackUp
+      if(state.allProducts[itemIndex].category == 'Buah Lokal') {
+        findIndexBackUp = state.backUpLocal.findIndex((item) => item.id === actions.payload.id)
+        if(findIndexBackUp >= 0) {
+          state.backUpLocal[findIndexBackUp].stok -= 1
+        }
+      } else if (state.allProducts[itemIndex].category == 'Buah Import') {
+        findIndexBackUp = state.backUpImport.findIndex((item) => item.id === actions.payload.id)
+        if(findIndexBackUp >= 0) {
+          state.backUpImport[findIndexBackUp].stok -= 1
+        }
+      } else if(state.allProducts[itemIndex].category == 'Sayur') {
+        findIndexBackUp = state.backUpVegetables.findIndex((item) => item.id === actions.payload.id)
+        if(findIndexBackUp >= 0) {
+          state.backUpVegetables[findIndexBackUp].stok -= 1
+        }
+      } else if(state.allProducts[itemIndex].category == 'Minuman') {
+        findIndexBackUp = state.backUpBeverages.findIndex((item) => item.id === actions.payload.id)
+        if(findIndexBackUp >= 0) {
+          state.backUpBeverages[findIndexBackUp].stok -= 1
+        }
+      }
+
+      // cek limit prod
+      const limitIndex = state.productsLimit.findIndex(item => item.id == actions.payload.id)
+      if(limitIndex >= 0) {
+        state.productsLimit[limitIndex].stok -= 1
+      }
+
+			if (state.allProducts[itemIndex].stok > 0) {
+				state.allProducts[itemIndex].stok -= 1
+        if(itemIndexLocal >= 0) {
+          state.local[itemIndexLocal].stok -= 1
+        }
+        if(itemIndexImport >= 0) {
+          state.import[itemIndexImport].stok -= 1
+        }
+        if(itemIndexSayur >= 0) {
+          state.sayur[itemIndexSayur].stok -= 1
+        }
+        if(itemIndexMinuman >= 0) {
+          state.minuman[itemIndexMinuman].stok -= 1
+        }
+			}
+		},
+    plusProduct: (state, actions) => {
+			const itemIndex = state.allProducts.findIndex((item) => item.id === actions.payload.id)
+      const itemIndexLocal = state.local.findIndex((item) => item.id === actions.payload.id)
+      const itemIndexImport = state.import.findIndex((item) => item.id === actions.payload.id)
+      const itemIndexSayur = state.sayur.findIndex((item) => item.id === actions.payload.id)
+      const itemIndexMinuman = state.minuman.findIndex((item) => item.id === actions.payload.id)
+
+      const stok = actions.payload.stok + 1
+
+      let findIndexAllProdBackUp = state.backUp.findIndex(item => item.id == actions.payload.id)
+      if(findIndexAllProdBackUp >= 0) {
+        state.backUp[findIndexAllProdBackUp].stok = stok
+      }
+
+
+      let findIndexBackUp
+      if(state.allProducts[itemIndex].category == 'Buah Lokal') {
+        findIndexBackUp = state.backUpLocal.findIndex((item) => item.id === actions.payload.id)
+        if(findIndexBackUp >= 0) {
+          state.backUpLocal[findIndexBackUp].stok = stok
+        }
+      } else if (state.allProducts[itemIndex].category == 'Buah Import') {
+        findIndexBackUp = state.backUpImport.findIndex((item) => item.id === actions.payload.id)
+        if(findIndexBackUp >= 0) {
+          state.backUpImport[findIndexBackUp].stok = stok
+        }
+      } else if(state.allProducts[itemIndex].category == 'Sayur') {
+        findIndexBackUp = state.backUpVegetables.findIndex((item) => item.id === actions.payload.id)
+        if(findIndexBackUp >= 0) {
+          state.backUpVegetables[findIndexBackUp].stok = stok
+        }
+      } else if(state.allProducts[itemIndex].category == 'Minuman') {
+        findIndexBackUp = state.backUpBeverages.findIndex((item) => item.id === actions.payload.id)
+        if(findIndexBackUp >= 0) {
+          state.backUpBeverages[findIndexBackUp].stok = stok
+        }
+      }
+
+      // cek limitProd
+      const limitIndex = state.productsLimit.findIndex(item => item.id == actions.payload.id)
+      if(limitIndex >= 0) {
+        state.productsLimit[limitIndex].stok = stok
+      }
+
+			if (stok < actions.payload.initialStok) {
+				state.allProducts[itemIndex].stok = stok
+        if(itemIndexLocal >= 0) {
+          state.local[itemIndexLocal].stok = stok
+        }
+        if(itemIndexImport >= 0) {
+          state.import[itemIndexImport].stok = stok
+        }
+        if(itemIndexSayur >= 0) {
+          state.sayur[itemIndexSayur].stok = stok
+        }
+        if(itemIndexMinuman >= 0) {
+          state.minuman[itemIndexMinuman].stok = stok
+        }
+			}
+		},
+    refreshProduct: (state, actions) => {
+			const itemIndex = state.allProducts.findIndex((item) => item.id === actions.payload.id)
+      const itemIndexLocal = state.local.findIndex((item) => item.id === actions.payload.id)
+      const itemIndexImport = state.import.findIndex((item) => item.id === actions.payload.id)
+      const itemIndexSayur = state.sayur.findIndex((item) => item.id === actions.payload.id)
+      const itemIndexMinuman = state.minuman.findIndex((item) => item.id === actions.payload.id)
+
+      if (state.allProducts[itemIndex].stok > 0) {
+				state.allProducts[itemIndex].stok = actions.payload.initialStok
+        if(itemIndexLocal >= 0) {
+          state.local[itemIndexLocal].stok = actions.payload.initialStok
+        }
+        if(itemIndexImport >= 0) {
+          state.import[itemIndexImport].stok = actions.payload.initialStok
+        }
+        if(itemIndexSayur >= 0) {
+          state.sayur[itemIndexSayur].stok = actions.payload.initialStok
+        }
+        if(itemIndexMinuman >= 0) {
+          state.minuman[itemIndexMinuman].stok = actions.payload.initialStok
+        }
+			}
+
+      let findIndexAllProdBackUp = state.backUp.findIndex(item => item.id == actions.payload.id)
+      if(findIndexAllProdBackUp >= 0) {
+        state.backUp[findIndexAllProdBackUp].stok = actions.payload.initialStok
+      }
+
+       // cek limitProd
+       const limitIndex = state.productsLimit.findIndex(item => item.id == actions.payload.id)
+       if(limitIndex >= 0) {
+         state.productsLimit[limitIndex].stok = actions.payload.initialStok
+       }
+
+      let findIndexBackUp
+      if(state.allProducts[itemIndex].category == 'Buah Lokal') {
+        findIndexBackUp = state.backUpLocal.findIndex((item) => item.id === actions.payload.id)
+        if(findIndexBackUp >= 0) {
+          state.backUpLocal[findIndexBackUp].stok = actions.payload.initialStok
+        }
+      } else if (state.allProducts[itemIndex].category == 'Buah Import') {
+        findIndexBackUp = state.backUpImport.findIndex((item) => item.id === actions.payload.id)
+        if(findIndexBackUp >= 0) {
+          state.backUpImport[findIndexBackUp].stok = actions.payload.initialStok
+        }
+      } else if(state.allProducts[itemIndex].category == 'Sayur') {
+        findIndexBackUp = state.backUpVegetables.findIndex((item) => item.id === actions.payload.id)
+        if(findIndexBackUp >= 0) {
+          state.backUpVegetables[findIndexBackUp].stok = actions.payload.initialStok
+        }
+      } else if(state.allProducts[itemIndex].category == 'Minuman') {
+        findIndexBackUp = state.backUpBeverages.findIndex((item) => item.id === actions.payload.id)
+        if(findIndexBackUp >= 0) {
+          state.backUpBeverages[findIndexBackUp].stok = actions.payload.initialStok
+        }
+      }
+		},
+    getStokDetail: (state, action) => {
+      if(action.payload == 0) {
+        state.stokDetail = null
+      } else {
+        const itemIndex = state.allProducts.findIndex((item) => item.id === action.payload.id)
+        state.stokDetail = state.allProducts[itemIndex].stok
+      }
     }
   }
 })
 
-export const { generateFilter, resetFilter, changePath, searchHdl, searchReset } = productsSlice.actions
+export const { generateFilter, resetFilter, changePath, searchHdl, searchReset, minusProduct, getStokDetail, plusProduct, refreshProduct } = productsSlice.actions
 export default productsSlice.reducer

@@ -16,14 +16,15 @@ import person from '/img/person.jpg'
 //RDX
 import { useSelector, useDispatch } from 'react-redux'
 import { changeIsShow } from '../features/ProfileCard/ProfileCardSlice'
+import { changePath, searchHdl, searchReset } from '../features/Products/ProductsSlice'
+import { changeFilter, changeRoute } from '../features/RouteSlice/RouteSlice'
 
 // RRD
 import { useLocation, useNavigate } from 'react-router-dom'
-import { changeFilter, changeRoute } from '../features/RouteSlice/RouteSlice'
-import { changePath, searchHdl, searchReset } from '../features/Products/ProductsSlice'
 
 const Navbar = () => {
 	const { isShowCardProfile } = useSelector((state) => state.isShowCardProfile)
+	const { totalCartQuantity } = useSelector(state => state.cart)
 	const { route } = useSelector((state) => state.route)
   const { filter } = useSelector(state => state.route)
 
@@ -110,6 +111,13 @@ const Navbar = () => {
 		}
 	}
 
+	const hdlNavigate = () => {
+		if(route != '/cart') {
+			navigate('/cart')
+			dispatch(changeIsShow())
+		}
+	}
+
 	return (
 		<>
 			<AnimatePresence>
@@ -170,20 +178,21 @@ const Navbar = () => {
 							</div>
 						</>
 					)}
-					{route !== '/cart' ? (
-						route !== '/all-products' && route !== '/local-fruits' && route !== '/import-fruits' && route !== '/vegetables' && route !== '/beverages' ? (
+						{route !== '/all-products' && route !== '/local-fruits' && route !== '/import-fruits' && route !== '/vegetables' && route !== '/beverages' ? (
 							<div onClick={() => navigate('/cart')} className="relative cursor-pointer sm:block">
 								<img src={cart} alt="Cart" className="w-[28px] md:w-[32px]" />
-								<div className="absolute w-4 h-4 -right-1 bg-black/60 text-white dark:text-black dark:bg-navigator/90 top-0 rounded-full flex items-center justify-center p-[9px]">1</div>
+								{totalCartQuantity > 0 && (
+									<h1 className={`absolute w-4 h-4 -right-1 ${totalCartQuantity >= 10 && '-top-1 text-sm -right-2'} bg-black/60 text-white dark:text-black dark:bg-navigator/90 top-0 rounded-full flex items-center justify-center p-[9px] ${totalCartQuantity >= 10 && 'p-[11px]'} `}>{totalCartQuantity}</h1>
+								)}
 							</div>
 						) : (
 							<div onClick={() => navigate('/cart')} className="relative cursor-pointer hidden sm:block">
 								<img src={cart} alt="Cart" className="w-[28px] md:w-[32px]" />
-								<div className="absolute w-4 h-4 -right-1 bg-black/60 text-white dark:text-black dark:bg-navigator/90 top-0 rounded-full flex items-center justify-center p-[9px]">1</div>
+								{totalCartQuantity > 0 && (
+									<h1 className={`absolute w-4 h-4 -right-1 ${totalCartQuantity >= 10 && '-top-1 text-sm -right-2'} bg-black/60 text-white dark:text-black dark:bg-navigator/90 top-0 rounded-full flex items-center justify-center p-[9px] ${totalCartQuantity >= 10 && 'p-[11px]'} `}>{totalCartQuantity}</h1>
+								)}
 							</div>
-						) 
-						
-					) : null }
+						)} 
 					<div className=" flex flex-row gap-2 items-center cursor-pointer" id="profile">
 						<h1 className=" text-white text-xl md:text-2xl font-poppins font-normal hidden sm:block">Person</h1>
 						<img onClick={() => hdlClickProfile()} className="w-[45px] aspect-square object-cover rounded-full lg:w-[50px]" src={person} alt="You" />
@@ -216,7 +225,7 @@ const Navbar = () => {
 							</svg>
 							<h3 className="font-bold cursor-pointer select-none text-base md:text-xl transition-all duration-150">Wishlist</h3>
 						</div>
-						<div className="text-[#8b8b8b] dark:text-white dark:hover:text-navigator hover:text-navigator group flex flex-row items-center gap-4">
+						<div onClick={() => hdlNavigate()} className="text-[#8b8b8b] dark:text-white dark:hover:text-navigator hover:text-navigator group flex flex-row items-center gap-4">
 							<svg className="fill-[#8b8b8b] group-hover:fill-green-400" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 								<g>
 									<path d="M22.713 4.077C22.4317 3.73944 22.0796 3.46795 21.6815 3.28182C21.2835 3.09568 20.8494 2.99946 20.41 3H4.242L4.2 2.649C4.11405 1.91942 3.76338 1.24673 3.21449 0.758478C2.6656 0.270223 1.95663 0.000341793 1.222 0L1 0C0.734784 0 0.48043 0.105357 0.292893 0.292893C0.105357 0.48043 0 0.734784 0 1C0 1.26522 0.105357 1.51957 0.292893 1.70711C0.48043 1.89464 0.734784 2 1 2H1.222C1.46693 2.00003 1.70334 2.08996 1.88637 2.25272C2.06941 2.41547 2.18634 2.63975 2.215 2.883L3.591 14.583C3.73385 15.7998 4.31848 16.9218 5.23391 17.736C6.14934 18.5502 7.33185 19 8.557 19H19C19.2652 19 19.5196 18.8946 19.7071 18.7071C19.8946 18.5196 20 18.2652 20 18C20 17.7348 19.8946 17.4804 19.7071 17.2929C19.5196 17.1054 19.2652 17 19 17H8.557C7.93806 16.9983 7.3348 16.8051 6.82994 16.4471C6.32507 16.089 5.94331 15.5835 5.737 15H17.657C18.8293 15.0001 19.9643 14.5882 20.8638 13.8364C21.7633 13.0846 22.37 12.0407 22.578 10.887L23.363 6.533C23.4414 6.10101 23.4237 5.65707 23.3114 5.23264C23.1991 4.80821 22.9948 4.41368 22.713 4.077Z" />
@@ -229,7 +238,7 @@ const Navbar = () => {
 									</clipPath>
 								</defs>
 							</svg>
-							<h3 className="font-bold cursor-pointer select-none text-base md:text-xl transition-all duration-150">Cart (0)</h3>
+							<h3 className="font-bold cursor-pointer select-none text-base md:text-xl transition-all duration-150">Cart ({totalCartQuantity})</h3>
 						</div>
 						<div className="text-[#8b8b8b] dark:text-white dark:hover:text-navigator hover:text-navigator group  flex flex-row items-center gap-4">
 							<svg className="fill-[#8b8b8b] group-hover:fill-green-400" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
