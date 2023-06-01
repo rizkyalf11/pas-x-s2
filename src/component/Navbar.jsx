@@ -67,7 +67,7 @@ const Navbar = () => {
 		dispatch(changePath(location.pathname))
 	}, [route, location, dispatch])
 
-	const [isLoad, setIsLoad] = useState(false)
+	const [isLoad, setIsLoad] = useState(true)
 	window.addEventListener('load', () => {
 		setTimeout(() => {
 			setIsLoad(false)
@@ -122,15 +122,16 @@ const Navbar = () => {
 		<>
 			<AnimatePresence>
 				{isLoad && (
-					<motion.div exit={{ transition: { duration: 2 } }} className="w-full h-screen flex fixed top-0 z-50">
+					<motion.div exit={{ transition: { duration: 2 } }} className="w-full h-screen flex fixed gap-0 top-0 z-50">
+						<motion.div exit={{ y: -800, transition: { delay: 0.2, ease: 'easeOut', duration: 0.5, type: 'tween' } }} className="w-full h-screen fixed  bg-navigator dark:bg-darkNav "></motion.div>
 						<motion.h1 exit={{ fontSize: 0, transition: { ease: 'easeOut', type: 'tween' } }} className="text-white dark:text-[#02D05B] animate-pulse font-semibold fixed top-1/2 -translate-y-1/2 right-1/2 translate-x-1/2 text-5xl">
 							Loading..
 						</motion.h1>
-						<motion.div exit={{ y: -800, transition: { delay: 0.2, ease: 'easeOut', duration: 0.5, type: 'tween' } }} className="flex-1 bg-navigator dark:bg-darkNav "></motion.div>
+						<motion.div initial={{opacity: 1}} exit={{ opacity: 0, transition: { delay: 0.2, ease: 'easeOut', duration: 0.5, type: 'tween' } }} className="flex-1 bg-navigator dark:bg-darkNav "></motion.div>
 						<motion.div exit={{ y: -800, transition: { delay: 0.4, ease: 'easeOut', duration: 0.5, type: 'tween' } }} className="flex-1 bg-navigator dark:bg-darkNav "></motion.div>
 						<motion.div exit={{ y: -800, transition: { delay: 0.6, ease: 'easeOut', duration: 0.5, type: 'tween' } }} className="flex-1 bg-navigator dark:bg-darkNav "></motion.div>
-						<motion.div exit={{ y: -800, transition: { delay: 0.8, ease: 'easeOut', duration: 0.5, type: 'tween' } }} className="flex-1 bg-navigator dark:bg-darkNav "></motion.div>
-						<motion.div exit={{ y: -800, transition: { delay: 1, ease: 'easeOut', duration: 0.5, type: 'tween' } }} className="flex-1 bg-navigator dark:bg-darkNav "></motion.div>
+						<motion.div exit={{ y: -800, transition: { delay: 0.8, ease: 'easeOut', duration: 0.5, type: 'tween' } }} className="flex-1 bg-navigator hidden md:block dark:bg-darkNav "></motion.div>
+						<motion.div exit={{ y: -800, transition: { delay: 1, ease: 'easeOut', duration: 0.5, type: 'tween' } }} className="flex-1 bg-navigator hidden md:block dark:bg-darkNav "></motion.div>
 					</motion.div>
 				)}
 			</AnimatePresence>
@@ -193,9 +194,9 @@ const Navbar = () => {
 								)}
 							</div>
 						)} 
-					<div className=" flex flex-row gap-2 items-center cursor-pointer" id="profile">
+					<div onClick={() => hdlClickProfile()} className="select-none flex flex-row gap-2 items-center cursor-pointer" id="profile">
 						<h1 className=" text-white text-xl md:text-2xl font-poppins font-normal hidden sm:block">Person</h1>
-						<img onClick={() => hdlClickProfile()} className="w-[45px] aspect-square object-cover rounded-full lg:w-[50px]" src={person} alt="You" />
+						<img  className="w-[45px] aspect-square object-cover rounded-full lg:w-[50px]" src={person} alt="You" />
 					</div>
 				</div>
 

@@ -4,6 +4,7 @@ import products from '../features/Products/ProductsSlice'
 import cardDetail from '../features/Products/isShowDetail'
 import route from '../features/RouteSlice/RouteSlice'
 import cart from '../features/Products/cartSlice'
+import confirmCart from '../features/Products/confirmCart'
 
 export const store = configureStore({
   reducer: {
@@ -11,6 +12,7 @@ export const store = configureStore({
     products,
     isShowDetail: cardDetail,
     route,
-    cart
+    cart,
+    confirmCart
   },
 })

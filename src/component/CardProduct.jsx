@@ -74,7 +74,7 @@ const CardProduct = ({product}) => {
             </div>
           </div>
         ): (
-          <div onClick={() => hdlAddToCart(product)} className="flex select-none justify-between w-full">
+          <div onClick={() => hdlAddToCart(product)} className="flex select-none cursor-pointer justify-between w-full">
             <div className="w-full h-[38px] rounded-xl bg-navigator flex justify-center items-center gap-2 px-[5px] hover:bg-transparent border-[2.5px] border-navigator hover:border-navigator transition-all duration-300 group">
               <svg className="fill-white group-hover:fill-navigator w-[17px] transition-colors duration-300 " viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <g clipPath="url(#clip0_403_3036)">

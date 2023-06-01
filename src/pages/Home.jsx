@@ -69,19 +69,19 @@ const Home = () => {
 							className="swiper-wrapper w-full"
 						>
 							<SwiperSlide>
-								<img src='/img/banner1.png' alt="banner" className="w-full h-full object-cover object-left-bottom" />
+								<img src='/img/banner1.webp' alt="banner" className="w-full h-full object-cover object-left-bottom" />
 							</SwiperSlide>
 							<SwiperSlide>
-								<img src='/img/banner2.png' alt="banner" className="w-full h-full object-cover object-left-bottom" />
+								<img src='/img/banner2.webp' alt="banner" className="w-full h-full object-cover object-left-bottom" />
 							</SwiperSlide>
 							<SwiperSlide>
-								<img src='/img/banner3.png' alt="banner" className="w-full h-full object-cover object-left-bottom" />
+								<img src='/img/banner3.webp' alt="banner" className="w-full h-full object-cover object-left-bottom" />
 							</SwiperSlide>
 							<SwiperSlide>
-								<img src='/img/banner4.png' alt="banner" className="w-full h-full object-cover object-left-bottom" />
+								<img src='/img/banner4.webp' alt="banner" className="w-full h-full object-cover object-left-bottom" />
 							</SwiperSlide>
 							<SwiperSlide>
-								<img src='/img/banner5.png' alt="banner" className="w-full h-full object-cover object-center" />
+								<img src='/img/banner5.webp' alt="banner" className="w-full h-full object-cover object-center" />
 							</SwiperSlide>
 						</Swiper>
 					</div>
@@ -112,29 +112,27 @@ const Home = () => {
 								},
 								1317: {
 									slidesPerView: 4,
-								},
-								1705: {
-									slidesPerView: 5,
-								},
+								}
+
 							}}
 						>
 							<SwiperSlide onClick={() => navigate('/local-fruits')} className="w-[180px] h-[100px] hpk:h-[140px] swiper-slide rounded-xl overflow-hidden transition-all duration-300 relative group">
-								<img loading="eager" src="/img/category1.jpg" alt="category" className="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-125" />
+								<img loading="eager" src="/img/category1.webp" alt="category" className="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-125" />
 								<div className="absolute w-full h-full bg-black top-0 opacity-50 transition-all duration-1000 group-hover:opacity-10 "></div>
 								<h3 className=" absolute w-full h-full top-0 text-white flex justify-center items-center font-semibold transition-transform duration-300 p-3 ">Local fruits</h3>
 							</SwiperSlide>
 							<SwiperSlide onClick={() => navigate('/import-fruits')} className="w-[180px] h-[100px] hpk:h-[140px] swiper-slide rounded-xl overflow-hidden transition-all duration-1000 relative group">
-								<img loading="eager" src="/img/category2.jpg" alt="category" className="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-125" />
+								<img loading="eager" src="/img/category2.webp" alt="category" className="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-125" />
 								<div className="absolute w-full h-full bg-black top-0 opacity-50 transition-all duration-1000 group-hover:opacity-10 "></div>
 								<h3 className=" absolute w-full h-full top-0 text-white flex justify-center items-center font-semibold transition-transform duration-300 p-3 ">Import fruits</h3>
 							</SwiperSlide>
 							<SwiperSlide onClick={() => navigate('/vegetables')} className="w-[180px] h-[100px] hpk:h-[140px] swiper-slide rounded-xl overflow-hidden transition-all duration-1000 relative group">
-								<img loading="eager" src="/img/category3.jpeg" alt="category" className="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-125" />
+								<img loading="eager" src="/img/category3.webp" alt="category" className="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-125" />
 								<div className="absolute w-full h-full bg-black top-0 opacity-50 transition-all duration-1000 group-hover:opacity-10 "></div>
 								<h3 className=" absolute w-full h-full top-0 text-white flex justify-center items-center font-semibold transition-transform duration-300 p-3 ">Vegetables</h3>
 							</SwiperSlide>
 							<SwiperSlide onClick={() => navigate('/beverages')} className="w-[180px] h-[100px] hpk:h-[140px] swiper-slide rounded-xl overflow-hidden transition-all duration-1000 relative group">
-								<img loading="eager" src="/img/category4.jpg" alt="category" className="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-125" />
+								<img loading="eager" src="/img/category4.webp" alt="category" className="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-125" />
 								<div className="absolute w-full h-full bg-black top-0 opacity-50 transition-all duration-10 00 group-hover:opacity-10 "></div>
 								<h3 className=" absolute w-full h-full top-0 text-white flex justify-center items-center font-semibold transition-transform duration-300 p-3 ">Beverages</h3>
 							</SwiperSlide>
@@ -172,7 +170,7 @@ const Home = () => {
 						</button>
 					</div>
 					<div className="w-full md:w-2/4 px-0 md:p-4 order-1 md:order-2">
-						<img src="img/why.png" alt="" className="w-full" />
+						<img src="img/why.webp" alt="" className="w-full" />
 					</div>
 				</motion.section>
 
@@ -183,11 +181,11 @@ const Home = () => {
 					<h1 className=" text-2xl hp:text-3xl md:text-4xl font-bold dark:text-white">Blog</h1>
 					<div className="w-full flex flex-row mt-7 gap-3 md:gap-10">
 						<div className="w-2/4 ">
-							<img src="/img/blog1.png" alt="" className="" />
+							<img src="/img/blog1.webp" alt="" className="" />
 							<h1 className=" text-lg md:text-2xl lg:text-4xl font-semibold dark:text-white mt-5">5 Benefits of Fruits for our bodies that you don't know about</h1>
 						</div>
 						<div className="w-2/4 ">
-							<img src="/img/blog2.png" alt="" className="" />
+							<img src="/img/blog2.webp" alt="" className="" />
 							<h1 className="  text-lg md:text-2xl lg:text-4xl font-semibold dark:text-white mt-5">These are 10 benefits of avocado for health</h1>
 						</div>
 					</div>
