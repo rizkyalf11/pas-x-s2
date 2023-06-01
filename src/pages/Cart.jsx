@@ -11,6 +11,7 @@ import { addDataConf, changeIsConf } from "../features/Products/confirmCart"
 
 // Comp
 import ConfirmCart from "../component/ConfirmCart"
+import { minusStokFav, plusStokFav } from "../features/Products/favSclice"
 
 const Cart = () => {
   const dispatch = useDispatch()
@@ -29,12 +30,13 @@ const Cart = () => {
   const hdlMinus = (prod) => {
     dispatch(minusCart(prod))
     dispatch(plusProduct(prod))
+    dispatch(plusStokFav({product: prod, stokDetail: prod.stok}))
   }
   
   const hdlPlus = (prod) => {
-    console.log('y')
     dispatch(plusCart(prod))
     dispatch(minusProduct(prod))
+    dispatch(minusStokFav({product: prod, stokDetail: prod.stok}))
   }
 
   const { isConf } = useSelector(state => state.confirmCart)

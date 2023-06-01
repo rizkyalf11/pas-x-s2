@@ -6,6 +6,7 @@ import { changeIsConf } from '../features/Products/confirmCart'
 
 // FM
 import { motion } from 'framer-motion'
+import { refreshStokFav } from '../features/Products/favSclice'
 
 const ConfirmCart = () => {
   const dispatch = useDispatch()
@@ -14,6 +15,7 @@ const ConfirmCart = () => {
 
   const hdlDelete = () => {
     dispatch(deleteProduct(data))
+    dispatch(refreshStokFav(data))
     dispatch(refreshProduct(data))
     dispatch(changeIsConf())
   }

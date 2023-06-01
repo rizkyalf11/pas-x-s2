@@ -1095,7 +1095,8 @@ const initialState = {
   backUpBeverages: [],
   backUpMinuman: [],
   path: '',
-  stokDetail: null
+  stokDetail: null,
+  isFavDetail: null
 }
 
 export const productsSlice = createSlice({
@@ -1449,21 +1450,19 @@ export const productsSlice = createSlice({
       const itemIndexSayur = state.sayur.findIndex((item) => item.id === actions.payload.id)
       const itemIndexMinuman = state.minuman.findIndex((item) => item.id === actions.payload.id)
 
-      if (state.allProducts[itemIndex].stok > 0) {
-				state.allProducts[itemIndex].stok = actions.payload.initialStok
-        if(itemIndexLocal >= 0) {
-          state.local[itemIndexLocal].stok = actions.payload.initialStok
-        }
-        if(itemIndexImport >= 0) {
-          state.import[itemIndexImport].stok = actions.payload.initialStok
-        }
-        if(itemIndexSayur >= 0) {
-          state.sayur[itemIndexSayur].stok = actions.payload.initialStok
-        }
-        if(itemIndexMinuman >= 0) {
-          state.minuman[itemIndexMinuman].stok = actions.payload.initialStok
-        }
-			}
+      state.allProducts[itemIndex].stok = actions.payload.initialStok
+      if(itemIndexLocal >= 0) {
+        state.local[itemIndexLocal].stok = actions.payload.initialStok
+      }
+      if(itemIndexImport >= 0) {
+        state.import[itemIndexImport].stok = actions.payload.initialStok
+      }
+      if(itemIndexSayur >= 0) {
+        state.sayur[itemIndexSayur].stok = actions.payload.initialStok
+      }
+      if(itemIndexMinuman >= 0) {
+        state.minuman[itemIndexMinuman].stok = actions.payload.initialStok
+      }
 
       let findIndexAllProdBackUp = state.backUp.findIndex(item => item.id == actions.payload.id)
       if(findIndexAllProdBackUp >= 0) {
@@ -1506,9 +1505,39 @@ export const productsSlice = createSlice({
         const itemIndex = state.allProducts.findIndex((item) => item.id === action.payload.id)
         state.stokDetail = state.allProducts[itemIndex].stok
       }
+    },
+    getIsFavDetail: (state, action) => {
+      const itemIndex = state.allProducts.findIndex(item => item.id === action.payload.id)
+      state.isFavDetail = state.allProducts[itemIndex].isFav
+    },
+    changeIsFavProduct: (state, actions) => {
+      const itemIndex = state.allProducts.findIndex((item) => item.id === actions.payload.id)
+      const itemIndexLocal = state.local.findIndex((item) => item.id === actions.payload.id)
+      const itemIndexImport = state.import.findIndex((item) => item.id === actions.payload.id)
+      const itemIndexSayur = state.sayur.findIndex((item) => item.id === actions.payload.id)
+      const itemIndexMinuman = state.minuman.findIndex((item) => item.id === actions.payload.id)
+
+      const limitIndex = state.productsLimit.findIndex(item => item.id == actions.payload.id)
+      if(limitIndex >= 0) {
+        state.productsLimit[limitIndex].isFav = !state.productsLimit[limitIndex].isFav 
+      }
+
+      state.allProducts[itemIndex].isFav = !state.allProducts[itemIndex].isFav
+      if(itemIndexLocal >= 0) {
+        state.local[itemIndexLocal].isFav = !state.local[itemIndexLocal].isFav
+      } else if(itemIndexImport >= 0) {
+        state.import[itemIndexImport].isFav = !state.import[itemIndexImport].isFav
+        console.log('ya')
+      } else if(itemIndexSayur >= 0) {
+        state.sayur[itemIndexSayur].isFav = !state.sayur[itemIndexSayur].isFav
+        console.log('ya')
+      } else if(itemIndexMinuman >= 0) {
+        state.minuman[itemIndexMinuman].isFav = !state.minuman[itemIndexMinuman].isFav
+        console.log('ya')
+      }
     }
   }
 })
 
-export const { generateFilter, resetFilter, changePath, searchHdl, searchReset, minusProduct, getStokDetail, plusProduct, refreshProduct } = productsSlice.actions
+export const { generateFilter, resetFilter, changePath, searchHdl, searchReset, minusProduct, getStokDetail, plusProduct, refreshProduct, changeIsFavProduct, getIsFavDetail } = productsSlice.actions
 export default productsSlice.reducer
