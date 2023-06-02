@@ -19,7 +19,6 @@ const CardDetail = ({ product }) => {
 	const { stokDetail } = useSelector(state => state.products)
 	const { isFavDetail } = useSelector(state => state.products)
 	const  { detailCard }  = useSelector((state) => state.isShowDetail)
-	console.log(stokDetail)
 	const disptach  = useDispatch()
 
 	const hdlAddToCart = (val) => {

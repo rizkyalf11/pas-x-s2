@@ -4,6 +4,7 @@ const FavSlice = createSlice({
   name: 'fav slice',
   initialState: {
     favData: [],
+    backUpFav: [],
     stokFav: null
   },
   reducers: {
@@ -39,9 +40,50 @@ const FavSlice = createSlice({
       if(itemIndex >= 0) {
         state.favData[itemIndex].stok = action.payload.initialStok
       }
-    }
+    },
+    generateFilterFav: (state, action) => {
+      if(action.payload.jenis == 'max') {
+        if(state.backUpFav.length != 0) {
+          state.favData = state.backUpFav
+        } 
+        state.backUpFav = state.favData
+
+        state.favData = state.favData.filter(item => item.price <= 2000)
+      } else if(action.payload.jenis == 'min') {
+        if(state.backUpFav.length != 0) {
+          state.favData = state.backUpFav
+        } 
+        state.backUpFav = state.favData
+        
+        state.favData = state.favData.filter(item => item.price >= 2000)
+      } else if(action.payload.jenis == 'inputCostum') {
+        if(state.backUpFav.length != 0) {
+          state.favData = state.backUpFav
+        } 
+        state.backUpFav = state.favData
+
+        if(action.payload.min == 0) {
+          state.favData = state.favData.filter(item => item.price <= action.payload.max)
+        } else if(action.payload.max == 0 ) {
+          state.favData = state.favData.filter(item => item.price >= action.payload.min)
+        } else {
+          state.favData = state.favData.filter(item => item.price >= action.payload.min && item.price <= action.payload.max)
+        }
+      } else if(action.payload.jenis == 'rate') {
+        if(state.backUpFav.length != 0) {
+          state.favData = state.backUpFav
+        } 
+        state.backUpFav = state.favData
+
+        state.favData = state.favData.filter(item => Number(item.rate.split('.')[0]) >= 4)
+      }
+    },
+    resetFilterFav: (state) => {
+      state.favData = state.backUpFav
+      state.backUpFav = []
+    },
   }
 })
 
-export const { addToFav, minusStokFav, plusStokFav, refreshStokFav } = FavSlice.actions
+export const { addToFav, minusStokFav, plusStokFav, refreshStokFav, generateFilterFav, resetFilterFav } = FavSlice.actions
 export default FavSlice.reducer

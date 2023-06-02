@@ -15,12 +15,16 @@ import { Autoplay, Pagination } from 'swiper'
 // RDX
 import { useDispatch, useSelector } from 'react-redux'
 import { changeIsShow } from '../features/ProfileCard/ProfileCardSlice'
-import CardDetail from '../component/CardDetail'
 
 // RRD
 import { Link, useNavigate } from 'react-router-dom'
-import CardProduct from '../component/CardProduct'
+
+// RHT
 import { Toaster } from 'react-hot-toast'
+
+// COMP
+import CardProduct from '../component/CardProduct'
+import CardDetail from '../component/CardDetail'
 
 const Home = () => { 
 	// RDX

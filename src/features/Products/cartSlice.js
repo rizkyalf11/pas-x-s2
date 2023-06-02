@@ -12,7 +12,6 @@ export const CartSlice = createSlice({
 		addToCart: (state, action) => {
 			// get index
 			const itemIndex = state.cartItems.findIndex((item) => item.id == action.payload.id)
-			console.log(itemIndex)
 
 			// add to cart
 			if (itemIndex >= 0) {

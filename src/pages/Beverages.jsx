@@ -12,10 +12,10 @@ import { changeFilter } from '../features/RouteSlice/RouteSlice'
 
 // Comp
 import CategoryCard from '../component/CategoryCard'
+import CardDetail from '../component/CardDetail'
 
 // RHT
 import { Toaster, toast } from 'react-hot-toast'
-import CardDetail from '../component/CardDetail'
 
 const Beverages = () => {
 	// RDX
@@ -59,13 +59,7 @@ const Beverages = () => {
 	const [maxCostumValue, setMaxCustomValue] = useState(0)
 	const [minCostumValue, setMinCustomValue] = useState(0)
 
-	useEffect(() => {
-		console.log(jenisFilter)
-		console.log(isFilter)
-	}, [jenisFilter, isFilter])
-
 	const hdlMax = () => {
-		console.log(max.current.checked)
 		min.current.checked = false
 		maxCostum.current.value = ''
 		minCostum.current.value = ''
@@ -79,7 +73,6 @@ const Beverages = () => {
 	}
 
 	const hdlMin = () => {
-		console.log(min.current.checked)
 		max.current.checked = false
 		maxCostum.current.value = ''
 		minCostum.current.value = ''
@@ -92,8 +85,7 @@ const Beverages = () => {
 		}
 	}
 
-	const hdlMaxCustom = (e) => {
-		console.log(e.target.value)
+	const hdlMaxCustom = () => {
 		max.current.checked = false
 		min.current.checked = false
 		inpRate.current.checked = false
@@ -101,8 +93,7 @@ const Beverages = () => {
 		setJenisFilter({ jenis: 'inputCostum', val: { value1: '', value2: '' } })
 	}
 
-	const hdlMinCustom = (e) => {
-		console.log(e.target.value)
+	const hdlMinCustom = () => {
 		max.current.checked = false
 		min.current.checked = false
 		inpRate.current.checked = false
@@ -111,7 +102,6 @@ const Beverages = () => {
 	}
 
 	const hdlInptRate = () => {
-		console.log(inpRate.current.checked)
 		max.current.checked = false
 		min.current.checked = false
 		maxCostum.current.value = ''
@@ -150,8 +140,6 @@ const Beverages = () => {
 		maxCostum.current.value = ''
 		minCostum.current.value = ''
 		inpRate.current.checked = false
-
-		console.log(isFilter)
 
 		if (isFilter == 'max' || isFilter == 'min' || isFilter == 'inputCostum' || isFilter == 'rate') {
 			setIsFilter('')

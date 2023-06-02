@@ -7,12 +7,12 @@ import { useEffect } from 'react'
 // RDX
 import { useDispatch, useSelector } from 'react-redux'
 import { changeIsShow } from '../features/ProfileCard/ProfileCardSlice'
-import { generateFilter, resetFilter } from '../features/Products/ProductsSlice'
+import { generateFilterFav, resetFilterFav } from '../features/Products/favSclice'
+import { changeFilter } from '../features/RouteSlice/RouteSlice'
 
 // Comp
 import CardDetail from '../component/CardDetail'
 import CategoryCard from '../component/CategoryCard'
-import { changeFilter } from '../features/RouteSlice/RouteSlice'
 
 // RHT
 import { Toaster, toast } from 'react-hot-toast'
@@ -59,13 +59,7 @@ const Wishlist = () => {
 	const [maxCostumValue, setMaxCustomValue] = useState(0)
 	const [minCostumValue, setMinCustomValue] = useState(0)
 
-	useEffect(() => {
-		console.log(jenisFilter)
-		console.log(isFilter)
-	}, [jenisFilter, isFilter])
-
 	const hdlMax = () => {
-		console.log(max.current.checked)
 		min.current.checked = false
 		maxCostum.current.value = ''
 		minCostum.current.value = ''
@@ -79,7 +73,6 @@ const Wishlist = () => {
 	}
 
 	const hdlMin = () => {
-		console.log(min.current.checked)
 		max.current.checked = false
 		maxCostum.current.value = ''
 		minCostum.current.value = ''
@@ -92,8 +85,7 @@ const Wishlist = () => {
 		}
 	}
 
-	const hdlMaxCustom = (e) => {
-		console.log(e.target.value)
+	const hdlMaxCustom = () => {
 		max.current.checked = false
 		min.current.checked = false
 		inpRate.current.checked = false
@@ -101,8 +93,7 @@ const Wishlist = () => {
 		setJenisFilter({ jenis: 'inputCostum', val: { value1: '', value2: '' } })
 	}
 
-	const hdlMinCustom = (e) => {
-		console.log(e.target.value)
+	const hdlMinCustom = () => {
 		max.current.checked = false
 		min.current.checked = false
 		inpRate.current.checked = false
@@ -111,7 +102,6 @@ const Wishlist = () => {
 	}
 
 	const hdlInptRate = () => {
-		console.log(inpRate.current.checked)
 		max.current.checked = false
 		min.current.checked = false
 		maxCostum.current.value = ''
@@ -130,12 +120,12 @@ const Wishlist = () => {
 				if (maxCostumValue == 0 && minCostumValue == 0) {
 					toast.error('Enter Value')
 				} else {
-					dispatch(generateFilter({ jenis: jenisFilter.jenis, max: maxCostumValue, min: minCostumValue }))
+					dispatch(generateFilterFav({ jenis: jenisFilter.jenis, max: maxCostumValue, min: minCostumValue }))
 					setIsFilter(jenisFilter.jenis)
 					dispatch(changeFilter())
 				}
 			} else {
-				dispatch(generateFilter({ jenis: jenisFilter.jenis, max: maxCostumValue, min: minCostumValue }))
+				dispatch(generateFilterFav({ jenis: jenisFilter.jenis, max: maxCostumValue, min: minCostumValue }))
 				setIsFilter(jenisFilter.jenis)
 				dispatch(changeFilter())
 			}
@@ -151,12 +141,10 @@ const Wishlist = () => {
 		minCostum.current.value = ''
 		inpRate.current.checked = false
 
-		console.log(isFilter)
-
 		if (isFilter == 'max' || isFilter == 'min' || isFilter == 'inputCostum' || isFilter == 'rate') {
 			setIsFilter('')
 			setJenisFilter({ jenis: '', val: { value1: '', value2: '' } })
-			dispatch(resetFilter())
+			dispatch(resetFilterFav())
 		}
 	}
 

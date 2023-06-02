@@ -8,11 +8,11 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { changeIsShow } from '../features/ProfileCard/ProfileCardSlice'
 import { generateFilter, resetFilter } from '../features/Products/ProductsSlice'
+import { changeFilter } from '../features/RouteSlice/RouteSlice'
 
 // Comp
 import CardDetail from '../component/CardDetail'
 import CategoryCard from '../component/CategoryCard'
-import { changeFilter } from '../features/RouteSlice/RouteSlice'
 
 // RHT
 import { Toaster, toast } from 'react-hot-toast'
@@ -59,13 +59,7 @@ const ImportFruits = () => {
 	const [maxCostumValue, setMaxCustomValue] = useState(0)
 	const [minCostumValue, setMinCustomValue] = useState(0)
 
-	useEffect(() => {
-		console.log(jenisFilter)
-		console.log(isFilter)
-	}, [jenisFilter, isFilter])
-
 	const hdlMax = () => {
-		console.log(max.current.checked)
 		min.current.checked = false
 		maxCostum.current.value = ''
 		minCostum.current.value = ''
@@ -79,7 +73,6 @@ const ImportFruits = () => {
 	}
 
 	const hdlMin = () => {
-		console.log(min.current.checked)
 		max.current.checked = false
 		maxCostum.current.value = ''
 		minCostum.current.value = ''
@@ -92,8 +85,7 @@ const ImportFruits = () => {
 		}
 	}
 
-	const hdlMaxCustom = (e) => {
-		console.log(e.target.value)
+	const hdlMaxCustom = () => {
 		max.current.checked = false
 		min.current.checked = false
 		inpRate.current.checked = false
@@ -101,8 +93,7 @@ const ImportFruits = () => {
 		setJenisFilter({ jenis: 'inputCostum', val: { value1: '', value2: '' } })
 	}
 
-	const hdlMinCustom = (e) => {
-		console.log(e.target.value)
+	const hdlMinCustom = () => {
 		max.current.checked = false
 		min.current.checked = false
 		inpRate.current.checked = false
@@ -111,7 +102,6 @@ const ImportFruits = () => {
 	}
 
 	const hdlInptRate = () => {
-		console.log(inpRate.current.checked)
 		max.current.checked = false
 		min.current.checked = false
 		maxCostum.current.value = ''
@@ -150,8 +140,6 @@ const ImportFruits = () => {
 		maxCostum.current.value = ''
 		minCostum.current.value = ''
 		inpRate.current.checked = false
-
-		console.log(isFilter)
 
 		if (isFilter == 'max' || isFilter == 'min' || isFilter == 'inputCostum' || isFilter == 'rate') {
 			setIsFilter('')

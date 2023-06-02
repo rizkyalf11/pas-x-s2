@@ -8,16 +8,18 @@ import { useDispatch, useSelector } from 'react-redux'
 import { checkout, minusCart, plusCart } from "../features/Products/cartSlice"
 import { minusProduct, plusProduct } from "../features/Products/ProductsSlice"
 import { addDataConf, changeIsConf } from "../features/Products/confirmCart"
+import { changeIsShow } from "../features/ProfileCard/ProfileCardSlice"
+import { minusStokFav, plusStokFav } from "../features/Products/favSclice"
 
 // Comp
 import ConfirmCart from "../component/ConfirmCart"
-import { minusStokFav, plusStokFav } from "../features/Products/favSclice"
 
 const Cart = () => {
   const dispatch = useDispatch()
   const { cartItems } = useSelector(state => state.cart)
   const { totalCartAmount } = useSelector(state => state.cart)
 	const { totalCartQuantity } = useSelector(state => state.cart)
+	const { isShowCardProfile } = useSelector((state) => state.isShowCardProfile)
   const [payIsOpen, setPayIsOpen] = useState(false)
 
   useEffect(() => {
@@ -46,6 +48,12 @@ const Cart = () => {
     dispatch(addDataConf(val))
   }
 
+  const changeFilterAndCard = () => {
+		if (isShowCardProfile) {
+			dispatch(changeIsShow())
+		}
+	}
+
   return (
     <>
       {isConf && (
@@ -53,6 +61,7 @@ const Cart = () => {
       )}
 
       <motion.main
+          onClick={() => changeFilterAndCard()}
           initial={{opacity: 0}}
           animate={{opacity: 1, transition: {duration: .7, ease: 'easeOut', type: 'tween'}}}
           exit={{opacity: 0}}
@@ -131,7 +140,7 @@ const Cart = () => {
             </div>
             <div className=" w-full px-6 py-3 bg-noHover dark:bg-darkNav bg-opacity-10 rounded-lg">
               <label className="font-quicksand text-xl font-semibold text-HLig dark:text-HDark" htmlFor="Shipping">Shipping Address</label>
-              <textarea name="" id="Shipping"  className="bg-transparent border-none outline-none w-full font-quicksand font-semibold text-base h-40 rounded-lg mt-3 text-TexDark">Type Your Address...</textarea>
+              <textarea name="" id="Shipping"  className="bg-transparent border-none outline-none w-full font-quicksand font-semibold text-base h-40 rounded-lg mt-3 text-TexDark" placeholder="Add Address"></textarea>
             </div>
             <button onClick={() => {
               if(totalCartQuantity > 0) dispatch(checkout()) 

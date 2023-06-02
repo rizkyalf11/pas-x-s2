@@ -1107,8 +1107,6 @@ export const productsSlice = createSlice({
       state.path = action.payload
     },
     generateFilter: (state, action) => {
-      console.log(action.payload.jenis)
-      console.log(state.path)
       if(action.payload.jenis == 'max') {
         if(state.path == '/all-products') {
           if(state.backUp.length != 0) {
@@ -1314,7 +1312,6 @@ export const productsSlice = createSlice({
       state.backUp = state.allProducts
 
       let query = action.payload.toLowerCase()
-      console.log(query)
       state.allProducts = state.allProducts.filter(item => item.name.toLocaleLowerCase().startsWith(query))
     },
     searchReset: (state) => {
@@ -1527,13 +1524,10 @@ export const productsSlice = createSlice({
         state.local[itemIndexLocal].isFav = !state.local[itemIndexLocal].isFav
       } else if(itemIndexImport >= 0) {
         state.import[itemIndexImport].isFav = !state.import[itemIndexImport].isFav
-        console.log('ya')
       } else if(itemIndexSayur >= 0) {
         state.sayur[itemIndexSayur].isFav = !state.sayur[itemIndexSayur].isFav
-        console.log('ya')
       } else if(itemIndexMinuman >= 0) {
         state.minuman[itemIndexMinuman].isFav = !state.minuman[itemIndexMinuman].isFav
-        console.log('ya')
       }
     }
   }
