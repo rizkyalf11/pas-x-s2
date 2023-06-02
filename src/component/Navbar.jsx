@@ -173,7 +173,7 @@ const Navbar = () => {
 						placeholder="Cari buah apa?"
 						onKeyDown={(e) => hdlInput(e)}
 						onChange={(e) => hdlChangeInp(e)}
-						className="h-[35px] hpsk:h-[40px] rounded-full w-[98%] hpk:w-full xl:w-[580px] text-base hpsk:text-lg pl-[50px] outline outline-white focus:outline-[3px] focus:outline-[#8b8b8b] pr-[15px] hpk:pr-[30px] transition duration-300 hover:ring-4 hover:ring-green-600"
+						className="h-[35px] hpsk:h-[40px] rounded-full w-[90%] hpk:w-full xl:w-[530px] text-base hpsk:text-lg pl-[50px] outline outline-white focus:outline-[3px] focus:outline-[#8b8b8b] pr-[15px] hpk:pr-[30px] transition duration-300 hover:ring-4 hover:ring-green-600"
 					/>
 				</div>
 				<div className=" flex flex-row items-center gap-3 hp:gap-4">
@@ -198,14 +198,14 @@ const Navbar = () => {
 						</>
 					)}
 						{route !== '/all-products' && route !== '/local-fruits' && route !== '/import-fruits' && route !== '/vegetables' && route !== '/beverages' && route !== '/wishlist' ? (
-							<div onClick={() => hdlNavigate('/cart')} className="relative cursor-pointer sm:block">
+							<div onClick={() => hdlNavigate('/cart')} className="relative w-[28px] md:w-[32px] cursor-pointer sm:block">
 								<img src={cart} alt="Cart" className="w-[28px] md:w-[32px]" />
 								{totalCartQuantity > 0 && (
 									<h1 className={`absolute w-4 h-4 -right-1 ${totalCartQuantity >= 10 && '-top-1 text-sm -right-2'} bg-black/60 text-white dark:text-black dark:bg-navigator/90 top-0 rounded-full flex items-center justify-center p-[9px] ${totalCartQuantity >= 10 && 'p-[11px]'} `}>{totalCartQuantity}</h1>
 								)}
 							</div>
 						) : (
-							<div onClick={() => hdlNavigate('/cart')} className="relative cursor-pointer hidden sm:block">
+							<div onClick={() => hdlNavigate('/cart')} className="relative w-[28px] md:w-[32px] cursor-pointer hidden sm:block">
 								<img src={cart} alt="Cart" className="w-[28px] md:w-[32px]" />
 								{totalCartQuantity > 0 && (
 									<h1 className={`absolute w-4 h-4 -right-1 ${totalCartQuantity >= 10 && '-top-1 text-sm -right-2'} bg-black/60 text-white dark:text-black dark:bg-navigator/90 top-0 rounded-full flex items-center justify-center p-[9px] ${totalCartQuantity >= 10 && 'p-[11px]'} `}>{totalCartQuantity}</h1>

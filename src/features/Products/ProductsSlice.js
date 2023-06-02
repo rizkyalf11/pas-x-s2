@@ -1326,10 +1326,7 @@ export const productsSlice = createSlice({
       const itemIndexImport = state.import.findIndex((item) => item.id === actions.payload.id)
       const itemIndexSayur = state.sayur.findIndex((item) => item.id === actions.payload.id)
       const itemIndexMinuman = state.minuman.findIndex((item) => item.id === actions.payload.id)
-      console.log(itemIndexLocal)
-      console.log(itemIndexImport)
-      console.log(itemIndexSayur)
-      console.log(itemIndexMinuman)
+
 
       // backup allprod
       let findIndexAllProdBackUp = state.backUp.findIndex(item => item.id == actions.payload.id)
