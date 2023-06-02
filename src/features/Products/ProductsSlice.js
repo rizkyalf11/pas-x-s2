@@ -1161,7 +1161,7 @@ const products = [
 
 // limit prod
 const productsLimit = []
-for(let i = 0; i < 10; i++) {
+for(let i = 0; i < 60; i++) {
   productsLimit.push(products[i])
 }
 
