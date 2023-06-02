@@ -1278,11 +1278,11 @@ export const productsSlice = createSlice({
           state.backUp = state.allProducts
   
           if(action.payload.min == 0) {
-            state.allProducts = state.allProducts.filter(item => item.price <= action.payload.max)
+            state.allProducts = state.allProducts.filter(item => item.price <= action.payload.max * 100)
           } else if(action.payload.max == 0 ) {
-            state.allProducts = state.allProducts.filter(item => item.price >= action.payload.min)
+            state.allProducts = state.allProducts.filter(item => item.price >= action.payload.min * 100)
           } else {
-            state.allProducts = state.allProducts.filter(item => item.price >= action.payload.min && item.price <= action.payload.max)
+            state.allProducts = state.allProducts.filter(item => item.price >= action.payload.min * 100 && item.price <= action.payload.max * 100)
           }
         } else if(state.path == '/local-fruits') {
           if(state.backUpLocal.length != 0) {
@@ -1291,11 +1291,11 @@ export const productsSlice = createSlice({
           state.backUpLocal = state.local
   
           if(action.payload.min == 0) {
-            state.local = state.local.filter(item => item.price <= action.payload.max)
+            state.local = state.local.filter(item => item.price <= action.payload.max * 100)
           } else if(action.payload.max == 0 ) {
-            state.local = state.local.filter(item => item.price >= action.payload.min)
+            state.local = state.local.filter(item => item.price >= action.payload.min * 100)
           } else {
-            state.local = state.local.filter(item => item.price >= action.payload.min && item.price <= action.payload.max)
+            state.local = state.local.filter(item => item.price >= action.payload.min * 100 && item.price <= action.payload.max * 100)
           }
         } else if(state.path == '/import-fruits') {
           if(state.backUpImport.length != 0) {
@@ -1304,11 +1304,11 @@ export const productsSlice = createSlice({
           state.backUpImport = state.import
   
           if(action.payload.min == 0) {
-            state.import = state.import.filter(item => item.price <= action.payload.max)
+            state.import = state.import.filter(item => item.price <= action.payload.max * 100)
           } else if(action.payload.max == 0 ) {
-            state.import = state.import.filter(item => item.price >= action.payload.min)
+            state.import = state.import.filter(item => item.price >= action.payload.min * 100)
           } else {
-            state.import = state.import.filter(item => item.price >= action.payload.min && item.price <= action.payload.max)
+            state.import = state.import.filter(item => item.price >= action.payload.min * 100 && item.price <= action.payload.max * 100)
           }
         } else if(state.path == '/vegetables') {
           if(state.backUpVegetables.length != 0) {
@@ -1317,11 +1317,11 @@ export const productsSlice = createSlice({
           state.backUpVegetables = state.sayur
   
           if(action.payload.min == 0) {
-            state.sayur = state.sayur.filter(item => item.price <= action.payload.max)
+            state.sayur = state.sayur.filter(item => item.price <= action.payload.max * 100)
           } else if(action.payload.max == 0 ) {
-            state.sayur = state.sayur.filter(item => item.price >= action.payload.min)
+            state.sayur = state.sayur.filter(item => item.price >= action.payload.min * 100)
           } else {
-            state.sayur = state.sayur.filter(item => item.price >= action.payload.min && item.price <= action.payload.max)
+            state.sayur = state.sayur.filter(item => item.price >= action.payload.min * 100 && item.price <= action.payload.max * 100)
           }
         } else if(state.path == '/beverages') {
           if(state.backUpBeverages.length != 0) {
@@ -1330,11 +1330,11 @@ export const productsSlice = createSlice({
           state.backUpBeverages = state.minuman
   
           if(action.payload.min == 0) {
-            state.minuman = state.minuman.filter(item => item.price <= action.payload.max)
+            state.minuman = state.minuman.filter(item => item.price <= action.payload.max * 100)
           } else if(action.payload.max == 0 ) {
-            state.minuman = state.minuman.filter(item => item.price >= action.payload.min)
+            state.minuman = state.minuman.filter(item => item.price >= action.payload.min * 100)
           } else {
-            state.minuman = state.minuman.filter(item => item.price >= action.payload.min && item.price <= action.payload.max)
+            state.minuman = state.minuman.filter(item => item.price >= action.payload.min * 100 && item.price <= action.payload.max * 100)
           }
         }
       } else if(action.payload.jenis == 'rate') {

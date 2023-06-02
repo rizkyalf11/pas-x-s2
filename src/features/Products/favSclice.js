@@ -63,11 +63,11 @@ const FavSlice = createSlice({
         state.backUpFav = state.favData
 
         if(action.payload.min == 0) {
-          state.favData = state.favData.filter(item => item.price <= action.payload.max)
+          state.favData = state.favData.filter(item => item.price <= action.payload.max * 100)
         } else if(action.payload.max == 0 ) {
-          state.favData = state.favData.filter(item => item.price >= action.payload.min)
+          state.favData = state.favData.filter(item => item.price >= action.payload.min * 100)
         } else {
-          state.favData = state.favData.filter(item => item.price >= action.payload.min && item.price <= action.payload.max)
+          state.favData = state.favData.filter(item => item.price >= action.payload.min * 100 && item.price <= action.payload.max * 100)
         }
       } else if(action.payload.jenis == 'rate') {
         if(state.backUpFav.length != 0) {
