@@ -145,6 +145,7 @@ const Cart = () => {
             </div>
             <div className="w-full py-3 px-6 bg-noHover dark:bg-darkNav bg-opacity-10 rounded-lg">
               <select placeholder="Payment Method" name="" id="" className="w-full outline-none bg-transparent p-0 font-quicksand text-xl font-semibold text-HLig dark:text-HDark ">
+                <option value="" className="text-noHover">Payment Method</option>
                 <option value="" className="text-HLig">Paypal</option>
                 <option value="" className="text-HLig">Go-pay</option>
                 <option value="" className="text-HLig">Mandiri</option>
