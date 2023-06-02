@@ -148,6 +148,7 @@ const Wishlist = () => {
 		}
 	}
 
+	document.title = 'Fresh4U - Wishlist'
 	return (
 		<>
 			<AnimatePresence>

@@ -148,6 +148,7 @@ const Beverages = () => {
 		}
 	}
 
+	document.title = 'Fresh4U - Beverages'
 	return (
 		<>
 			<AnimatePresence>{detailCard && (

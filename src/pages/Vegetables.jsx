@@ -148,6 +148,7 @@ const Vegetables = () => {
 		}
 	}
 
+	document.title = 'Fresh4U - Vegetables'
 	return (
 		<>
 			<AnimatePresence>{detailCard && <CardDetail product={data} />}</AnimatePresence>

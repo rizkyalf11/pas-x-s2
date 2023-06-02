@@ -148,6 +148,7 @@ const ImportFruits = () => {
 		}
 	}
 
+	document.title = 'Fresh4U - Import Fruits'
 	return (
 		<>
 			<AnimatePresence>{detailCard && <CardDetail product={data} />}</AnimatePresence>

@@ -13,7 +13,9 @@ const products = [
     isFav: false, 
     stok: 50, 
     initialStok: 50, 
-    image: "/img/buah_lokal/belimbing.png" },
+    image: "/img/buah_lokal/belimbing.png",
+    buyer: 342 
+  },
   { 
     id: 2,
     name: "Dukuh", 

@@ -5,14 +5,18 @@ import { AnimatePresence, motion } from "framer-motion"
 
 // RDX
 import { useDispatch, useSelector } from 'react-redux'
-import { checkout, minusCart, plusCart } from "../features/Products/cartSlice"
+import { minusCart, plusCart } from "../features/Products/cartSlice"
 import { minusProduct, plusProduct } from "../features/Products/ProductsSlice"
-import { addDataConf, changeIsConf } from "../features/Products/confirmCart"
+import { addDataConf, changeIsConf, changeIsConfPay } from "../features/Products/confirmCart"
 import { changeIsShow } from "../features/ProfileCard/ProfileCardSlice"
 import { minusStokFav, plusStokFav } from "../features/Products/favSclice"
 
 // Comp
 import ConfirmCart from "../component/ConfirmCart"
+import ConfirmPayment from "../component/ConfirmPayment"
+
+// RHT
+import { Toaster } from "react-hot-toast"
 
 const Cart = () => {
   const dispatch = useDispatch()
@@ -20,6 +24,8 @@ const Cart = () => {
   const { totalCartAmount } = useSelector(state => state.cart)
 	const { totalCartQuantity } = useSelector(state => state.cart)
 	const { isShowCardProfile } = useSelector((state) => state.isShowCardProfile)
+  const { isConf } = useSelector(state => state.confirmCart)
+  const { isConfPay } = useSelector(state => state.confirmCart)
   const [payIsOpen, setPayIsOpen] = useState(false)
 
   useEffect(() => {
@@ -41,7 +47,6 @@ const Cart = () => {
     dispatch(minusStokFav({product: prod, stokDetail: prod.stok}))
   }
 
-  const { isConf } = useSelector(state => state.confirmCart)
 
   const hdlKlik = (val) => {
     dispatch(changeIsConf())
@@ -54,11 +59,20 @@ const Cart = () => {
 		}
 	}
 
+	document.title = 'Fresh4U - Cart'
   return (
     <>
       {isConf && (
         <ConfirmCart />
       )}
+
+      {
+        isConfPay && (
+          <ConfirmPayment />
+        )
+      }
+
+      <Toaster position="top-center" reverseOrder={false} />
 
       <motion.main
           onClick={() => changeFilterAndCard()}
@@ -130,8 +144,7 @@ const Cart = () => {
               <h3 className="font-quicksand text-xl font-bold text-navigator">Apply</h3>
             </div>
             <div className="w-full py-3 px-6 bg-noHover dark:bg-darkNav bg-opacity-10 rounded-lg">
-              <select name="" id="" className="w-full outline-none bg-transparent p-0 font-quicksand text-xl font-semibold text-HLig dark:text-HDark ">
-                <option value="" className="text-HLig">Payment Method</option>
+              <select placeholder="Payment Method" name="" id="" className="w-full outline-none bg-transparent p-0 font-quicksand text-xl font-semibold text-HLig dark:text-HDark ">
                 <option value="" className="text-HLig">Paypal</option>
                 <option value="" className="text-HLig">Go-pay</option>
                 <option value="" className="text-HLig">Mandiri</option>
@@ -143,7 +156,7 @@ const Cart = () => {
               <textarea name="" id="Shipping"  className="bg-transparent border-none outline-none w-full font-quicksand font-semibold text-base h-40 rounded-lg mt-3 text-TexDark" placeholder="Add Address"></textarea>
             </div>
             <button onClick={() => {
-              if(totalCartQuantity > 0) dispatch(checkout()) 
+              if(totalCartQuantity > 0) dispatch(changeIsConfPay(totalCartAmount)) 
             }} className="px-6 py-3 w-full  bg-navigator text-white text-xl flex items-center justify-center gap-3 font-quicksand font-semibold rounded-lg border-2 mt-6 hpsk:mt-0 border-navigator hover:bg-transparent hover:text-navigator transition-all duration-300">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" />

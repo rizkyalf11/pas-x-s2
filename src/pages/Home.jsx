@@ -43,6 +43,7 @@ const Home = () => {
 		})
 	}, [])
 
+	document.title = 'Fresh4U'
 	return (
 		<>
 			<div>

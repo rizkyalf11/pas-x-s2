@@ -148,6 +148,7 @@ const LocalFruits = () => {
 		}
 	}
 
+	document.title = 'Fresh4U - Local Fruits'
 	return (
 		<>
 			<AnimatePresence>{detailCard && <CardDetail product={data} />}</AnimatePresence>

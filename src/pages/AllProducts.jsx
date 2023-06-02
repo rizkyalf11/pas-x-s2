@@ -148,6 +148,7 @@ const AllProducts = () => {
 		}
 	}
 
+	document.title = 'Fresh4U - All Products'
 	return (
 		<>
 			<AnimatePresence>
