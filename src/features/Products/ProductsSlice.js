@@ -27,6 +27,7 @@ const products = [
     isFav: false, 
     stok: 60, 
     initialStok: 60, 
+    buyer: 555,
     image: "/img/buah_lokal/dukuh.png" },
   { 
     id: 3,
@@ -39,6 +40,7 @@ const products = [
     isFav: false, 
     stok: 70, 
     initialStok: 70, 
+    buyer: 69,
     image: "/img/buah_lokal/durian.png" },
   { 
     id: 4,
@@ -51,6 +53,7 @@ const products = [
     isFav: false, 
     stok: 80, 
     initialStok: 80, 
+    buyer: 66,
     image: "/img/buah_lokal/kelapa.png" },
   { 
     id: 5,
@@ -63,6 +66,7 @@ const products = [
     isFav: false, 
     stok: 90, 
     initialStok: 90, 
+    buyer: 23,
     image: "/img/buah_lokal/Mangga.png" },
   { 
     id: 6,
@@ -75,6 +79,7 @@ const products = [
     isFav: false, 
     stok: 100, 
     initialStok: 100, 
+    buyer: 762,
     image: "/img/buah_lokal/manggis.png" },
   { 
     id: 7,
@@ -87,6 +92,7 @@ const products = [
     isFav: false, 
     stok: 110, 
     initialStok: 110, 
+    buyer: 184,
     image: "/img/buah_lokal/Nanas.png" },
   { 
     id: 8,
@@ -99,6 +105,7 @@ const products = [
     isFav: false, 
     stok: 120, 
     initialStok: 120, 
+    buyer: 63,
     image: "/img/buah_lokal/nangka.png" },
   { 
     id: 9,
@@ -111,6 +118,7 @@ const products = [
     isFav: false, 
     stok: 130, 
     initialStok: 130, 
+    buyer: 634,
     image: "/img/buah_lokal/rambutan.png" },
   { 
     id: 10,
@@ -123,6 +131,7 @@ const products = [
     isFav: false, 
     stok: 140, 
     initialStok: 140, 
+    buyer: 145,
     image: "/img/buah_lokal/sirsak.png" },
   { 
     id: 11,
@@ -135,6 +144,7 @@ const products = [
     isFav: false, 
     stok: 150, 
     initialStok: 150, 
+    buyer: 505,
     image: "/img/buah_lokal/salak.png" },
   { 
     id: 12,
@@ -147,6 +157,7 @@ const products = [
     isFav: false, 
     stok: 160, 
     initialStok: 160, 
+    buyer: 555,
     image: "/img/buah_import/Alpuket.png" },
   { 
     id: 13,
@@ -159,6 +170,7 @@ const products = [
     isFav: false, 
     stok: 170, 
     initialStok: 170, 
+    buyer: 745,
     image: "/img/buah_import/anggur.png" },
   { 
     id: 14,
@@ -171,6 +183,7 @@ const products = [
     isFav: false, 
     stok: 180, 
     initialStok: 180, 
+    buyer: 367,
     image: "/img/buah_import/anggur-hijau.png" },
   { 
     id: 15,
@@ -183,6 +196,7 @@ const products = [
     isFav: false, 
     stok: 190, 
     initialStok: 190, 
+    buyer: 745,
     image: "/img/buah_import/apel-hijau.png" },
   { 
     id: 16,
@@ -195,6 +209,7 @@ const products = [
     isFav: false, 
     stok: 200, 
     initialStok: 200, 
+    buyer: 623,
     image: "/img/buah_import/apel-merah.png" },
   { 
     id: 17,
@@ -207,6 +222,7 @@ const products = [
     isFav: false, 
     stok: 210, 
     initialStok: 210, 
+    buyer: 85,
     image: "/img/buah_import/buah-naga.png" },
   { 
     id: 18,
@@ -219,6 +235,7 @@ const products = [
     isFav: false, 
     stok: 220, 
     initialStok: 220, 
+    buyer: 16,
     image: "/img/buah_import/jambu-merah.png" },
   { 
     id: 19,
@@ -231,6 +248,7 @@ const products = [
     isFav: false, 
     stok: 230, 
     initialStok: 230, 
+    buyer: 367,
     image: "/img/buah_import/jambu-kristal.png" },
   { 
     id: 20,
@@ -243,6 +261,7 @@ const products = [
     isFav: false, 
     stok: 240, 
     initialStok: 240, 
+    buyer: 587,
     image: "/img/buah_import/jeruk.png" },
   { 
     id: 21,
@@ -255,6 +274,7 @@ const products = [
     isFav: false, 
     stok: 250, 
     initialStok: 250, 
+    buyer: 235,
     image: "/img/buah_import/kiwi.png" },
   { 
     id: 22,
@@ -267,6 +287,7 @@ const products = [
     isFav: false, 
     stok: 260, 
     initialStok: 260, 
+    buyer: 465,
     image: "/img/buah_import/KLengkeng.png" },
   { 
     id: 23,
@@ -279,6 +300,7 @@ const products = [
     isFav: false, 
     stok: 270, 
     initialStok: 270, 
+    buyer: 75,
     image: "/img/buah_import/lemon.png" },
   { 
     id: 24,
@@ -291,6 +313,7 @@ const products = [
     isFav: false, 
     stok: 280, 
     initialStok: 280, 
+    buyer: 62,
     image: "/img/buah_import/Melon.png" },
   { 
     id: 25,
@@ -303,6 +326,7 @@ const products = [
     isFav: false, 
     stok: 290, 
     initialStok: 290, 
+    buyer: 985,
     image: "/img/buah_import/Pepaya.png" },
   { 
     id: 26,
@@ -315,6 +339,7 @@ const products = [
     isFav: false, 
     stok: 300, 
     initialStok: 300, 
+    buyer: 85,
     image: "/img/buah_import/Pisang.png" },
   { 
     id: 27,
@@ -327,6 +352,7 @@ const products = [
     isFav: false, 
     stok: 310, 
     initialStok: 310, 
+    buyer: 635,
     image: "/img/buah_import/semangka.png" },
   { 
     id: 28,
@@ -339,6 +365,7 @@ const products = [
     isFav: false, 
     stok: 50, 
     initialStok: 50, 
+    buyer: 876,
     image: "/img/sayur/bawang-bombay.jpg" },
   { 
     id: 29,
@@ -351,6 +378,7 @@ const products = [
     isFav: false, 
     stok: 60, 
     initialStok: 60, 
+    buyer: 235,
     image: "/img/sayur/bawang-merah.jpg" },
   { 
     id: 30,
@@ -363,6 +391,7 @@ const products = [
     isFav: false, 
     stok: 70, 
     initialStok: 70, 
+    buyer: 856,
     image: "/img/sayur/bawang-putih.jpg" },
   { 
     id: 31,
@@ -375,6 +404,7 @@ const products = [
     isFav: false, 
     stok: 80, 
     initialStok: 80, 
+    buyer: 234,
     image: "/img/sayur/Bayem.jpg" },
   { 
     id: 32,
@@ -387,6 +417,7 @@ const products = [
     isFav: false, 
     stok: 90, 
     initialStok: 90, 
+    buyer: 586,
     image: "/img/sayur/Brokoli.jpg" },
   { 
     id: 33,
@@ -399,6 +430,7 @@ const products = [
     isFav: false, 
     stok: 100, 
     initialStok: 100, 
+    buyer: 17,
     image: "/img/sayur/buncis-lokal.jpg" },
   { 
     id: 34,
@@ -411,6 +443,7 @@ const products = [
     isFav: false, 
     stok: 110, 
     initialStok: 110, 
+    buyer: 11,
     image: "/img/sayur/cabe-hijau.jpg" },
   { 
     id: 35,
@@ -423,6 +456,7 @@ const products = [
     isFav: false, 
     stok: 120, 
     initialStok: 120, 
+    buyer: 27,
     image: "/img/sayur/cabe-merah.jpg" },
   { 
     id: 36,
@@ -435,6 +469,7 @@ const products = [
     isFav: false, 
     stok: 130, 
     initialStok: 130, 
+    buyer: 56,
     image: "/img/sayur/daun-bawang.jpg" },
   { 
     id: 37,
@@ -447,6 +482,7 @@ const products = [
     isFav: false, 
     stok: 140, 
     initialStok: 140, 
+    buyer: 12,
     image: "/img/sayur/daun-gingseng.jpg" },
   { 
     id: 38,
@@ -459,6 +495,7 @@ const products = [
     isFav: false, 
     stok: 150, 
     initialStok: 150, 
+    buyer: 63,
     image: "/img/sayur/daun-mint.jpg" },
   { 
     id: 39,
@@ -471,6 +508,7 @@ const products = [
     isFav: false, 
     stok: 160, 
     initialStok: 160, 
+    buyer: 53,
     image: "/img/sayur/daun-salam.jpg" },
   { 
     id: 40,
@@ -483,6 +521,7 @@ const products = [
     isFav: false, 
     stok: 170, 
     initialStok: 170, 
+    buyer: 635,
     image: "/img/sayur/daun-siomak.jpg" },
   { 
     id: 41,
@@ -495,6 +534,7 @@ const products = [
     isFav: false, 
     stok: 180, 
     initialStok: 180, 
+    buyer: 124,
     image: "/img/sayur/Jagung.jpg" },
   { 
     id: 42,
@@ -507,6 +547,7 @@ const products = [
     isFav: false, 
     stok: 190, 
     initialStok: 190, 
+    buyer: 967,
     image: "/img/sayur/Jahe.jpg" },
   { 
     id: 43,
@@ -519,6 +560,7 @@ const products = [
     isFav: false, 
     stok: 200, 
     initialStok: 200, 
+    buyer: 123,
     image: "/img/sayur/jeruk-nipis.jpg" },
   { 
     id: 44,
@@ -531,6 +573,7 @@ const products = [
     isFav: false, 
     stok: 50, 
     initialStok: 50, 
+    buyer: 855,
     image: "/img/sayur/kacang-panjang.jpg" },
   { 
     id: 45,
@@ -543,6 +586,7 @@ const products = [
     isFav: false, 
     stok: 60, 
     initialStok: 60, 
+    buyer: 33,
     image: "/img/sayur/Kailan.jpg" },
   { 
     id: 46,
@@ -555,6 +599,7 @@ const products = [
     isFav: false, 
     stok: 70, 
     initialStok: 70, 
+    buyer: 22,
     image: "/img/sayur/Kangkung.jpg" },
   { 
     id: 47,
@@ -567,6 +612,7 @@ const products = [
     isFav: false, 
     stok: 80, 
     initialStok: 80, 
+    buyer: 976,
     image: "/img/sayur/kembang-kol.jpg" },
   { 
     id: 48,
@@ -579,6 +625,7 @@ const products = [
     isFav: false, 
     stok: 90, 
     initialStok: 90, 
+    buyer: 76,
     image: "/img/sayur/Kentang.jpg" },
   { 
     id: 49,
@@ -591,6 +638,7 @@ const products = [
     isFav: false, 
     stok: 100, 
     initialStok: 100, 
+    buyer: 25,
     image: "/img/sayur/labu-siam.jpg" },
   { 
     id: 50,
@@ -603,6 +651,7 @@ const products = [
     isFav: false, 
     stok: 110, 
     initialStok: 110, 
+    buyer: 78,
     image: "/img/sayur/Lengkuas.jpg" },
   { 
     id: 51,
@@ -615,6 +664,7 @@ const products = [
     isFav: false, 
     stok: 120, 
     initialStok: 120, 
+    buyer: 679,
     image: "/img/sayur/Lobak.jpg" },
   { 
     id: 52,
@@ -627,6 +677,7 @@ const products = [
     isFav: false, 
     stok: 130, 
     initialStok: 130, 
+    buyer: 855,
     image: "/img/sayur/Oregano.jpg" },
   { 
     id: 53,
@@ -639,6 +690,7 @@ const products = [
     isFav: false, 
     stok: 140, 
     initialStok: 140, 
+    buyer: 645,
     image: "/img/sayur/pak-choy.jpg" },
   { 
     id: 54,
@@ -651,6 +703,7 @@ const products = [
     isFav: false, 
     stok: 150, 
     initialStok: 150, 
+    buyer: 434,
     image: "/img/sayur/paprika-merah.jpg" },
   { 
     id: 55,
@@ -663,6 +716,7 @@ const products = [
     isFav: false, 
     stok: 160, 
     initialStok: 160, 
+    buyer: 654,
     image: "/img/sayur/Pare.jpg" },
   { 
     id: 56,
@@ -675,6 +729,7 @@ const products = [
     isFav: false, 
     stok: 170, 
     initialStok: 170, 
+    buyer: 222,
     image: "/img/sayur/Radish.jpg" },
   { 
     id: 57,
@@ -687,6 +742,7 @@ const products = [
     isFav: false, 
     stok: 180, 
     initialStok: 180, 
+    buyer: 423,
     image: "/img/sayur/sawi-hijau.jpg" },
   { 
     id: 58,
@@ -699,6 +755,7 @@ const products = [
     isFav: false, 
     stok: 190, 
     initialStok: 190, 
+    buyer: 243,
     image: "/img/sayur/selada-romain.jpg" },
   { 
     id: 59,
@@ -711,6 +768,7 @@ const products = [
     isFav: false, 
     stok: 200, 
     initialStok: 200, 
+    buyer: 867,
     image: "/img/sayur/Seledri.jpg" },
   { 
     id: 60,
@@ -723,6 +781,7 @@ const products = [
     isFav: false, 
     stok: 50, 
     initialStok: 50, 
+    buyer: 456,
     image: "/img/sayur/Sereh.jpg" },
   { 
     id: 61,
@@ -735,6 +794,7 @@ const products = [
     isFav: false, 
     stok: 60, 
     initialStok: 60, 
+    buyer: 243,
     image: "/img/sayur/Tahu.jpg" },
   { 
     id: 62,
@@ -747,6 +807,7 @@ const products = [
     isFav: false, 
     stok: 70, 
     initialStok: 70, 
+    buyer: 67,
     image: "/img/sayur/tempe.jpg" },
   { 
     id: 63,
@@ -759,6 +820,7 @@ const products = [
     isFav: false, 
     stok: 80, 
     initialStok: 80, 
+    buyer: 345,
     image: "/img/sayur/terong-ungu.jpg" },
   { 
     id: 64,
@@ -771,6 +833,7 @@ const products = [
     isFav: false, 
     stok: 90, 
     initialStok: 90, 
+    buyer: 86,
     image: "/img/sayur/Timun.jpg" },
   { 
     id: 65,
@@ -783,6 +846,7 @@ const products = [
     isFav: false, 
     stok: 100, 
     initialStok: 100, 
+    buyer: 865,
     image: "/img/sayur/toge.jpg" },
   { 
     id: 66,
@@ -795,7 +859,9 @@ const products = [
     isFav: false, 
     stok: 110, 
     initialStok: 110, 
-    image: "/img/sayur/ubi.png" },
+    image: "/img/sayur/ubi.png",
+    buyer: 71
+  },
   { 
     id: 67,
     name: "Wortel", 
@@ -807,7 +873,8 @@ const products = [
     isFav: false, 
     stok: 120, 
     initialStok: 120, 
-    image: "/img/sayur/Wortel.jpg" 
+    image: "/img/sayur/Wortel.jpg",
+    buyer: 92
   },
   { 
     id: 68,
@@ -820,7 +887,8 @@ const products = [
     isFav: false, 
     stok: 20, 
     initialStok: 20, 
-    image: "/img/minuman/almond-caffeLatte.jpg" 
+    image: "/img/minuman/almond-caffeLatte.jpg",
+    buyer: 319
   },
   { 
     id: 69,
@@ -833,7 +901,8 @@ const products = [
     isFav: false, 
     stok: 10, 
     initialStok: 10, 
-    image: "/img/minuman/caffe-latte.jpg" 
+    image: "/img/minuman/caffe-latte.jpg",
+    buyer: 275
   },
   { 
     id: 70,
@@ -846,7 +915,8 @@ const products = [
     isFav: false, 
     stok: 15, 
     initialStok: 15, 
-    image: "/img/minuman/chocolate-almond.jpg" 
+    image: "/img/minuman/chocolate-almond.jpg", 
+    buyer: 187
   },
   { 
     id: 71,
@@ -859,7 +929,8 @@ const products = [
     isFav: false, 
     stok: 27, 
     initialStok: 27, 
-    image: "/img/minuman/chocolate-avocado.jpg" 
+    image: "/img/minuman/chocolate-avocado.jpg",
+    buyer: 364
   },
   { 
     id: 72,
@@ -872,7 +943,8 @@ const products = [
     isFav: false, 
     stok: 30, 
     initialStok: 30, 
-    image: "/img/minuman/chocolate-banana.jpg" 
+    image: "/img/minuman/chocolate-banana.jpg",
+    buyer: 564
   },
   { 
     id: 73,
@@ -885,7 +957,8 @@ const products = [
     isFav: false, 
     stok: 36, 
     initialStok: 36, 
-    image: "/img/minuman/chocolate-nut.jpg" 
+    image: "/img/minuman/chocolate-nut.jpg",
+    buyer: 121
   },
   { 
     id: 74,
@@ -898,7 +971,8 @@ const products = [
     isFav: false, 
     stok: 46, 
     initialStok: 46, 
-    image: "/img/minuman/jus-anggur.jpg" 
+    image: "/img/minuman/jus-anggur.jpg",
+    buyer: 867
   },
   { 
     id: 75,
@@ -911,7 +985,8 @@ const products = [
     isFav: false, 
     stok: 26, 
     initialStok: 26, 
-    image: "/img/minuman/jus-bayam.jpg" 
+    image: "/img/minuman/jus-bayam.jpg",
+    buyer: 192
   },
   { 
     id: 76,
@@ -924,7 +999,8 @@ const products = [
     isFav: false, 
     stok: 30, 
     initialStok: 30, 
-    image: "/img/minuman/jus-jahe-merah.jpg" 
+    image: "/img/minuman/jus-jahe-merah.jpg",
+    buyer: 31
   },
   { 
     id: 77,
@@ -937,7 +1013,8 @@ const products = [
     isFav: false, 
     stok: 50, 
     initialStok: 50, 
-    image: "/img/minuman/jus-jeruk.jpg" 
+    image: "/img/minuman/jus-jeruk.jpg",
+    buyer: 57
   },
   { 
     id: 78,
@@ -950,7 +1027,8 @@ const products = [
     isFav: false, 
     stok: 10, 
     initialStok: 10, 
-    image: "/img/minuman/jus-kubis.jpg" 
+    image: "/img/minuman/jus-kubis.jpg",
+    buyer: 300
   },
   { 
     id: 79,
@@ -963,7 +1041,8 @@ const products = [
     isFav: false, 
     stok: 53, 
     initialStok: 53, 
-    image: "/img/minuman/jus-lemon.jpg" 
+    image: "/img/minuman/jus-lemon.jpg",
+    buyer: 768
   },
   { 
     id: 80,
@@ -976,7 +1055,8 @@ const products = [
     isFav: false, 
     stok: 73, 
     initialStok: 73, 
-    image: "/img/minuman/jus-nanas.jpg" 
+    image: "/img/minuman/jus-nanas.jpg",
+    buyer: 567
   },
   { 
     id: 81,
@@ -989,7 +1069,8 @@ const products = [
     isFav: false, 
     stok: 45, 
     initialStok: 45, 
-    image: "/img/minuman/jus-semangka.jpg" 
+    image: "/img/minuman/jus-semangka.jpg",
+    buyer: 243
   },
   { 
     id: 82,
@@ -1002,7 +1083,8 @@ const products = [
     isFav: false, 
     stok: 45, 
     initialStok: 45, 
-    image: "/img/minuman/jus-strawberry.jpg" 
+    image: "/img/minuman/jus-strawberry.jpg",
+    buyer: 432
   },
   { 
     id: 83,
@@ -1015,7 +1097,8 @@ const products = [
     isFav: false, 
     stok: 63, 
     initialStok: 63, 
-    image: "/img/minuman/jus-temulawak.jpg" 
+    image: "/img/minuman/jus-temulawak.jpg",
+    buyer: 890
   },
   { 
     id: 84,
@@ -1028,7 +1111,8 @@ const products = [
     isFav: false, 
     stok: 32, 
     initialStok: 32, 
-    image: "/img/minuman/jus-timun.jpg" 
+    image: "/img/minuman/jus-timun.jpg",
+    buyer: 123
   },
   { 
     id: 85,
@@ -1041,7 +1125,8 @@ const products = [
     isFav: false, 
     stok: 54, 
     initialStok: 54, 
-    image: "/img/minuman/susu-almond.jpg" 
+    image: "/img/minuman/susu-almond.jpg",
+    buyer: 64
   },
   { 
     id: 86,
@@ -1054,7 +1139,8 @@ const products = [
     isFav: false, 
     stok: 74, 
     initialStok: 74, 
-    image: "/img/minuman/susu-buahNaga.jpg" 
+    image: "/img/minuman/susu-buahNaga.jpg",
+    buyer: 871
   },
   { 
     id: 87,
@@ -1067,7 +1153,8 @@ const products = [
     isFav: false, 
     stok: 84, 
     initialStok: 84, 
-    image: "/img/minuman/susu-tehHijau.jpg" 
+    image: "/img/minuman/susu-tehHijau.jpg", 
+    buyer: 542
   },
 ]
 

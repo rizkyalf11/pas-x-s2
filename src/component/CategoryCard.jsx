@@ -92,7 +92,7 @@ const AllProductCard = ({product}) => {
           </defs>
         </svg>
         <h2 className=" font-quicksand font-semibold text-xl dark:text-white">{product.rate}</h2>
-        <p className="font-quicksand text-TexLig dark:text-TexDark text-sm ml-1">300+ users</p>
+        <p className="font-quicksand text-TexLig dark:text-TexDark text-sm ml-1">{product.buyer}+ users</p>
       </div>
       {product.stok == 0? (
         <div className="flex  select-none justify-between w-full">
