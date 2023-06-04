@@ -1404,8 +1404,10 @@ export const productsSlice = createSlice({
       state.allProducts = state.allProducts.filter(item => item.name.toLocaleLowerCase().startsWith(query))
     },
     searchReset: (state) => {
-      state.allProducts = state.backUp
-      state.backUp = []
+      if(state.backUp.length > 0) {
+        state.allProducts = state.backUp
+        state.backUp = []
+      }
     },
     minusProduct: (state, actions) => {
 			const itemIndex = state.allProducts.findIndex((item) => item.id === actions.payload.id)
@@ -1422,6 +1424,9 @@ export const productsSlice = createSlice({
       }
 
 			let findIndexBackUp
+      console.log(itemIndex)
+      console.log(state.allProducts[itemIndex])
+
       if(state.allProducts[itemIndex].category == 'Buah Lokal') {
         findIndexBackUp = state.backUpLocal.findIndex((item) => item.id === actions.payload.id)
         if(findIndexBackUp >= 0) {
@@ -1602,7 +1607,8 @@ export const productsSlice = createSlice({
 
       const limitIndex = state.productsLimit.findIndex(item => item.id == actions.payload.id)
       if(limitIndex >= 0) {
-        state.productsLimit[limitIndex].isFav = !state.productsLimit[limitIndex].isFav 
+        state.productsLimit[limitIndex].isFav = !state.productsLimit[limitIndex].isFav
+        console.log(!state.productsLimit[limitIndex].isFav)
       }
 
       state.allProducts[itemIndex].isFav = !state.allProducts[itemIndex].isFav

@@ -167,14 +167,12 @@ const Home = () => {
 					className="mt-14 md:mt-14 px-2 hpsk:px-3 lg:px-24 xl:px-40 flex flex-col md:flex-row">
 					<div className="w-full md:w-2/4 px-4 py-7 order-2 md:order-1">
 						<h1 className=" text-2xl hp:text-3xl md:text-4xl font-bold dark:text-white">Why should fresh 4 you?</h1>
-						<p className="  mt-7 text-lg lg:text-2xl text-TexLig dark:text-TexDark">Our goal is to be an easy and convenient grocery shopping platform while maintaining the quality of our service - helping our customers shop efficiently and have time to do other important things every day.</p>
-						<button className="mt-7 h-[50px] w-[180px] border-[2.5px] border-navigator bg-navigator hover:bg-transparent rounded-xl flex justify-center items-center gap-2 dark:hover:border-navigator hover:border-navigator group transition-colors duration-300 ">
-							
-							<p className="text-white text-xl  font-bold group-hover:text-navigator transition-colors duration-300">Check it Out</p>
-							
+						<p className="  mt-7 text-lg lg:text-2xl text-TexLig dark:text-TexDark text-justify">Our goal is to be an easy and convenient grocery shopping platform while maintaining the quality of our service - helping our customers shop efficiently and have time to do other important things every day.</p>
+						<button className="mt-7 h-[40px] w-[120px] hp:h-[50px] hp:w-[180px] border-[2.5px] border-navigator bg-navigator hover:bg-transparent rounded-xl flex justify-center items-center gap-2 dark:hover:border-navigator hover:border-navigator group transition-colors duration-300 ">
+							<p className="text-white text-sm hp:text-xl  font-bold group-hover:text-navigator transition-colors duration-300">Check it Out</p>
 						</button>
 					</div>
-					<div className="w-full md:w-2/4 px-0 md:p-4 order-1 md:order-2">
+					<div className="w-full md:w-2/4 px-0 md:p-4 order-1 md:order-2 flex items-center justify-center">
 						<img src="img/why.webp" alt="" className="w-full" />
 					</div>
 				</motion.section>
@@ -185,13 +183,13 @@ const Home = () => {
 					className="mt-7 md:mt-14 px-2 hpsk:px-3 lg:px-24 xl:px-40">
 					<h1 className=" text-2xl hp:text-3xl md:text-4xl font-bold dark:text-white">Blog</h1>
 					<div className="w-full flex flex-row mt-7 gap-3 md:gap-10">
-						<div className="w-2/4 ">
+						<div className="w-2/4 cursor-pointer" onClick={() => window.open('https://en.wikipedia.org/wiki/Fruit#:~:text=Various%20culinary%20fruits%20provide%20significant,simply%20eating%20and%20chewing%20them.', '_blank')}>
 							<img src="/img/blog1.webp" alt="" className="" />
-							<h1 className=" text-lg md:text-2xl lg:text-4xl font-semibold dark:text-white mt-5">5 Benefits of Fruits for our bodies that you don't know about</h1>
+							<h1 className=" text-lg md:text-2xl lg:text-4xl dark:text-white mt-2 text-justify">5 Benefits of Fruits for our bodies that you don't know about</h1>
 						</div>
-						<div className="w-2/4 ">
+						<div className="w-2/4 cursor-pointer" onClick={() => window.open('https://en.wikipedia.org/wiki/Avocado', '_blank')}>
 							<img src="/img/blog2.webp" alt="" className="" />
-							<h1 className="  text-lg md:text-2xl lg:text-4xl font-semibold dark:text-white mt-5">These are 10 benefits of avocado for health</h1>
+							<h1 className="  text-lg md:text-2xl lg:text-4xl  dark:text-white mt-2 text-justify">These are 10 benefits of avocado for health</h1>
 						</div>
 					</div>
 

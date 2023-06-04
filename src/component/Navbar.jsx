@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
 // FM
 import { motion, AnimatePresence } from 'framer-motion'
@@ -74,6 +74,8 @@ const Navbar = () => {
 		}, 2000)
 	})
 
+	const inpSearch = useRef(null)
+
 	const hdlClickProfile = () => {
 		dispatch(changeIsShow())
 		if(filter) {
@@ -95,6 +97,8 @@ const Navbar = () => {
 		if(filter) {
 			dispatch(changeFilter())
 		}
+		dispatch(searchReset())
+		inpSearch.current.value = ''
 		navigate('/')
 	}
 
@@ -113,6 +117,8 @@ const Navbar = () => {
 
 	const hdlNavigate = () => {
 		if(route != '/cart') {
+			inpSearch.current.value = ''
+			dispatch(searchReset())
 			navigate('/cart')
 			if(isShowCardProfile) {
 				dispatch(changeIsShow())
@@ -122,6 +128,8 @@ const Navbar = () => {
 
 	const hdlNavigateWishlist = () => {
 		if(route != '/wishlist') {
+			inpSearch.current.value = ''
+			dispatch(searchReset())
 			navigate('/wishlist')
 			if(isShowCardProfile) {
 				dispatch(changeIsShow())
@@ -134,20 +142,20 @@ const Navbar = () => {
 			<AnimatePresence>
 				{isLoad && (
 					<motion.div exit={{ transition: { duration: 2 } }} className="w-full h-screen flex fixed gap-0 top-0 z-50">
-						<motion.div exit={{ y: -800, transition: { delay: 0.2, ease: 'easeOut', duration: 0.5, type: 'tween' } }} className="w-full h-screen fixed  bg-navigator dark:bg-darkNav "></motion.div>
+						<motion.div exit={{ y: '-100vh', transition: { delay: 0.2, ease: 'easeOut', duration: 0.5, type: 'tween' } }} className="w-full h-screen fixed  bg-navigator dark:bg-darkNav "></motion.div>
 						<motion.h1 exit={{ fontSize: 0, transition: { ease: 'easeOut', type: 'tween' } }} className="text-white dark:text-[#02D05B] animate-pulse font-semibold fixed top-1/2 -translate-y-1/2 right-1/2 translate-x-1/2 text-5xl">
 							Loading..
 						</motion.h1>
 						<motion.div initial={{opacity: 1}} exit={{ opacity: 0, transition: { delay: 0.2, ease: 'easeOut', duration: 0.5, type: 'tween' } }} className="flex-1 bg-navigator dark:bg-darkNav "></motion.div>
-						<motion.div exit={{ y: -800, transition: { delay: 0.4, ease: 'easeOut', duration: 0.5, type: 'tween' } }} className="flex-1 bg-navigator dark:bg-darkNav "></motion.div>
-						<motion.div exit={{ y: -800, transition: { delay: 0.6, ease: 'easeOut', duration: 0.5, type: 'tween' } }} className="flex-1 bg-navigator dark:bg-darkNav "></motion.div>
-						<motion.div exit={{ y: -800, transition: { delay: 0.8, ease: 'easeOut', duration: 0.5, type: 'tween' } }} className="flex-1 bg-navigator hidden md:block dark:bg-darkNav "></motion.div>
-						<motion.div exit={{ y: -800, transition: { delay: 1, ease: 'easeOut', duration: 0.5, type: 'tween' } }} className="flex-1 bg-navigator hidden md:block dark:bg-darkNav "></motion.div>
+						<motion.div exit={{ y: '-100vh', transition: { delay: 0.4, ease: 'easeOut', duration: 0.5, type: 'tween' } }} className="flex-1 bg-navigator dark:bg-darkNav "></motion.div>
+						<motion.div exit={{ y: '-100vh', transition: { delay: 0.6, ease: 'easeOut', duration: 0.5, type: 'tween' } }} className="flex-1 bg-navigator dark:bg-darkNav "></motion.div>
+						<motion.div exit={{ y: '-100vh', transition: { delay: 0.8, ease: 'easeOut', duration: 0.5, type: 'tween' } }} className="flex-1 bg-navigator hidden md:block dark:bg-darkNav "></motion.div>
+						<motion.div exit={{ y: '-100vh', transition: { delay: 1, ease: 'easeOut', duration: 0.5, type: 'tween' } }} className="flex-1 bg-navigator hidden md:block dark:bg-darkNav "></motion.div>
 					</motion.div>
 				)}
 			</AnimatePresence>
 
-			<header className="h-[80px] bg-navigator dark:bg-darkNav flex flex-row items-center justify-between gap-1 hpsk:gap-3 hpk:gap-0 px-2 hpsk:px-3 lg:px-24 xl:px-40 fixed inset-x-0 top-0 shadow-xl z-40 ">
+			<header className="h-[80px] -px- bg-navigator dark:bg-darkNav flex flex-row items-center justify-between gap-1 hpsk:gap-3 hpk:gap-0 px-2 hpsk:px-3 lg:px-24 xl:px-40 fixed inset-x-0 top-0 shadow-xl z-40 ">
 				{route === '/all-products' || route === '/local-fruits' || route === '/import-fruits' || route === '/vegetables' || route === '/beverages' || route === '/cart' || route === '/wishlist' ? (
 					<svg className="lg:hidden fill-white w-[40px] cursor-pointer" onClick={() => hdlBackClick()} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path d="M19 10.9999H9L12.29 7.70994C12.3837 7.61697 12.4581 7.50637 12.5089 7.38451C12.5597 7.26265 12.5858 7.13195 12.5858 6.99994C12.5858 6.86793 12.5597 6.73722 12.5089 6.61536C12.4581 6.4935 12.3837 6.3829 12.29 6.28994C12.1026 6.10369 11.8492 5.99915 11.585 5.99915C11.3208 5.99915 11.0674 6.10369 10.88 6.28994L6.59 10.5899C6.21441 10.9633 6.00223 11.4704 6 11.9999C6.00487 12.526 6.21684 13.029 6.59 13.3999L10.88 17.6999C10.9732 17.7925 11.0838 17.8658 11.2054 17.9157C11.3269 17.9655 11.4571 17.9909 11.5885 17.9905C11.7199 17.99 11.8499 17.9637 11.9712 17.913C12.0924 17.8623 12.2024 17.7882 12.295 17.6949C12.3876 17.6017 12.4609 17.4911 12.5107 17.3696C12.5606 17.248 12.586 17.1178 12.5856 16.9864C12.5851 16.855 12.5588 16.725 12.508 16.6038C12.4573 16.4825 12.3832 16.3725 12.29 16.2799L9 12.9999H19C19.2652 12.9999 19.5196 12.8946 19.7071 12.707C19.8946 12.5195 20 12.2651 20 11.9999C20 11.7347 19.8946 11.4804 19.7071 11.2928C19.5196 11.1053 19.2652 10.9999 19 10.9999Z" />
@@ -156,6 +164,8 @@ const Navbar = () => {
 
 				<img src={logo} alt="logo" className="h-[55px] hidden lg:block cursor-pointer" onClick={() => {
 					if(route != '/') {
+						inpSearch.current.value = ''
+						dispatch(searchReset())
 						navigate('/')
 						if(isShowCardProfile) {
 							dispatch(changeIsShow())
@@ -167,6 +177,7 @@ const Navbar = () => {
 						<img src={search} alt="Search" className="w-[18px]" />
 					</label>
 					<input
+						ref={inpSearch}
 						type="search"
 						name=""
 						id="search"
@@ -198,14 +209,14 @@ const Navbar = () => {
 						</>
 					)}
 						{route !== '/all-products' && route !== '/local-fruits' && route !== '/import-fruits' && route !== '/vegetables' && route !== '/beverages' && route !== '/wishlist' ? (
-							<div onClick={() => hdlNavigate('/cart')} className="relative w-[28px] md:w-[32px] cursor-pointer sm:block">
+							<div onClick={() => hdlNavigate()} className="relative w-[28px] md:w-[32px] cursor-pointer sm:block">
 								<img src={cart} alt="Cart" className="w-[28px] md:w-[32px]" />
 								{totalCartQuantity > 0 && (
 									<h1 className={`absolute w-4 h-4 -right-1 ${totalCartQuantity >= 10 && '-top-1 text-sm -right-2'} bg-black/60 text-white dark:text-black dark:bg-navigator/90 top-0 rounded-full flex items-center justify-center p-[9px] ${totalCartQuantity >= 10 && 'p-[11px]'} `}>{totalCartQuantity}</h1>
 								)}
 							</div>
 						) : (
-							<div onClick={() => hdlNavigate('/cart')} className="relative w-[28px] md:w-[32px] cursor-pointer hidden sm:block">
+							<div onClick={() => hdlNavigate()} className="relative w-[28px] md:w-[32px] cursor-pointer hidden sm:block">
 								<img src={cart} alt="Cart" className="w-[28px] md:w-[32px]" />
 								{totalCartQuantity > 0 && (
 									<h1 className={`absolute w-4 h-4 -right-1 ${totalCartQuantity >= 10 && '-top-1 text-sm -right-2'} bg-black/60 text-white dark:text-black dark:bg-navigator/90 top-0 rounded-full flex items-center justify-center p-[9px] ${totalCartQuantity >= 10 && 'p-[11px]'} `}>{totalCartQuantity}</h1>
