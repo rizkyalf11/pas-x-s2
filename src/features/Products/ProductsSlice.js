@@ -1377,19 +1377,27 @@ export const productsSlice = createSlice({
       }
     },
     resetFilter: (state) => {
-      if(state.path == '/all-products') {
+      if(state.backUp.length > 0) {
         state.allProducts = state.backUp
         state.backUp = []
-      } else if(state.path == '/local-fruits') {
+      }
+
+      if(state.backUpLocal.length > 0) {
         state.local = state.backUpLocal
         state.backUpLocal = []
-      } else if(state.path == '/import-fruits') {
+      }
+
+      if(state.backUpImport.length > 0) {
         state.import = state.backUpImport
         state.backUpImport = []
-      } else if(state.path == '/vegetables') {
+      }
+      
+      if(state.backUpVegetables.length > 0) {
         state.sayur = state.backUpVegetables
         state.backUpVegetables = []
-      } else if(state.path == '/beverages') {
+      }
+      
+      if(state.backUpBeverages.length > 0) {
         state.minuman = state.backUpBeverages
         state.backUpBeverages = []
       }
@@ -1424,9 +1432,6 @@ export const productsSlice = createSlice({
       }
 
 			let findIndexBackUp
-      console.log(itemIndex)
-      console.log(state.allProducts[itemIndex])
-
       if(state.allProducts[itemIndex].category == 'Buah Lokal') {
         findIndexBackUp = state.backUpLocal.findIndex((item) => item.id === actions.payload.id)
         if(findIndexBackUp >= 0) {
@@ -1608,7 +1613,6 @@ export const productsSlice = createSlice({
       const limitIndex = state.productsLimit.findIndex(item => item.id == actions.payload.id)
       if(limitIndex >= 0) {
         state.productsLimit[limitIndex].isFav = !state.productsLimit[limitIndex].isFav
-        console.log(!state.productsLimit[limitIndex].isFav)
       }
 
       state.allProducts[itemIndex].isFav = !state.allProducts[itemIndex].isFav

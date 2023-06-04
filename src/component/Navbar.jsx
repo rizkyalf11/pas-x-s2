@@ -16,7 +16,7 @@ import person from '/img/person.jpg'
 //RDX
 import { useSelector, useDispatch } from 'react-redux'
 import { changeIsShow } from '../features/ProfileCard/ProfileCardSlice'
-import { changePath, searchHdl, searchReset } from '../features/Products/ProductsSlice'
+import { changePath, resetFilter, searchHdl, searchReset } from '../features/Products/ProductsSlice'
 import { changeFilter, changeRoute } from '../features/RouteSlice/RouteSlice'
 
 // RRD
@@ -97,6 +97,7 @@ const Navbar = () => {
 		if(filter) {
 			dispatch(changeFilter())
 		}
+		dispatch(resetFilter())
 		dispatch(searchReset())
 		inpSearch.current.value = ''
 		navigate('/')
@@ -104,6 +105,8 @@ const Navbar = () => {
 
 	const hdlInput = (e) => {
 		if(e.code == 'Enter') {
+			dispatch(searchReset())
+			dispatch(resetFilter())
 			dispatch(searchHdl(e.target.value))
 			navigate('/all-products')
 		}
@@ -118,6 +121,7 @@ const Navbar = () => {
 	const hdlNavigate = () => {
 		if(route != '/cart') {
 			inpSearch.current.value = ''
+			dispatch(resetFilter())
 			dispatch(searchReset())
 			navigate('/cart')
 			if(isShowCardProfile) {
@@ -129,6 +133,7 @@ const Navbar = () => {
 	const hdlNavigateWishlist = () => {
 		if(route != '/wishlist') {
 			inpSearch.current.value = ''
+			dispatch(resetFilter())
 			dispatch(searchReset())
 			navigate('/wishlist')
 			if(isShowCardProfile) {
@@ -165,6 +170,7 @@ const Navbar = () => {
 				<img src={logo} alt="logo" className="h-[55px] hidden lg:block cursor-pointer" onClick={() => {
 					if(route != '/') {
 						inpSearch.current.value = ''
+						dispatch(resetFilter())
 						dispatch(searchReset())
 						navigate('/')
 						if(isShowCardProfile) {
@@ -270,7 +276,7 @@ const Navbar = () => {
 							</svg>
 							<h3 className="font-bold cursor-pointer select-none text-base md:text-xl transition-all duration-150">Cart ({totalCartQuantity})</h3>
 						</div>
-						<div className="text-[#8b8b8b] dark:text-white dark:hover:text-navigator hover:text-navigator group  flex flex-row items-center gap-4">
+						<div onClick={() => window.open('https://github.com/IkkYa/pas-x-s2', '_blank')} className="text-[#8b8b8b] dark:text-white dark:hover:text-navigator hover:text-navigator group  flex flex-row items-center gap-4">
 							<svg className="fill-[#8b8b8b] group-hover:fill-green-400" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 								<path d="M12 12C15.3137 12 18 9.31371 18 6C18 2.68629 15.3137 0 12 0C8.68629 0 6 2.68629 6 6C6 9.31371 8.68629 12 12 12Z" />
 								<path d="M12 13.9991C7.03172 14.0046 3.00553 18.0308 3 22.9991C3 23.5514 3.4477 23.9991 3.99998 23.9991H20C20.5522 23.9991 21 23.5514 21 22.9991C20.9945 18.0308 16.9683 14.0046 12 13.9991Z" />
