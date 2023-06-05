@@ -79,8 +79,10 @@ const FavSlice = createSlice({
       }
     },
     resetFilterFav: (state) => {
-      state.favData = state.backUpFav
-      state.backUpFav = []
+      if(state.backUpFav.length > 0) {
+        state.favData = state.backUpFav
+        state.backUpFav = []
+      }
     },
   }
 })

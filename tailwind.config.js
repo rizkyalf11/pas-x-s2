@@ -28,7 +28,8 @@ export default {
       screens:{
         'hp' : '540px',
         'hpk' : '478px',
-        'hpsk' : '376px'
+        'hpsk' : '376px',
+        '425': '425px'
       }
     },
   },
