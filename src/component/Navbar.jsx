@@ -21,6 +21,7 @@ import { changeFilter, changeRoute } from '../features/RouteSlice/RouteSlice'
 
 // RRD
 import { useLocation, useNavigate } from 'react-router-dom'
+import { resetFilterFav } from '../features/Products/favSclice'
 
 const Navbar = () => {
 	const { isShowCardProfile } = useSelector((state) => state.isShowCardProfile)
@@ -97,6 +98,7 @@ const Navbar = () => {
 		if(filter) {
 			dispatch(changeFilter())
 		}
+		dispatch(resetFilterFav())
 		dispatch(resetFilter())
 		dispatch(searchReset())
 		inpSearch.current.value = ''
@@ -105,6 +107,7 @@ const Navbar = () => {
 
 	const hdlInput = (e) => {
 		if(e.code == 'Enter') {
+			dispatch(resetFilterFav())
 			dispatch(searchReset())
 			dispatch(resetFilter())
 			dispatch(searchHdl(e.target.value))
@@ -121,6 +124,7 @@ const Navbar = () => {
 	const hdlNavigate = () => {
 		if(route != '/cart') {
 			inpSearch.current.value = ''
+			dispatch(resetFilterFav())
 			dispatch(resetFilter())
 			dispatch(searchReset())
 			navigate('/cart')
@@ -133,6 +137,7 @@ const Navbar = () => {
 	const hdlNavigateWishlist = () => {
 		if(route != '/wishlist') {
 			inpSearch.current.value = ''
+			dispatch(resetFilterFav())
 			dispatch(resetFilter())
 			dispatch(searchReset())
 			navigate('/wishlist')
@@ -165,6 +170,7 @@ const Navbar = () => {
 					<img src={logo} alt="logo" className="h-[55px] hidden lg:block cursor-pointer" onClick={() => {
 						if(route != '/') {
 							inpSearch.current.value = ''
+							dispatch(resetFilterFav())
 							dispatch(resetFilter())
 							dispatch(searchReset())
 							navigate('/')
@@ -276,6 +282,7 @@ const Navbar = () => {
 				<img src={logo} alt="logo" className="h-[55px] hidden lg:block cursor-pointer" onClick={() => {
 					if(route != '/') {
 						inpSearch.current.value = ''
+						dispatch(resetFilterFav())
 						dispatch(resetFilter())
 						dispatch(searchReset())
 						navigate('/')
@@ -387,6 +394,7 @@ const Navbar = () => {
 				<img src={logo} alt="logo" className="h-[55px] hidden lg:block cursor-pointer" onClick={() => {
 					if(route != '/') {
 						inpSearch.current.value = ''
+						dispatch(resetFilterFav())
 						dispatch(resetFilter())
 						dispatch(searchReset())
 						navigate('/')
