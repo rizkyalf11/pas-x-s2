@@ -247,10 +247,10 @@ const ImportFruits = () => {
 					</div>
 				</motion.aside>
 				<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { delay: 0.5, duration: 0.5, ease: 'easeIn' } }} className="w-full md:w-[calc(100%-320px)]  ">
-					<section className="mt-7 md:mt-14 px-2 hpsk:px-3 lg:px-24 xl:px-40">
+					<section className="mt-7 md:mt-14 px-2 sm:px-3 lg:pr-24 xl:pr-40">
 						<h1 className=" text-3xl hpk:text-4xl font-quicksand font-bold dark:text-white">Import Fruits</h1>
 
-						<div className="mt-7 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4  gap-3 md:gap-5 " id="card-wrapper">
+						<div className="mt-7 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5  gap-3 md:gap-5  " id="card-wrapper">
 							<AnimatePresence>
 								{impFruits &&
 									impFruits.map((product) => {
