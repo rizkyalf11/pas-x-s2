@@ -165,7 +165,7 @@ const Home = () => {
 					initial={{opacity: 0}}
 					animate={{opacity: 1, transition: {delay: 1.1, duration: .5, ease: 'easeIn'}}}
 					className="mt-14 md:mt-14 px-2 hpsk:px-3 lg:px-24 xl:px-40 flex flex-col md:flex-row">
-					<div className="w-full md:w-2/4 px-4 py-7 order-2 md:order-1">
+					<div className="w-full md:w-2/4 px-0 md:px-4 py-7 order-2 md:order-1">
 						<h1 className=" text-2xl hp:text-3xl md:text-4xl font-bold dark:text-white">Why should fresh 4 you?</h1>
 						<p className="  mt-7 text-lg lg:text-2xl text-TexLig dark:text-TexDark text-justify">Our goal is to be an easy and convenient grocery shopping platform while maintaining the quality of our service - helping our customers shop efficiently and have time to do other important things every day.</p>
 						<button className="mt-7 h-[40px] w-[120px] hp:h-[50px] hp:w-[180px] border-[2.5px] border-navigator bg-navigator hover:bg-transparent rounded-xl flex justify-center items-center gap-2 dark:hover:border-navigator hover:border-navigator group transition-colors duration-300 ">
