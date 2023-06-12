@@ -192,7 +192,7 @@ const Navbar = () => {
 							placeholder="Apel Merah"
 							onKeyDown={(e) => hdlInput(e)}
 							onChange={(e) => hdlChangeInp(e)}
-							className="h-[35px] hpsk:h-[40px] rounded-full w-[98%] hpk:w-full xl:w-[540px] text-base hpsk:text-lg outline outline-white focus:outline-[3px] focus:outline-[#8b8b8b] pl-[15px] hpk:pl-[30px] transition duration-300 hover:ring-4 hover:ring-green-600"
+							className="h-[35px] hpsk:h-[40px] rounded-full w-[98%] hpk:w-full xl:w-[540px] text-base hpsk:text-lg outline outline-white focus:outline-[3px] focus:outline-[#8b8b8b] pl-[15px] hpk:pl-[30px] pr-10 transition duration-300 hover:ring-4 hover:ring-green-600"
 						/>
 					</div>
 
@@ -304,7 +304,7 @@ const Navbar = () => {
 						placeholder="Apel Merah"
 						onKeyDown={(e) => hdlInput(e)}
 						onChange={(e) => hdlChangeInp(e)}
-						className="h-[35px] hpsk:h-[40px] rounded-full w-[98%] hpk:w-full xl:w-[540px] text-base hpsk:text-lg outline outline-white focus:outline-[3px] focus:outline-[#8b8b8b] pl-[15px] hpk:pl-[30px] transition duration-300 hover:ring-4 hover:ring-green-600"
+						className="h-[35px] hpsk:h-[40px] rounded-full w-[98%] hpk:w-full xl:w-[540px] text-base hpsk:text-lg outline outline-white focus:outline-[3px] focus:outline-[#8b8b8b] pl-[15px] hpk:pl-[30px] pr-10 transition duration-300 hover:ring-4 hover:ring-green-600"
 					/>
 				</div>
 
@@ -416,7 +416,7 @@ const Navbar = () => {
 						placeholder="Apel Merah"
 						onKeyDown={(e) => hdlInput(e)}
 						onChange={(e) => hdlChangeInp(e)}
-						className="h-[35px] hpsk:h-[40px] rounded-full w-[98%] hpk:w-full xl:w-[540px] text-base hpsk:text-lg outline outline-white focus:outline-[3px] focus:outline-[#8b8b8b] pl-[15px] hpk:pl-[30px] transition duration-300 hover:ring-4 hover:ring-green-600"
+						className="h-[35px] hpsk:h-[40px] rounded-full w-[98%] hpk:w-full xl:w-[540px] text-base hpsk:text-lg outline outline-white focus:outline-[3px] focus:outline-[#8b8b8b] pl-[15px] hpk:pl-[30px]  pr-10 transition duration-300 hover:ring-4 hover:ring-green-600"
 					/>
 				</div>
 
