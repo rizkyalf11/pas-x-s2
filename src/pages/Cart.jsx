@@ -17,6 +17,7 @@ import ConfirmPayment from "../component/ConfirmPayment"
 
 // RHT
 import { Toaster } from "react-hot-toast"
+import { Link } from "react-router-dom"
 
 const Cart = () => {
   const dispatch = useDispatch()
@@ -122,6 +123,11 @@ const Cart = () => {
                 </div>
               </motion.div>
               ))}
+              {totalCartQuantity == 0 && (
+                <div className="p-5 w-full text-center mt-10">
+                  <h1 className="w-full text-center text-lg">Belum ada barang di keranjang. <Link to='/all-products' className="font-bold underline text-navigator cursor-pointer">Cek barang disini</Link></h1>
+                </div>
+              )}
             </AnimatePresence>
             </div>
         <aside className={`hpk:w-[380px] w-full fixed md:sticky h-full  ${payIsOpen? 'top-24 hpsk:top-20' : 'top-[calc(100vh-60px)]'}  right-0 hpk:right-3 md:top-24  rounded-xl overflow-hidden shadow-xl transition-all duration-300`} id="aside">

@@ -5,7 +5,8 @@ const FavSlice = createSlice({
   initialState: {
     favData: [],
     backUpFav: [],
-    stokFav: null
+    stokFav: null,
+    favQuantity: 0
   },
   reducers: {
     addToFav: (state, action) => {
@@ -13,9 +14,11 @@ const FavSlice = createSlice({
       
       if(itemIndex >= 0) {
         state.favData = state.favData.filter(item => item.id !== action.payload.id)
+        state.favQuantity = state.favData.length
       } else {
         let cloneData = {...action.payload, isFav: true}
         state.favData.push(cloneData )
+        state.favQuantity = state.favData.length
       }
 
     },

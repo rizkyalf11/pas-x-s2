@@ -16,11 +16,13 @@ import CategoryCard from '../component/CategoryCard'
 
 // RHT
 import { Toaster, toast } from 'react-hot-toast'
+import { Link } from 'react-router-dom'
 
 const Wishlist = () => {
 	// RDX
 	const dispatch = useDispatch()
 	const { favData } = useSelector((state) => state.favslice)
+	const { favQuantity } = useSelector((state) => state.favslice)
 	const { filter } = useSelector((state) => state.route)
 	const { isShowCardProfile } = useSelector((state) => state.isShowCardProfile)
 
@@ -260,6 +262,11 @@ const Wishlist = () => {
 									})}
 							</AnimatePresence>
 						</div>
+								{favQuantity == 0 && (
+									<div className="p-5 w-full text-center mt-10">
+										<h1 className="w-full text-center text-lg">Belum ada barang di Wishlist. <Link to='/all-products' className="font-bold underline text-navigator cursor-pointer">Cek barang disini</Link></h1>
+									</div>
+            )}
 					</section>
 				</motion.div>
 			</motion.main>
