@@ -182,14 +182,22 @@ const Home = () => {
 					animate={{opacity: 1, transition: {delay: 1.4, duration: .5, ease: 'easeIn'}}}
 					className="mt-7 md:mt-14 px-2 hpsk:px-3 lg:px-24 xl:px-40">
 					<h1 className=" text-2xl hp:text-3xl md:text-4xl font-bold dark:text-white">Blog</h1>
-					<div className="w-full flex flex-row mt-7 gap-3 md:gap-10">
-						<div className="w-2/4 cursor-pointer" onClick={() => window.open('https://en.wikipedia.org/wiki/Fruit#:~:text=Various%20culinary%20fruits%20provide%20significant,simply%20eating%20and%20chewing%20them.', '_blank')}>
+					<div className="w-full grid grid-cols-4 md:grid-cols-2 mt-7 gap-3 md:gap-5">
+						<div className=" cursor-pointer" onClick={() => window.open('https://en.wikipedia.org/wiki/Fruit#:~:text=Various%20culinary%20fruits%20provide%20significant,simply%20eating%20and%20chewing%20them.', '_blank')}>
 							<img src="/img/blog1.webp" alt="" className="" />
-							<h1 className=" text-lg md:text-2xl lg:text-4xl dark:text-white mt-2 text-justify">5 Benefits of Fruits for our bodies that you don't know about</h1>
+							<h1 className=" text-base sm:text-xl dark:text-white mt-2 text-justify">5 Benefits of Fruits for our bodies that you don't know about</h1>
 						</div>
-						<div className="w-2/4 cursor-pointer" onClick={() => window.open('https://en.wikipedia.org/wiki/Avocado', '_blank')}>
+						<div className=" cursor-pointer" onClick={() => window.open('https://en.wikipedia.org/wiki/Avocado', '_blank')}>
 							<img src="/img/blog2.webp" alt="" className="" />
-							<h1 className="  text-lg md:text-2xl lg:text-4xl  dark:text-white mt-2 text-justify">These are 10 benefits of avocado for health</h1>
+							<h1 className="  text-base sm:text-xl  dark:text-white mt-2 text-justify">These are 10 benefits of avocado for health</h1>
+						</div>
+						<div className=" cursor-pointer" onClick={() => window.open('https://dentistry.uic.edu/news-stories/eat-fruits-and-veggies-for-a-healthy-smile/#:~:text=Apples%20and%20Citrus%20Fruit,left%20behind%20in%20your%20mouth.', '_blank')}>
+							<img src="/img/blog3.webp" alt="" className="" />
+							<h1 className="  text-base sm:text-xl  dark:text-white mt-2 text-justify">List of Good Fruits for Dental and Oral Health</h1>
+						</div>
+						<div className=" cursor-pointer" onClick={() => window.open('https://www.webmd.com/food-recipes/health-benefits-bananas', '_blank')}>
+							<img src="/img/blog4.webp" alt="" className="" />
+							<h1 className="  text-base sm:text-xl  dark:text-white mt-2 text-justify">Benefits of Bananas for Health If Consumed Regularly</h1>
 						</div>
 					</div>
 
