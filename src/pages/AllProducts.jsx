@@ -263,7 +263,7 @@ const AllProducts = () => {
 						</div>
 						{noResult && (
 							<div className="p-5 w-full text-center mt-10">
-								<h1 className="w-full text-center text-lg dark:text-white">Barang yang ada cari tidak tersedia</h1>
+								<h1 className="w-full text-center text-lg dark:text-white">Barang yang anda cari tidak tersedia</h1>
 							</div>
 						)}
 					</section>
