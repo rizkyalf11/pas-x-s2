@@ -26,7 +26,7 @@ const CardDetail = ({ product }) => {
     disptach(minusProduct(val.product))
 		disptach(minusStokFav(val))
 		disptach(getStokDetail(val.product))
-    toast.success(`Add to cart - ${val.name}`, {
+    toast.success(`Add to cart - ${val.product.name}`, {
       duration: 900
     })
   }
