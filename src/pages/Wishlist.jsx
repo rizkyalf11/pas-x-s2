@@ -264,7 +264,7 @@ const Wishlist = () => {
 						</div>
 								{favQuantity == 0 && (
 									<div className="p-5 w-full text-center mt-10">
-										<h1 className="w-full text-center text-lg">Belum ada barang di Wishlist. <Link to='/all-products' className="font-bold underline text-navigator cursor-pointer">Cek barang disini</Link></h1>
+										<h1 className="w-full text-center text-lg dark:text-white">Belum ada barang di Wishlist. <Link to='/all-products' className="font-bold underline text-navigator cursor-pointer">Cek barang disini</Link></h1>
 									</div>
             )}
 					</section>
