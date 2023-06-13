@@ -182,7 +182,7 @@ const Home = () => {
 					animate={{opacity: 1, transition: {delay: 1.4, duration: .5, ease: 'easeIn'}}}
 					className="mt-7 md:mt-14 px-2 hpsk:px-3 lg:px-24 xl:px-40">
 					<h1 className=" text-2xl hp:text-3xl md:text-4xl font-bold dark:text-white">Blog</h1>
-					<div className="w-full grid grid-cols-4 md:grid-cols-2 mt-7 gap-3 md:gap-5">
+					<div className="w-full grid grid-cols-2 md:grid-cols-4 mt-7 gap-3 md:gap-5">
 						<div className=" cursor-pointer" onClick={() => window.open('https://en.wikipedia.org/wiki/Fruit#:~:text=Various%20culinary%20fruits%20provide%20significant,simply%20eating%20and%20chewing%20them.', '_blank')}>
 							<img src="/img/blog1.webp" alt="" className="" />
 							<h1 className=" text-base sm:text-xl dark:text-white mt-2 text-justify">5 Benefits of Fruits for our bodies that you don't know about</h1>
