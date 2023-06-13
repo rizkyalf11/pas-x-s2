@@ -21,6 +21,7 @@ const AllProducts = () => {
 	// RDX
 	const dispatch = useDispatch()
 	const allProducts = useSelector((state) => state.products.allProducts)
+	const noResult = useSelector((state) => state.products.noResultSearch)
 	const { filter } = useSelector((state) => state.route)
 	const { isShowCardProfile } = useSelector((state) => state.isShowCardProfile)
 
@@ -260,6 +261,11 @@ const AllProducts = () => {
 									})}
 							</AnimatePresence>
 						</div>
+						{noResult && (
+							<div className="p-5 w-full text-center mt-10">
+								<h1 className="w-full text-center text-lg">Barang yang ada cari tidak tersedia</h1>
+							</div>
+						)}
 					</section>
 				</motion.div>
 			</motion.main>

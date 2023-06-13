@@ -1184,7 +1184,8 @@ const initialState = {
   backUpMinuman: [],
   path: '',
   stokDetail: null,
-  isFavDetail: null
+  isFavDetail: null,
+  noResultSearch: false
 }
 
 export const productsSlice = createSlice({
@@ -1409,11 +1410,13 @@ export const productsSlice = createSlice({
 
       let query = action.payload.toLowerCase()
       state.allProducts = state.allProducts.filter(item => item.name.toLocaleLowerCase().startsWith(query))
+      state.allProducts.length == 0 ? state.noResultSearch = true : state.noResultSearch = false
     },
     searchReset: (state) => {
       if(state.backUp.length > 0) {
         state.allProducts = state.backUp
         state.backUp = []
+        state.allProducts.length == 0 ? state.noResultSearch = true : state.noResultSearch = false
       }
     },
     minusProduct: (state, actions) => {
