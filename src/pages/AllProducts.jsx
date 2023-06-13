@@ -17,6 +17,16 @@ import { changeFilter } from '../features/RouteSlice/RouteSlice'
 // RHT
 import { Toaster, toast } from 'react-hot-toast'
 
+// SWP
+import 'swiper/css'
+import 'swiper/css/pagination'
+import 'swiper/css/autoplay'
+import 'swiper/css/scrollbar'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Pagination } from 'swiper'
+
+import { useNavigate } from 'react-router-dom'
+
 const AllProducts = () => {
 	// RDX
 	const dispatch = useDispatch()
@@ -24,6 +34,8 @@ const AllProducts = () => {
 	const noResult = useSelector((state) => state.products.noResultSearch)
 	const { filter } = useSelector((state) => state.route)
 	const { isShowCardProfile } = useSelector((state) => state.isShowCardProfile)
+
+	const navigate = useNavigate()
 
 	const changeFilterAndCard = () => {
 		if (isShowCardProfile) {
@@ -251,6 +263,52 @@ const AllProducts = () => {
 				</motion.aside>
 				<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { delay: 0.5, duration: 0.5, ease: 'easeIn' } }} className="w-full md:w-[calc(100%-320px)]  ">
 					<section className="mt-7 md:mt-14 px-2 sm:px-3 lg:pr-24 xl:pr-40">
+					<div className="mt-4 sm:mt-7 swiper swiper2 mb-4">
+						<Swiper
+							direction="horizontal"
+							modules={[Pagination]}
+							spaceBetween={10}
+							freeMode={true}
+							pagination={{ el: null, clickable: true }}
+							breakpoints={{
+								0: {
+									slidesPerView: 1.3,
+									spaceBetween: 15,
+								},
+								372: {
+									slidesPerView: 1.9,
+								},
+								520: {
+									slidesPerView: 2.5,
+								},
+								1317: {
+									slidesPerView: 4,
+								}
+
+							}}
+						>
+							<SwiperSlide onClick={() => navigate('/local-fruits')} className="w-[180px] h-[100px] hpk:h-[140px] swiper-slide rounded-xl overflow-hidden transition-all duration-300 relative group">
+								<img loading="eager" src="/img/category1.webp" alt="category" className="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-125" />
+								<div className="absolute w-full h-full bg-black top-0 opacity-50 transition-all duration-1000 group-hover:opacity-10 "></div>
+								<h3 className=" absolute w-full h-full top-0 text-white flex justify-center items-center font-semibold transition-transform duration-300 p-3 ">Local fruits</h3>
+							</SwiperSlide>
+							<SwiperSlide onClick={() => navigate('/import-fruits')} className="w-[180px] h-[100px] hpk:h-[140px] swiper-slide rounded-xl overflow-hidden transition-all duration-1000 relative group">
+								<img loading="eager" src="/img/category2.webp" alt="category" className="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-125" />
+								<div className="absolute w-full h-full bg-black top-0 opacity-50 transition-all duration-1000 group-hover:opacity-10 "></div>
+								<h3 className=" absolute w-full h-full top-0 text-white flex justify-center items-center font-semibold transition-transform duration-300 p-3 ">Import fruits</h3>
+							</SwiperSlide>
+							<SwiperSlide onClick={() => navigate('/vegetables')} className="w-[180px] h-[100px] hpk:h-[140px] swiper-slide rounded-xl overflow-hidden transition-all duration-1000 relative group">
+								<img loading="eager" src="/img/category3.webp" alt="category" className="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-125" />
+								<div className="absolute w-full h-full bg-black top-0 opacity-50 transition-all duration-1000 group-hover:opacity-10 "></div>
+								<h3 className=" absolute w-full h-full top-0 text-white flex justify-center items-center font-semibold transition-transform duration-300 p-3 ">Vegetables</h3>
+							</SwiperSlide>
+							<SwiperSlide onClick={() => navigate('/beverages')} className="w-[180px] h-[100px] hpk:h-[140px] swiper-slide rounded-xl overflow-hidden transition-all duration-1000 relative group">
+								<img loading="eager" src="/img/category4.webp" alt="category" className="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-125" />
+								<div className="absolute w-full h-full bg-black top-0 opacity-50 transition-all duration-10 00 group-hover:opacity-10 "></div>
+								<h3 className=" absolute w-full h-full top-0 text-white flex justify-center items-center font-semibold transition-transform duration-300 p-3 ">Beverages</h3>
+							</SwiperSlide>
+						</Swiper>
+					</div>
 						<h1 className=" text-3xl hpk:text-4xl font-quicksand font-bold dark:text-white">All Product</h1>
 
 						<div className="mt-7 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5  gap-3 md:gap-5 " id="card-wrapper">
