@@ -130,7 +130,7 @@ const Cart = () => {
               )}
             </AnimatePresence>
             </div>
-        <aside className={`hpk:w-[380px] w-full fixed md:sticky h-full  ${payIsOpen? 'top-24 hpsk:top-20' : 'top-[calc(100vh-60px)]'}  right-0 hpk:right-3 md:top-24  rounded-xl overflow-hidden shadow-xl transition-all duration-300`} id="aside">
+        <aside className={`hpk:w-[380px] w-full fixed md:sticky h-screen bg-white md:bg-transparent md:h-full  ${payIsOpen? 'top-24 hpsk:top-20' : 'top-[calc(100vh-60px)]'}  right-0 hpk:right-3 md:top-24  rounded-xl overflow-hidden shadow-xl transition-all duration-300`} id="aside">
           <header onClick={() => setPayIsOpen(!payIsOpen)} className="px-6 py-4 bg-navigator dark:bg-darkNav font-quicksand font-semibold text-HDark dark:text-navigator text-xl flex items-center gap-3" id="checkout">Checkout
             {payIsOpen? (
               <svg className="md:hidden fill-white dark:fill-navigator" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
