@@ -18,7 +18,7 @@ const BuyNow = () => {
   }
 	
   return (
-		<div className="w-full h-screen bg-black/30 fixed top-1/2 -translate-y-1/2 right-1/2 translate-x-1/2 z-50 flex items-center justify-center">
+		<div className="w-full z-[999999999999999999999999999] h-screen bg-black/30 fixed top-1/2 -translate-y-1/2 right-1/2 translate-x-1/2 flex items-center justify-center">
 			<motion.div initial={{ scale: 0.3 }} animate={{ scale: 1 }} transition={{ type: 'spring', damping: 8, stiffness: 100 }} className=" bg-white rounded-2xl flex flex-col items-center justify-center px-8 py-7 gap-5 ">
 				<div className="bg-green-400/60 flex justify-center items-center w-[120px] p-4 rounded-full">
 					<svg className=" cursor-pointer dark:fill-HDark self-end w-full h-full]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

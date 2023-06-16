@@ -157,13 +157,13 @@ const Beverages = () => {
 	document.title = 'Fresh4U - Beverages'
 	return (
 		<>
-			<AnimatePresence>{detailCard && (
-				<CardDetail product={data} />
-			)}</AnimatePresence>
-
 			<AnimatePresence>
 				{isBuyNow && <BuyNow />}
 			</AnimatePresence>
+
+			<AnimatePresence>{detailCard && (
+				<CardDetail product={data} />
+			)}</AnimatePresence>
 
 			<div>
 				<Toaster position="bottom-left" reverseOrder={false} />

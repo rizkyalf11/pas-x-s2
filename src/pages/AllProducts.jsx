@@ -177,11 +177,11 @@ const AllProducts = () => {
 	return (
 		<>
 			<AnimatePresence>
-				{detailCard && <CardDetail product={data} />}
+				{isBuyNow && <BuyNow />}
 			</AnimatePresence>
 
 			<AnimatePresence>
-				{isBuyNow && <BuyNow />}
+				{detailCard && <CardDetail product={data} />}
 			</AnimatePresence>
 
 			<div>
