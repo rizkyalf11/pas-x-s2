@@ -68,7 +68,7 @@ const Navbar = () => {
 		dispatch(changePath(location.pathname))
 	}, [route, location, dispatch])
 
-	const [isLoad, setIsLoad] = useState(true)
+	const [isLoad, setIsLoad] = useState(false)
 	window.addEventListener('load', () => {
 		setTimeout(() => {
 			if(isLoad) setIsLoad(false);
@@ -196,7 +196,7 @@ const Navbar = () => {
 						/>
 					</div>
 
-					<div className=" flex flex-row items-center gap-3 hp:gap-4">
+					<div className=" flex flex-row items-center gap-3 hp:gap-6">
 						<img onClick={() => hdlNavigateWishlist()} src={heart} alt="Wishlist" className="w-[28px] md:w-[32px] cursor-pointer" />
 					
 						<div onClick={() => hdlNavigate()} className="relative w-[28px] md:w-[32px] cursor-pointer sm:block">
@@ -207,7 +207,7 @@ const Navbar = () => {
 						</div>
 					
 						<div onClick={() => hdlClickProfile()} className="select-none flex flex-row gap-2 items-center max-sm:w-[45px] cursor-pointer" id="profile">
-							<h1 className=" text-white text-xl md:text-2xl font-poppins font-normal hidden sm:block">Person</h1>
+							
 							<img  className="w-[45px] aspect-square object-cover rounded-full lg:w-[50px]" src={person} alt="You" />
 						</div>
 					</div>
@@ -308,7 +308,7 @@ const Navbar = () => {
 					/>
 				</div>
 
-				<div className=" flex flex-row items-center gap-3 hp:gap-4 max-425:w-[150px]">
+				<div className=" flex flex-row items-center gap-3 hp:gap-6 max-425:w-[150px]">
 					<img onClick={() => hdlNavigateWishlist()} src={heart} alt="Wishlist" className="w-[28px] md:w-[32px] cursor-pointer" />
 				
 					<div onClick={() => hdlNavigate()} className="relative w-[28px] md:w-[32px] cursor-pointer sm:block">
@@ -319,7 +319,7 @@ const Navbar = () => {
 					</div>
 				
 					<div onClick={() => hdlClickProfile()} className="select-none flex flex-row gap-2 items-center max-sm:w-[45px] cursor-pointer" id="profile">
-						<h1 className=" text-white text-xl md:text-2xl font-poppins font-normal hidden sm:block">Person</h1>
+						
 						<img  className="w-[45px] aspect-square object-cover rounded-full lg:w-[50px]" src={person} alt="You" />
 					</div>
 				</div>
@@ -420,7 +420,7 @@ const Navbar = () => {
 					/>
 				</div>
 
-				<div className=" flex flex-row items-center gap-3 hp:gap-4 max-425:w-[150px]">
+				<div className=" flex flex-row items-center gap-3 hp:gap-6 max-425:w-[150px]">
 					<img onClick={() => hdlNavigateWishlist()} src={heart} alt="Wishlist" className="w-[28px] md:w-[32px] cursor-pointer hidden md:block" />
 
 					<div className="block md:hidden select-none" id="filter" onClick={() => hdlFilterClick()}>
@@ -445,7 +445,7 @@ const Navbar = () => {
 					</div>
 				
 					<div onClick={() => hdlClickProfile()} className="select-none flex flex-row gap-2 items-center max-sm:w-[45px] cursor-pointer" id="profile">
-						<h1 className=" text-white text-xl md:text-2xl font-poppins font-normal hidden sm:block">Person</h1>
+						
 						<img  className="w-[45px] aspect-square object-cover rounded-full lg:w-[50px]" src={person} alt="You" />
 					</div>
 				</div>

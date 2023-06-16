@@ -16,6 +16,7 @@ import CategoryCard from '../component/CategoryCard'
 
 // RHT
 import { Toaster, toast } from 'react-hot-toast'
+import BuyNow from '../component/BuyNow'
 
 const LocalFruits = () => {
 	// RDX
@@ -23,6 +24,7 @@ const LocalFruits = () => {
 	const local = useSelector((state) => state.products.local)
 	const { filter } = useSelector((state) => state.route)
 	const { isShowCardProfile } = useSelector((state) => state.isShowCardProfile)
+	const isBuyNow = useSelector((state) => state.products.isBuyNow.isShow)
 
 	const changeFilterAndCard = () => {
 		if (isShowCardProfile) {
@@ -120,9 +122,13 @@ const LocalFruits = () => {
 				if (maxCostumValue == 0 && minCostumValue == 0) {
 					toast.error('Enter Value')
 				} else {
-					dispatch(generateFilter({ jenis: jenisFilter.jenis, max: maxCostumValue, min: minCostumValue }))
-					setIsFilter(jenisFilter.jenis)
-					dispatch(changeFilter())
+					if(minCostumValue > maxCostumValue) {
+						toast.error('Min harus lebih kecil dari Max')
+					} else {
+						dispatch(generateFilter({ jenis: jenisFilter.jenis, max: maxCostumValue, min: minCostumValue }))
+						setIsFilter(jenisFilter.jenis)
+						dispatch(changeFilter())
+					}
 				}
 			} else {
 				dispatch(generateFilter({ jenis: jenisFilter.jenis, max: maxCostumValue, min: minCostumValue }))
@@ -152,6 +158,10 @@ const LocalFruits = () => {
 	return (
 		<>
 			<AnimatePresence>{detailCard && <CardDetail product={data} />}</AnimatePresence>
+
+			<AnimatePresence>
+				{isBuyNow && <BuyNow />}
+			</AnimatePresence>
 
 			<div>
 				<Toaster position="bottom-left" reverseOrder={false} />
@@ -261,7 +271,7 @@ const LocalFruits = () => {
 					</section>
 				</motion.div>
 			</motion.main>
-			<footer className="w-full mt-80 bg-navigator">
+			<footer className="w-full bg-navigator dark:bg-darkNav">
 				<div className="py-16 px-10 sm:px-20 lg:px-32">
 					<div className="w-full flex flex-col md:flex-row justify-end sm:justify-center md:justify-between">
 						<div className="md:hidden w-full mb-8 flex justify-center items-center">
@@ -315,27 +325,27 @@ const LocalFruits = () => {
 						</div>
 					</div>
 					<div className="w-full h-1 bg-black bg-opacity-25 mt-5"></div>
-					<div className="mt-5 hidden w-full md:flex items-center justify-center gap-6">
-						<div>
-							<img src="/img/tailwind.png" alt="tailwind" className="aspect-auto" />
+					<div className="mt-14 hidden w-full md:flex items-center justify-center gap-8 h-16">
+						<div  className='h-16'>
+							<img src="/img/tailwindcss.png" alt="tailwind" className="aspect-auto h-full"/>
 						</div>
-						<div>
-							<img src="/img/react.png" alt="react" className="aspect-auto" />
+						<div  className='h-16'>
+							<img src="/img/react.png" alt="react" className="aspect-auto h-full"/>
 						</div>
-						<div>
-							<img src="/img/vitejs.png" alt="vite" />
+						<div  className='h-16'>          
+							<img src="/img/vitejs.png" alt="vite" className='h-full' />
 						</div>
-						<div>
-							<img src="/img/javascript-original.png" alt="js" />
+						<div  className='h-16'>
+							<img src="/img/js.png" alt="js" className='h-full' />
 						</div>
-						<div>
-							<img src="/img/framer-motion.png" alt="framer motion" />
+						<div  className='h-16'>
+							<img src="/img/framer-motion.png" alt="framer motion" className='h-full' />
 						</div>
-						<div>
-							<img src="/img/react-router.png" alt="react router dom" />
+						<div  className='h-16'>
+							<img src="/img/react-router.png" alt="react router dom" className='h-full' />
 						</div>
-						<div>
-							<img src="/img/redux.png" alt="redux" />
+						<div  className='h-16'>
+							<img src="/img/redux.png" alt="redux"  className='h-full'/>
 						</div>
 					</div>
 					<div className="w-full flex items-center justify-center md:hidden">

@@ -1,8 +1,8 @@
 // RDX
 import { useDispatch, useSelector } from 'react-redux'
 import { changeIsShowCard } from '../features/Products/isShowDetail'
-import { addToCart } from "../features/Products/cartSlice"
-import { changeIsFavProduct, getIsFavDetail, getStokDetail, minusProduct } from "../features/Products/ProductsSlice"
+import { addToCart, changeIsCheck } from "../features/Products/cartSlice"
+import { changeIsBuyNow, changeIsFavProduct, getIsFavDetail, getStokDetail, minusProduct } from "../features/Products/ProductsSlice"
 
 // FM
 import { motion } from 'framer-motion'
@@ -26,6 +26,7 @@ const CardDetail = ({ product }) => {
     disptach(minusProduct(val.product))
 		disptach(minusStokFav(val))
 		disptach(getStokDetail(val.product))
+    disptach(changeIsCheck(null))
     toast.success(`Add to cart - ${val.product.name}`, {
       duration: 900
     })
@@ -45,6 +46,14 @@ const CardDetail = ({ product }) => {
     disptach(changeIsFavProduct(val))
 		disptach(getIsFavDetail(val))
   }
+
+	const hdlBuyNow = (val) => {
+		if(val.stok > 0) {
+			disptach(changeIsBuyNow(val))
+		} else {
+			toast.error('Stok Habis')
+		}
+	}
 
 	return (
 		<>
@@ -80,7 +89,34 @@ const CardDetail = ({ product }) => {
 					<div className="absolute w-full h-full top-0 bg-black bg-opacity-10"></div>
 				</div>
 				<div className="w-full h-4/6 md:w-3/5 md:h-full  p-4 md:p-6 flex flex-col justify-between ">
-					<h1 className=" font-bold text-3xl md:text-5xl dark:text-white">{dataProd.name}</h1>
+					<div className='flex justify-between items-center'>
+						<h1 className=" font-bold text-3xl md:text-5xl dark:text-white">{dataProd.name}</h1>
+						<button onClick={() => hdlAddToFav({...dataProd, isFav: isFavDetail})} className="">
+								{isFavDetail? (
+									<svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<g clipPath="url(#clip0_406_1997)">
+											<path d="M17.5 1.9165C16.3739 1.93402 15.2724 2.24836 14.3067 2.82778C13.341 3.40719 12.5453 4.23117 12 5.2165C11.4546 4.23117 10.6589 3.40719 9.6932 2.82778C8.7275 2.24836 7.62601 1.93402 6.49996 1.9165C4.7049 1.99449 3.01366 2.77976 1.79574 4.10074C0.577818 5.42171 -0.0677922 7.17103 -4.17093e-05 8.9665C-4.17093e-05 13.5135 4.78596 18.4795 8.79996 21.8465C9.69618 22.5996 10.8293 23.0125 12 23.0125C13.1706 23.0125 14.3037 22.5996 15.2 21.8465C19.214 18.4795 24 13.5135 24 8.9665C24.0677 7.17103 23.4221 5.42171 22.2042 4.10074C20.9863 2.77976 19.295 1.99449 17.5 1.9165Z" fill="#FF0000"/>
+											</g>
+											<defs>
+											<clipPath id="clip0_406_1997">
+											<rect width="24" height="24" fill="white"/>
+											</clipPath>
+										</defs>
+									</svg>
+								) : (
+									<svg className="fill-black/50 dark:fill-white w-[30px] group-hover:fill-navigator transition-colors duration-300 " viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+										<g clipPath="url(#clip0_403_2975)">
+											<path d="M17.5 1.9165C16.3739 1.93402 15.2724 2.24836 14.3067 2.82778C13.341 3.40719 12.5453 4.23117 12 5.2165C11.4546 4.23117 10.6589 3.40719 9.6932 2.82778C8.7275 2.24836 7.62601 1.93402 6.49996 1.9165C4.7049 1.99449 3.01366 2.77976 1.79574 4.10074C0.577818 5.42171 -0.0677922 7.17103 -4.17093e-05 8.9665C-4.17093e-05 13.5135 4.78596 18.4795 8.79996 21.8465C9.69618 22.5996 10.8293 23.0125 12 23.0125C13.1706 23.0125 14.3037 22.5996 15.2 21.8465C19.214 18.4795 24 13.5135 24 8.9665C24.0677 7.17103 23.4221 5.42171 22.2042 4.10074C20.9863 2.77976 19.295 1.99449 17.5 1.9165ZM13.915 20.3165C13.3789 20.7679 12.7007 21.0154 12 21.0154C11.2992 21.0154 10.621 20.7679 10.085 20.3165C4.94696 16.0055 1.99996 11.8695 1.99996 8.9665C1.9316 7.70122 2.36632 6.46023 3.20932 5.5142C4.05232 4.56817 5.23519 3.99385 6.49996 3.9165C7.76472 3.99385 8.9476 4.56817 9.7906 5.5142C10.6336 6.46023 11.0683 7.70122 11 8.9665C11 9.23172 11.1053 9.48607 11.2929 9.67361C11.4804 9.86115 11.7347 9.9665 12 9.9665C12.2652 9.9665 12.5195 9.86115 12.7071 9.67361C12.8946 9.48607 13 9.23172 13 8.9665C12.9316 7.70122 13.3663 6.46023 14.2093 5.5142C15.0523 4.56817 16.2352 3.99385 17.5 3.9165C18.7647 3.99385 19.9476 4.56817 20.7906 5.5142C21.6336 6.46023 22.0683 7.70122 22 8.9665C22 11.8695 19.053 16.0055 13.915 20.3125V20.3165Z" />
+										</g>
+										<defs>
+											<clipPath id="clip0_403_2975">
+												<rect width="24" height="24" fill="white" />
+											</clipPath>
+										</defs>
+									</svg>
+								)}
+							</button>
+					</div>
 
 					<div className=" h-[75%] mt-4 overflow-y-auto scrollbar-thin scrollbar-thumb-navigator">
 						<div className=" w-full h-auto box-border">
@@ -117,32 +153,6 @@ const CardDetail = ({ product }) => {
 
 					<div className="w-full flex justify-between gap-3 items-center">
 						<div className="flex gap-3 flex-row">
-							<button onClick={() => hdlAddToFav({...dataProd, isFav: isFavDetail})} className="h-[50px] w-[60px] sm:w-[170px] border-[2.5px] border-noHover dark:border-white rounded-xl flex justify-center items-center gap-2 dark:hover:border-navigator hover:border-navigator group transition-colors duration-300 ">
-								{isFavDetail? (
-									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<g clipPath="url(#clip0_406_1997)">
-											<path d="M17.5 1.9165C16.3739 1.93402 15.2724 2.24836 14.3067 2.82778C13.341 3.40719 12.5453 4.23117 12 5.2165C11.4546 4.23117 10.6589 3.40719 9.6932 2.82778C8.7275 2.24836 7.62601 1.93402 6.49996 1.9165C4.7049 1.99449 3.01366 2.77976 1.79574 4.10074C0.577818 5.42171 -0.0677922 7.17103 -4.17093e-05 8.9665C-4.17093e-05 13.5135 4.78596 18.4795 8.79996 21.8465C9.69618 22.5996 10.8293 23.0125 12 23.0125C13.1706 23.0125 14.3037 22.5996 15.2 21.8465C19.214 18.4795 24 13.5135 24 8.9665C24.0677 7.17103 23.4221 5.42171 22.2042 4.10074C20.9863 2.77976 19.295 1.99449 17.5 1.9165Z" fill="#FF0000"/>
-											</g>
-											<defs>
-											<clipPath id="clip0_406_1997">
-											<rect width="24" height="24" fill="white"/>
-											</clipPath>
-										</defs>
-									</svg>
-								) : (
-									<svg className="fill-black/50 dark:fill-white w-[19px] group-hover:fill-navigator transition-colors duration-300 " viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-										<g clipPath="url(#clip0_403_2975)">
-											<path d="M17.5 1.9165C16.3739 1.93402 15.2724 2.24836 14.3067 2.82778C13.341 3.40719 12.5453 4.23117 12 5.2165C11.4546 4.23117 10.6589 3.40719 9.6932 2.82778C8.7275 2.24836 7.62601 1.93402 6.49996 1.9165C4.7049 1.99449 3.01366 2.77976 1.79574 4.10074C0.577818 5.42171 -0.0677922 7.17103 -4.17093e-05 8.9665C-4.17093e-05 13.5135 4.78596 18.4795 8.79996 21.8465C9.69618 22.5996 10.8293 23.0125 12 23.0125C13.1706 23.0125 14.3037 22.5996 15.2 21.8465C19.214 18.4795 24 13.5135 24 8.9665C24.0677 7.17103 23.4221 5.42171 22.2042 4.10074C20.9863 2.77976 19.295 1.99449 17.5 1.9165ZM13.915 20.3165C13.3789 20.7679 12.7007 21.0154 12 21.0154C11.2992 21.0154 10.621 20.7679 10.085 20.3165C4.94696 16.0055 1.99996 11.8695 1.99996 8.9665C1.9316 7.70122 2.36632 6.46023 3.20932 5.5142C4.05232 4.56817 5.23519 3.99385 6.49996 3.9165C7.76472 3.99385 8.9476 4.56817 9.7906 5.5142C10.6336 6.46023 11.0683 7.70122 11 8.9665C11 9.23172 11.1053 9.48607 11.2929 9.67361C11.4804 9.86115 11.7347 9.9665 12 9.9665C12.2652 9.9665 12.5195 9.86115 12.7071 9.67361C12.8946 9.48607 13 9.23172 13 8.9665C12.9316 7.70122 13.3663 6.46023 14.2093 5.5142C15.0523 4.56817 16.2352 3.99385 17.5 3.9165C18.7647 3.99385 19.9476 4.56817 20.7906 5.5142C21.6336 6.46023 22.0683 7.70122 22 8.9665C22 11.8695 19.053 16.0055 13.915 20.3125V20.3165Z" />
-										</g>
-										<defs>
-											<clipPath id="clip0_403_2975">
-												<rect width="24" height="24" fill="white" />
-											</clipPath>
-										</defs>
-									</svg>
-								)}
-								<p className="text-noHover dark:text-white text-2xl  font-bold group-hover:text-navigator transition-colors duration-300 hidden sm:block">Wishlist</p>
-							</button>
 							{stokDetail != 0 ? (
 								<button onClick={() => hdlAddToCart({product, stokDetail})} className="h-[50px] select-none w-[180px] border-[2.5px] border-navigator bg-navigator hover:bg-transparent rounded-xl flex justify-center items-center gap-2 dark:hover:border-navigator hover:border-navigator group transition-colors duration-300 ">
 									<svg className="fill-white group-hover:fill-navigator w-[17px] transition-colors duration-300 " viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -176,6 +186,12 @@ const CardDetail = ({ product }) => {
 									<p className="text-white text-xl  font-bold group-hover:text-navigator transition-colors duration-300">Add to cart</p>
 								</button>
 							)}
+							<button onClick={() => hdlBuyNow(dataProd)} className="h-[50px] w-[60px] sm:w-[170px] border-[2.5px] border-noHover text-noHover dark:border-white dark:text-white rounded-xl flex justify-center items-center gap-2 dark:hover:border-navigator dark:hover:text-navigator hover:border-navigator hover:text-navigator group transition-colors duration-300 ">
+								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" />
+                </svg>
+								<p className="text-noHover dark:text-white text-1xl  font-semibold group-hover:text-navigator transition-colors duration-300 hidden sm:block">Beli Sekarang</p>
+							</button>
 						</div>
 					</div>
 				</div>

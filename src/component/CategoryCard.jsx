@@ -6,7 +6,7 @@ import { motion } from "framer-motion"
 // RDX
 import { useDispatch } from "react-redux"
 import { openCard } from '../features/Products/isShowDetail'
-import { addToCart } from "../features/Products/cartSlice"
+import { addToCart, changeIsCheck } from "../features/Products/cartSlice"
 import { toast } from "react-hot-toast"
 import { changeIsFavProduct, getIsFavDetail, getStokDetail, minusProduct } from "../features/Products/ProductsSlice"
 import { addToFav, minusStokFav } from "../features/Products/favSclice"
@@ -19,6 +19,7 @@ const AllProductCard = ({product}) => {
     dispatch(addToCart(val))
     dispatch(minusProduct(val))
     dispatch(minusStokFav({product: val, stokDetail: val.stok}))
+    dispatch(changeIsCheck(null))
     toast.success(`Add to cart - ${val.name}`, {
       duration: 900
     })
@@ -73,7 +74,7 @@ const AllProductCard = ({product}) => {
         <div className={`w-full h-full ${product.category !== 'Minuman' && 'p-8 md:p-3'}  bg-white flex items-center justify-center`}>
           <img src={product.image} alt={product.name} className={`w-full ${product.category == 'Minuman' && 'h-full object-cover'}`} />
         </div>
-        <div className="absolute bg-black opacity-30 w-full h-full top-0 hpk:group-hover/parent:opacity-80 transition-all duration-300"></div>
+        <div className="absolute bg-black  group-hover/parent:bg-gradient-to-t group-hover/parent:from-black group-hover/parent:from-10% opacity-30 group-hover/parent:opacity-80 w-full h-full top-0 hpk:group-hover/parent:bg-opacity-30 transition-all duration-300"></div>
         <div className="absolute top-0 w-full h-full flex justify-between items-end flex-row px-3 pb-2">
           <h3 className="max-w-[125px]  text-white text-base font-semibold">{product.name}</h3>
           <h3 className="w-[100px] justify-end text-white text-[11px] hpsk:text-sm font-semibold flex">$ {product.displayPrice}</h3>

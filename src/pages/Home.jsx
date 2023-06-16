@@ -25,6 +25,7 @@ import { Toaster } from 'react-hot-toast'
 // COMP
 import CardProduct from '../component/CardProduct'
 import CardDetail from '../component/CardDetail'
+import BuyNow from '../component/BuyNow'
 
 const Home = () => { 
 	// RDX
@@ -33,6 +34,7 @@ const Home = () => {
 	const { isShowCardProfile } = useSelector((state) => state.isShowCardProfile)
 	const { detailCard } = useSelector((state) => state.isShowDetail)
 	const { data } = useSelector((state) => state.isShowDetail)
+	const isBuyNow = useSelector((state) => state.products.isBuyNow.isShow)
 
 	const navigate = useNavigate()
 
@@ -49,6 +51,10 @@ const Home = () => {
 			<div>
 				<Toaster position='bottom-left' reverseOrder={false} />
 			</div>
+
+			<AnimatePresence>
+				{isBuyNow && <BuyNow />}
+			</AnimatePresence>
 
 			<AnimatePresence>
 				{detailCard && <CardDetail product={data} />}
@@ -183,19 +189,19 @@ const Home = () => {
 					className="mt-7 md:mt-14 px-2 hpsk:px-3 lg:px-24 xl:px-40">
 					<h1 className=" text-2xl hp:text-3xl md:text-4xl font-bold dark:text-white">Blog</h1>
 					<div className="w-full grid grid-cols-2 md:grid-cols-4 mt-7 gap-3 md:gap-5">
-						<div className=" cursor-pointer" onClick={() => window.open('https://en.wikipedia.org/wiki/Fruit#:~:text=Various%20culinary%20fruits%20provide%20significant,simply%20eating%20and%20chewing%20them.', '_blank')}>
+						<div className=" cursor-pointer border p-2 rounded-md shadow-sm dark:border-noHover dark:shadow-white" onClick={() => window.open('https://en.wikipedia.org/wiki/Fruit#:~:text=Various%20culinary%20fruits%20provide%20significant,simply%20eating%20and%20chewing%20them.', '_blank')}>
 							<img src="/img/blog1.webp" alt="" className="" />
 							<h1 className=" text-base sm:text-xl dark:text-white mt-2 text-justify">5 Benefits of Fruits for our bodies that you don't know about</h1>
 						</div>
-						<div className=" cursor-pointer" onClick={() => window.open('https://en.wikipedia.org/wiki/Avocado', '_blank')}>
+						<div className=" cursor-pointer border p-2 rounded-md shadow-sm dark:border-noHover dark:shadow-white" onClick={() => window.open('https://en.wikipedia.org/wiki/Avocado', '_blank')}>
 							<img src="/img/blog2.webp" alt="" className="" />
 							<h1 className="  text-base sm:text-xl  dark:text-white mt-2 text-justify">These are 10 benefits of avocado for health</h1>
 						</div>
-						<div className=" cursor-pointer" onClick={() => window.open('https://dentistry.uic.edu/news-stories/eat-fruits-and-veggies-for-a-healthy-smile/#:~:text=Apples%20and%20Citrus%20Fruit,left%20behind%20in%20your%20mouth.', '_blank')}>
+						<div className=" cursor-pointer border p-2 rounded-md shadow-sm dark:border-noHover dark:shadow-white" onClick={() => window.open('https://dentistry.uic.edu/news-stories/eat-fruits-and-veggies-for-a-healthy-smile/#:~:text=Apples%20and%20Citrus%20Fruit,left%20behind%20in%20your%20mouth.', '_blank')}>
 							<img src="/img/blog3.webp" alt="" className="" />
 							<h1 className="  text-base sm:text-xl  dark:text-white mt-2 text-justify">List of Good Fruits for Dental and Oral Health</h1>
 						</div>
-						<div className=" cursor-pointer" onClick={() => window.open('https://www.webmd.com/food-recipes/health-benefits-bananas', '_blank')}>
+						<div className=" cursor-pointer border p-2 rounded-md shadow-sm dark:border-noHover dark:shadow-white" onClick={() => window.open('https://www.webmd.com/food-recipes/health-benefits-bananas', '_blank')}>
 							<img src="/img/blog4.webp" alt="" className="" />
 							<h1 className="  text-base sm:text-xl  dark:text-white mt-2 text-justify">Benefits of Bananas for Health If Consumed Regularly</h1>
 						</div>
@@ -204,34 +210,34 @@ const Home = () => {
 				</motion.section>
 			</motion.main>
 
-			<footer className="w-full bg-navigator">
+			<footer className="w-full bg-navigator dark:bg-darkNav">
 				<div className="py-16 px-10 sm:px-20 lg:px-32">
 					<div className="w-full flex flex-col md:flex-row justify-end sm:justify-center md:justify-between">
 						<div className='md:hidden w-full mb-8 flex justify-center items-center'>
 							<img src="/img/logo.png" alt="logo" className="h-14"/>
 						</div>
-						<div className=" flex flex-row justify-center gap-[100px] hpsk:gap-[200px] md:flex md:flex-row md:gap-10 lg:gap-16 ">
+						<div className=" flex flex-row justify-center gap-[100px] hpsk:gap-[200px] md:flex md:flex-row md:gap-10 lg:gap-16 sha">
 							<div className="">
-								<h5 className="text-HDark font-semibold ">Site Links</h5>
-								<ul className="text-HDark mt-3 text-sm">
-									<li>About us</li>
-									<li>Blog</li>
-									<li>Promotions</li>
-									<li>Partners</li>
+								<h5 className="text-HDark font-semibold [text-shadow:_0_1px_3px_rgb(0_0_0_/_60%)] ">Site Links</h5>
+								<ul className="text-HDark mt-3 text-sm drop-shadow-2xl">
+									<li className='[text-shadow:_0_1px_3px_rgb(0_0_0_/_60%)] '>About us</li>
+									<li className='[text-shadow:_0_1px_3px_rgb(0_0_0_/_60%)]'>Blog</li>
+									<li className='[text-shadow:_0_1px_3px_rgb(0_0_0_/_60%)]'>Promotions</li>
+									<li className='[text-shadow:_0_1px_3px_rgb(0_0_0_/_60%)]'>Partners</li>
 								</ul>
 							</div>
 							<div className="">
-								<h5 className="text-HDark font-semibold">Support</h5>
+								<h5 className="text-HDark font-semibold [text-shadow:_0_1px_3px_rgb(0_0_0_/_60%)]">Support</h5>
 								<ul className="text-HDark mt-3 text-sm">
-									<li>Contact us</li>
-									<li>FAQs</li>
+									<li className='[text-shadow:_0_1px_3px_rgb(0_0_0_/_60%)]'>Contact us</li>
+									<li className='[text-shadow:_0_1px_3px_rgb(0_0_0_/_60%)]'>FAQs</li>
 								</ul>
 							</div>
 							<div className='hidden md:inline-block'>
-								<h5 className="text-HDark font-semibold ">Sale</h5>
+								<h5 className="text-HDark font-semibold [text-shadow:_0_1px_3px_rgb(0_0_0_/_60%)] ">Sale</h5>
 								<ul className="text-HDark mt-3 text-sm">
-									<li>Fresh Fruits</li>
-									<li>Register 4U Agent</li>
+									<li className='[text-shadow:_0_1px_3px_rgb(0_0_0_/_60%)]'>Fresh Fruits</li>
+									<li className='[text-shadow:_0_1px_3px_rgb(0_0_0_/_60%)]'>Register 4U Agent</li>
 								</ul>
 							</div>
 						</div>
@@ -258,27 +264,27 @@ const Home = () => {
 						</div>
 					</div>
 					<div className="w-full h-1 bg-black bg-opacity-25 mt-5"></div>
-					<div className="mt-5 hidden w-full md:flex items-center justify-center gap-6">
-						<div >
-							<img src="/img/tailwind.png" alt="tailwind" className="aspect-auto"/>
+					<div className="mt-14 hidden w-full md:flex items-center justify-center gap-8 h-16">
+						<div  className='h-16'>
+							<img src="/img/tailwindcss.png" alt="tailwind" className="aspect-auto h-full opacity-80"/>
 						</div>
-						<div >
-							<img src="/img/react.png" alt="react" className="aspect-auto"/>
+						<div  className='h-16'>
+							<img src="/img/react.png" alt="react" className="aspect-auto h-full opacity-80"/>
 						</div>
-						<div >          
-							<img src="/img/vitejs.png" alt="vite" />
+						<div  className='h-16'>          
+							<img src="/img/vitejs.png" alt="vite" className='h-full opacity-80' />
 						</div>
-						<div >
-							<img src="/img/javascript-original.png" alt="js" />
+						<div  className='h-16'>
+							<img src="/img/js.png" alt="js" className='h-full opacity-80' />
 						</div>
-						<div >
-							<img src="/img/framer-motion.png" alt="framer motion" />
+						<div  className='h-16'>
+							<img src="/img/framer-motion.png" alt="framer motion" className='h-full opacity-80' />
 						</div>
-						<div >
-							<img src="/img/react-router.png" alt="react router dom" />
+						<div  className='h-16'>
+							<img src="/img/react-router.png" alt="react router dom" className='h-full opacity-80' />
 						</div>
-						<div >
-							<img src="/img/redux.png" alt="redux" />
+						<div  className='h-16'>
+							<img src="/img/redux.png" alt="redux"  className='h-full opacity-80'/>
 						</div>
 					</div>
 					<div className='w-full flex items-center justify-center md:hidden'>
