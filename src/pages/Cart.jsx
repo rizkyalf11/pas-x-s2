@@ -22,6 +22,7 @@ const Cart = () => {
   const dispatch = useDispatch()
   const { cartItems } = useSelector(state => state.cart)
   const { totalCartAmount } = useSelector(state => state.cart)
+  const { jumlahCek } = useSelector(state => state.cart)
 	const { totalCartQuantity } = useSelector(state => state.cart)
 	const { isShowCardProfile } = useSelector((state) => state.isShowCardProfile)
   const { isConf } = useSelector(state => state.confirmCart)
@@ -114,7 +115,7 @@ const Cart = () => {
               <textarea name="" id="Shipping"  className="bg-transparent border-none outline-none w-full font-quicksand font-semibold text-base h-40 rounded-lg mt-3 text-TexDark" placeholder="Add Address"></textarea>
             </div>
 
-            {totalCartQuantity > 0 ? (
+            {jumlahCek > 0 ? (
               <button onClick={() => {
                 if(totalCartQuantity > 0) dispatch(changeIsConfPay(totalCartAmount)) 
               }} className="px-6 py-3 w-full  bg-navigator text-white text-xl flex items-center justify-center gap-3 font-quicksand font-semibold rounded-lg border-2 mt-6 hpsk:mt-0 border-navigator hover:bg-transparent hover:text-navigator transition-all duration-300">
