@@ -35,15 +35,22 @@ const Home = () => {
 	const { detailCard } = useSelector((state) => state.isShowDetail)
 	const { data } = useSelector((state) => state.isShowDetail)
 	const isBuyNow = useSelector((state) => state.products.isBuyNow.isShow)
-
+	
 	const navigate = useNavigate()
-
+	
 	useEffect(() => {
 		window.scrollTo({
 			top: 0,
 			behavior: 'smooth'
 		})
 	}, [])
+	
+	const { isSignIn } = useSelector(state => state.login)
+	useEffect(() => {
+		if(!isSignIn) {
+			navigate('/signin')
+		}
+	}, [isSignIn, navigate])
 
 	document.title = 'Fresh4U'
 	return (

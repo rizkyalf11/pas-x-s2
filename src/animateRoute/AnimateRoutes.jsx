@@ -10,6 +10,8 @@ import ImportFruits from '../pages/ImportFruits'
 import LocalFruits from '../pages/LocalFruits'
 import Cart from '../pages/Cart'
 import Wishlist from '../pages/Wishlist'
+import SignUp from '../pages/SignUp'
+import SignIn from '../pages/SignIn'
 
 const AnimateRoutes = () => {
   const location = useLocation()
@@ -24,6 +26,8 @@ const AnimateRoutes = () => {
       <Route path='/beverages' element={<Beverages />} />
       <Route path='/cart' element={<Cart />} />
       <Route path='/wishlist' element={<Wishlist />} />
+      <Route path='/signup' element={<SignUp />} />
+      <Route path='/signin' element={<SignIn />} />
     </Routes>
   )
 }

@@ -11,7 +11,9 @@ import { toast } from 'react-hot-toast'
 
 const ConfirmPayment = () => {
 	const dispatch = useDispatch()
-	const total = useSelector((state) => state.confirmCart.total)
+	const total = useSelector(state => state.confirmCart.total)
+  const { pay } = useSelector(state => state.cart)
+  const { address } = useSelector(state => state.cart)
 
 	const [load, setIsLoad] = useState(false)
 
@@ -59,6 +61,9 @@ const ConfirmPayment = () => {
 					</div>
 					<h1 className="text-2xl text-gray-700 ">Setujui Pembayaran</h1>
 					<p className="text-center text-gray-500">apakah anda yakin akan membeli barang yang anda pilih?</p>
+					<p>Metode Pembayaran: {pay}</p>
+					<p>Alamat anda: {address}</p>
+					<p className='text-gray-700/50'>pastikan alamat anda benar</p>
 					<h1 className="font-semibold text-2xl text-green-700 my-3 ">Total: $ {total} </h1>
 					<div className="flex w-full gap-1">
 						<button className={`w-1/2 bg-green-600 ${load && 'bg-green-800 cursor-wait hover:bg-green-800'} hover:bg-green-500 transition-colors duration-150 rounded-sm text-white py-2`} onClick={() => hdlCheckOut()}>

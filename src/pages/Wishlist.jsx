@@ -18,6 +18,7 @@ import CategoryCard from '../component/CategoryCard'
 import { Toaster, toast } from 'react-hot-toast'
 import { Link } from 'react-router-dom'
 import BuyNow from '../component/BuyNow'
+import { useNavigate } from 'react-router-dom'
 
 const Wishlist = () => {
 	// RDX
@@ -27,6 +28,7 @@ const Wishlist = () => {
 	const { filter } = useSelector((state) => state.route)
 	const { isShowCardProfile } = useSelector((state) => state.isShowCardProfile)
 	const isBuyNow = useSelector((state) => state.products.isBuyNow.isShow)
+	const navigate = useNavigate()
 
 	const changeFilterAndCard = () => {
 		if (isShowCardProfile) {
@@ -157,6 +159,13 @@ const Wishlist = () => {
 	}
 
 	document.title = 'Fresh4U - Wishlist'
+
+	const { isSignIn } = useSelector(state => state.login)
+	useEffect(() => {
+		if(!isSignIn) {
+			navigate('/signin')
+		}
+	}, [isSignIn, navigate])
 	return (
 		<>
 			<AnimatePresence>

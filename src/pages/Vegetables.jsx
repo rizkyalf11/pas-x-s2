@@ -17,6 +17,7 @@ import CategoryCard from '../component/CategoryCard'
 // RHT
 import { Toaster, toast } from 'react-hot-toast'
 import BuyNow from '../component/BuyNow'
+import { useNavigate } from 'react-router-dom'
 
 const Vegetables = () => {
 	// RDX
@@ -25,7 +26,7 @@ const Vegetables = () => {
 	const { filter } = useSelector((state) => state.route)
 	const { isShowCardProfile } = useSelector((state) => state.isShowCardProfile)
 	const isBuyNow = useSelector((state) => state.products.isBuyNow.isShow)
-
+	const navigate = useNavigate()
 
 	const changeFilterAndCard = () => {
 		if (isShowCardProfile) {
@@ -156,6 +157,12 @@ const Vegetables = () => {
 	}
 
 	document.title = 'Fresh4U - Vegetables'
+	const { isSignIn } = useSelector(state => state.login)
+	useEffect(() => {
+		if(!isSignIn) {
+			navigate('/signin')
+		}
+	}, [isSignIn, navigate])
 	return (
 		<>
 			<AnimatePresence>{detailCard && <CardDetail product={data} />}</AnimatePresence>

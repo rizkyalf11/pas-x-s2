@@ -174,6 +174,12 @@ const AllProducts = () => {
 	}
 
 	document.title = 'Fresh4U - All Products'
+	const { isSignIn } = useSelector(state => state.login)
+	useEffect(() => {
+		if(!isSignIn) {
+			navigate('/signin')
+		}
+	}, [isSignIn, navigate])
 	return (
 		<>
 			<AnimatePresence>
@@ -193,7 +199,7 @@ const AllProducts = () => {
 				initial={{ opacity: 0 }}
 				animate={{ opacity: 1, transition: { duration: 0.7, ease: 'easeOut', type: 'tween' } }}
 				exit={{ opacity: 0 }}
-				className="min-h-[300vh] flex flex-row pt-[80px]"
+				className="min-h-[300vh] flex flex-row pt-[80px] mb-32"
 				id="main"
 			>
 				<motion.aside

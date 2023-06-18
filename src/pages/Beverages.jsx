@@ -17,10 +17,12 @@ import CardDetail from '../component/CardDetail'
 // RHT
 import { Toaster, toast } from 'react-hot-toast'
 import BuyNow from '../component/BuyNow'
+import { useNavigate } from 'react-router-dom'
 
 const Beverages = () => {
 	// RDX
 	const dispatch = useDispatch()
+	const navigate = useNavigate()
 	const minuman = useSelector((state) => state.products.minuman)
 	const { filter } = useSelector((state) => state.route)
 	const { isShowCardProfile } = useSelector((state) => state.isShowCardProfile)
@@ -155,6 +157,13 @@ const Beverages = () => {
 	}
 
 	document.title = 'Fresh4U - Beverages'
+
+	const { isSignIn } = useSelector(state => state.login)
+	useEffect(() => {
+		if(!isSignIn) {
+			navigate('/signin')
+		}
+	}, [isSignIn, navigate])
 	return (
 		<>
 			<AnimatePresence>

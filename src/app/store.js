@@ -6,6 +6,7 @@ import route from '../features/RouteSlice/RouteSlice'
 import cart from '../features/Products/cartSlice'
 import confirmCart from '../features/Products/confirmCart'
 import favslice from '../features/Products/favSclice'
+import login from '../features/Login/LoginSlice'
 
 export const store = configureStore({
   reducer: {
@@ -15,6 +16,7 @@ export const store = configureStore({
     route,
     cart,
     confirmCart,
-    favslice
+    favslice,
+    login
   },
 })

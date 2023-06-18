@@ -8,7 +8,9 @@ export const CartSlice = createSlice({
 		totalCartAmount: '',
 		arrCart: [],
 		arrCartCheck: [],
-		jumlahCek: 0
+		jumlahCek: 0,
+		pay: 'NoPayment',
+		address: ''
 	},
 	reducers: {
 		addToCart: (state, action) => {
@@ -972,9 +974,15 @@ export const CartSlice = createSlice({
 			}
 
 			state.jumlahCek = state.arrCartCheck.length
+		},
+		changePay: (state, action) => {
+			state.pay = action.payload
+		},
+		changeAddress: (state, action) => {
+			state.address = action.payload
 		}
 	},
 })
 
-export const { addToCart, minusCart, plusCart, deleteProduct, checkout, changeIsCheck, selectAll } = CartSlice.actions
+export const { addToCart, minusCart, plusCart, deleteProduct, checkout, changeIsCheck, selectAll, changePay, changeAddress } = CartSlice.actions
 export default CartSlice.reducer

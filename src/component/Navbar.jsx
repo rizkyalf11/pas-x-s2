@@ -28,8 +28,10 @@ const Navbar = () => {
 	const { totalCartQuantity } = useSelector(state => state.cart)
 	const { route } = useSelector((state) => state.route)
   const { filter } = useSelector(state => state.route)
-
-
+  const { username } = useSelector(state => state.login)
+  const { email } = useSelector(state => state.login)
+	
+	
 	const dispatch = useDispatch()
 	const navigate = useNavigate()
 	const location = useLocation()
@@ -219,8 +221,8 @@ const Navbar = () => {
 						<div className="flex items-center gap-3 mb-2">
 							<img src={person} alt="You" className="aspect-square w-[100px] object-cover rounded-full" />
 							<div className=" flex flex-col font-poppins">
-								<h1 className="  text-xl md:text-2xl font-medium dark:text-white">person</h1>
-								<h2 className=" font-light text-[10px] md:text-sm text-[#8b8b8b]">mondokskuy19@gmail.com</h2>
+								<h1 className="  text-xl md:text-2xl font-medium dark:text-white">{username}</h1>
+								<h2 className=" font-light text-[10px] md:text-sm text-[#8b8b8b]">{email}</h2>
 							</div>
 						</div>
 						<hr />
