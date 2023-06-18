@@ -65,10 +65,10 @@ const SignUp = () => {
 					<div className="cursor-pointer" onClick={() => {
               navigate('/signin')}
             }>
-						<p className="font-quicksand text-2xl font-bold border-b-2 py-1 transition-all duration-300  hover:border-b-navigator">Sign In</p>
+						<p className="font-quicksand text-2xl font-bold border-b-2 py-1 transition-all duration-300  hover:border-b-navigator dark:text-white">Sign In</p>
 					</div>
 					<div className="cursor-pointer">
-						<p className="font-quicksand text-2xl font-bold border-b-2 py-1 transition-all duration-300 border-b-navigator">Sign Up</p>
+						<p className="font-quicksand text-2xl font-bold border-b-2 py-1 transition-all duration-300 border-b-navigator dark:text-white">Sign Up</p>
 					</div>
 				</div>
 				<div className="w-full flex flex-col gap-6 mt-7">
