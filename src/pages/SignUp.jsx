@@ -27,7 +27,7 @@ const SignUp = () => {
   const [msg, setMsg] = useState('')
 
 	const checkPassword = (str) => {
-		var re = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/
+		var re = /^(?=.*\d)(?=.*[a-z]).{8,16}$/
     setPwCor(re.test(str))
 		return re.test(str)
 	}
@@ -81,7 +81,7 @@ const SignUp = () => {
 					<input ref={name} type="text" name="" id="" className="text-2xl px-6 py-3 outline-none border-2 bg-input rounded-md w-full border-outline focus:border-black/40" placeholder="Enter your name" />
 					<input ref={email} onChange={(e) => validateEmail(e.target.value)} type="text" name="" id="" className={`text-2xl px-6 py-3 outline-none border-2 bg-input rounded-md w-full border-outline focus:border-black/40 ${emailCor? 'focus:border-green-400' : 'focus:border-red-500/60'}`} placeholder="Enter your email" />
 					<input ref={pw} onChange={(e) => checkPassword(e.target.value)} type="password" name="" id="" className={`text-2xl px-6 py-3 -mb-6 outline-none border-2 bg-input rounded-md w-full border-outline ${pwCor? 'focus:border-green-400' : 'focus:border-red-500/60'}`} placeholder="Enter your password" />
-          <p className='text-black/50 dark:text-white/50'>Harus ada huruf kapital, angka, spesial </p>
+          <p className='text-black/50 dark:text-white/50'>min input 8 max 16, harus ada angka</p>
 					<label htmlFor="remind" className=" font-quicksand flex items-center flex-row gap-2 text-noHover">
 						<input onChange={(e) => setIsCek(e.target.checked)} type="checkbox" name="" id="remind" className="w-4 h-4 accent-navigator" />I agree to all Term. Privacy Policy and Fees
 					</label>
